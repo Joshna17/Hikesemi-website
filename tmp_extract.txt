@@ -1,0 +1,265 @@
+=== LINE 1143 (len=5502) ===
+2274	  <!-- ============ NEW ARRIVALS ============ -->
+2275	  <section class="latest-section">
+2276	    <div class="wrap">
+2277	      <div class="latest-top">
+2278	        <div>
+2279	          <div class="latest-eyebrow">
+2280	            <span class="latest-eyebrow-line"></span>
+2281	            <span class="latest-eyebrow-text">New Arrivals</span>
+2282	          </div>
+2283	          <h2 class="latest-heading">Latest <span>releases.</span></h2>
+2284	        </div>
+2285	      </div>
+2286	      <div class="latest-filters">
+2287	        <button class="filter-tab active">All</button>
+2288	        <button class="filter-tab">SSD</button>
+2289	        <button class="filter-tab">Memory</button>
+2290	        <button class="filter-tab">Cards</button>
+2291	        <button class="filter-tab">External</button>
+2292	      </div>
+2293	      <div class="latest-grid">
+2294	
+2295	        <!-- Card 1: FUTURE CORE PCIe 5.0 -->
+2296	        <div class="na-card">
+2297	          <div class="na-img na-img-dark">
+2298	            <span class="na-badge na-badge-new">New</span>
+2299	            <span class="na-img-label">FUTURE CORE</span>
+2300	          </div>
+2301	          <div class="na-body">
+2302	            <div class="na-cat">SSD</div>
+2303	            <div class="na-name">FUTURE CORE PCIe 5.0</div>
+2304	            <div class="na-desc">The fastest consumer NVMe SSD ever built, with Gen5 speeds.</div>
+2305	            <div class="na-divider"></div>
+2306	            <div class="na-footer">
+2307	              <div class="na-tags">
+2308	                <span class="na-tag">Up to 2TB</span>
+2309	                <span class="na-tag">PCIe 5.0</span>
+2310	                <span class="na-tag">RGB</span>
+2311	              </div>
+2312	              <a href="product-details.html" class="na-cta">Details →</a>
+2313	            </div>
+2314	          </div>
+2315	        </div>
+2316	
+2317	        <!-- Card 2: FUTURE RGB DDR5 -->
+2318	        <div class="na-card">
+2319	          <div class="na-img na-img-gray">
+2320	            <span class="na-badge na-badge-new">New</span>
+2321	            <span class="na-img-label">FUTURE RGB DDR5</span>
+2322	          </div>
+2323	          <div class="na-body">
+2324	            <div class="na-cat">Memory</div>
+2325	            <div class="na-name">FUTURE RGB DDR5</div>
+2326	            <div class="na-desc">High-speed DDR5 memory with customizable RGB illumination.</div>
+2327	            <div class="na-divider"></div>
+2328	            <div class="na-footer">
+2329	              <div class="na-tags">
+2330	                <span class="na-tag">DDR5</span>
+2331	                <span class="na-tag">6000MHz</span>
+2332	                <span class="na-tag">32GB Kit</span>
+2333	              </div>
+2334	              <a href="products.html" class="na-cta">Details →</a>
+2335	            </div>
+2336	          </div>
+2337	        </div>
+2338	
+2339	        <!-- Card 3: CAPTURE V90 -->
+2340	        <div class="na-card">
+2341	          <div class="na-img na-img-gray">
+2342	            <span class="na-badge na-badge-pro">Pro</span>
+2343	            <span class="na-img-label">CAPTURE V90</span>
+2344	          </div>
+2345	          <div class="na-body">
+2346	            <div class="na-cat">Memory Card</div>
+2347	            <div class="na-name">CAPTURE V90 SD Card</div>
+2348	            <div class="na-desc">Professional SD card rated V90 for 8K RAW video capture.</div>
+2349	            <div class="na-divider"></div>
+2350	            <div class="na-footer">
+2351	              <div class="na-tags">
+2352	                <span class="na-tag">V90</span>
+2353	                <span class="na-tag">280 MB/s</span>
+2354	                <span class="na-tag">256GB</span>
+2355	              </div>
+2356	              <a href="products.html" class="na-cta">Details →</a>
+2357	            </div>
+2358	          </div>
+2359	        </div>
+2360	
+2361	        <!-- Card 4: ELITE 7S Portable SSD -->
+2362	        <div class="na-card">
+2363	          <div class="na-img na-img-dark">
+2364	            <span class="na-badge na-badge-new">New</span>
+2365	            <span class="na-img-label">ELITE 7S</span>
+2366	          </div>
+2367	          <div class="na-body">
+2368	            <div class="na-cat">External Storage</div>
+2369	            <div class="na-name">ELITE 7S Portable SSD</div>
+2370	            <div class="na-desc">Ultra-fast portable SSD with USB4 connectivity and drop protection.</div>
+2371	            <div class="na-divider"></div>
+2372	            <div class="na-footer">
+2373	              <div class="na-tags">
+2374	                <span class="na-tag">2,000 MB/s</span>
+2375	                <span class="na-tag">4TB</span>
+2376	              </div>
+2377	              <a href="products.html" class="na-cta">Details →</a>
+2378	            </div>
+2379	          </div>
+2380	        </div>
+2381	
+2382	        <!-- Card 5: FUTURE PRO microSD Express -->
+2383	        <div class="na-card">
+2384	          <div class="na-img na-img-light">
+2385	            <span class="na-badge na-badge-new">New</span>
+2386	            <span class="na-img-label">FUTURE PRO</span>
+2387	          </div>
+2388	          <div class="na-body">
+2389	            <div class="na-cat">Memory Card</div>
+2390	            <div class="na-name">FUTURE PRO microSD Express</div>
+2391	            <div class="na-desc">Next-gen microSD Express for handheld gaming consoles and drones.</div>
+2392	            <div class="na-divider"></div>
+2393	            <div class="na-footer">
+
+=== LINE 1145 (len=2729) ===
+771	
+772	    /* =============================================
+773	       NEW ARRIVALS / LATEST RELEASES
+774	    ============================================= */
+775	    .latest-section { padding: 96px 0; background: #fff; }
+776	    .latest-top {
+777	      display: flex;
+778	      align-items: flex-end;
+779	      justify-content: space-between;
+780	      margin-bottom: 32px;
+781	    }
+782	    .latest-eyebrow {
+783	      display: flex;
+784	      align-items: center;
+785	      gap: 10px;
+786	      margin-bottom: 10px;
+787	    }
+788	    .latest-eyebrow-line { width: 18px; height: 1px; background: #828282; flex-shrink: 0; }
+789	    .latest-eyebrow-text {
+790	      font-family: 'Outfit', sans-serif;
+791	      font-weight: 700;
+792	      font-size: 12px;
+793	      letter-spacing: 1.9775px;
+794	      color: #1c1c26;
+795	      text-transform: uppercase;
+796	    }
+797	    .latest-heading {
+798	      font-family: 'Outfit', sans-serif;
+799	      font-weight: 800;
+800	      font-size: 54px;
+801	      letter-spacing: -2.16px;
+802	      line-height: 1.05;
+803	      color: #0a0a0f;
+804	    }
+805	    .latest-heading span { color: #d7000f; }
+806	    .latest-filters {
+807	      display: flex;
+808	      gap: 8px;
+809	      margin-bottom: 36px;
+810	    }
+811	    .filter-tab {
+812	      height: 34px;
+813	      padding: 0 18px;
+814	      font-family: 'Outfit', sans-serif;
+815	      font-weight: 500;
+816	      font-size: 16px;
+817	      border-radius: 100px;
+818	      border: 1px solid #e8e8e8;
+819	      background: #fff;
+820	      color: #5c5c72;
+821	      cursor: pointer;
+822	      white-space: nowrap;
+823	      transition: background 0.2s, color 0.2s, border-color 0.2s;
+824	    }
+825	    .filter-tab.active { background: #d7000f; color: #fff; border-color: #d7000f; }
+826	    .filter-tab:hover:not(.active) { border-color: #9898a8; color: #1c1c26; }
+827	    .latest-grid {
+828	      display: grid;
+829	      grid-template-columns: repeat(3, 1fr);
+830	      gap: 20px;
+831	    }
+832	    .na-card {
+833	      border: 1px solid #e8e8e8;
+834	      border-radius: 18px;
+835	      background: #fff;
+836	      overflow: hidden;
+837	      transition: box-shadow 0.25s, transform 0.25s;
+838	    }
+839	    .na-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
+840	    .na-img {
+841	      height: 200px;
+842	      position: relative;
+843	      overflow: hidden;
+844	      display: flex;
+845	      align-items: center;
+846	      justify-content: center;
+847	    }
+848	    .na-img-dark { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+849	    .na-img-gray { background: #e8e8f0; }
+850	    .na-img-light { background: linear-gradient(135deg, #f0f0f8 0%, #e0e0f0 100%); }
+
+=== LINE 1156 (len=2619) ===
+2390	            <div class="na-name">FUTURE PRO microSD Express</div>
+2391	            <div class="na-desc">Next-gen microSD Express for handheld gaming consoles and drones.</div>
+2392	            <div class="na-divider"></div>
+2393	            <div class="na-footer">
+2394	              <div class="na-tags">
+2395	                <span class="na-tag">800 MB/s</span>
+2396	                <span class="na-tag">1TB</span>
+2397	                <span class="na-tag">Gaming</span>
+2398	              </div>
+2399	              <a href="products.html" class="na-cta">Details →</a>
+2400	            </div>
+2401	          </div>
+2402	        </div>
+2403	
+2404	        <!-- Card 6: AFS-R1 Home NAS -->
+2405	        <div class="na-card">
+2406	          <div class="na-img na-img-gray">
+2407	            <span class="na-img-label">AFS-R1</span>
+2408	          </div>
+2409	          <div class="na-body">
+2410	            <div class="na-cat">Home NAS</div>
+2411	            <div class="na-name">AFS-R1 Home NAS</div>
+2412	            <div class="na-desc">Dual-bay NAS for home media servers and personal cloud storage.</div>
+2413	            <div class="na-divider"></div>
+2414	            <div class="na-footer">
+2415	              <div class="na-tags">
+2416	                <span class="na-tag">2-Bay</span>
+2417	                <span class="na-tag">32TB Max</span>
+2418	              </div>
+2419	              <a href="products.html" class="na-cta">Details →</a>
+2420	            </div>
+2421	          </div>
+2422	        </div>
+2423	
+2424	      </div>
+2425	      <div class="latest-view-all">
+2426	        <a href="products.html">View All Products →</a>
+2427	      </div>
+2428	    </div>
+2429	  </section>
+2430	
+2431	  <!-- ============ WHY HIKSEMI ============ -->
+2432	  <section class="why-section">
+2433	    <div class="wrap">
+2434	      <div class="why-eyebrow">
+2435	        <span class="why-eyebrow-line"></span>
+2436	        <span class="why-eyebrow-text">Why Choose Us</span>
+2437	      </div>
+2438	      <h2 class="why-heading">Built <span>different</span>.</h2>
+2439	
+2440	      <div class="why-blocks">
+2441	
+2442	        <!-- Block 1: Performance — image left, content right -->
+2443	        <div class="why-block">
+2444	          <div class="why-block-image">
+2445	            <img src="images/why-bg-1.jpg" alt="Performance" />
+2446	            <div class="why-block-image-overlay" style="background:rgba(0,0,0,0.41);"></div>
+2447	            <div class="why-block-image-center">
+2448	              <div class="why-speed-emoji">⚡</div>
+2449	              <div class="why-speed-num">14,000<span>MB/s</span></div>

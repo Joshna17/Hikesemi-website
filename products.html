@@ -1,0 +1,1024 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Products – HIKSEMI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ── HERO ── */
+    .prod-hero {
+      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 88px 64px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .prod-hero::after {
+      content: '';
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(215,0,15,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .prod-hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .prod-hero-eyebrow-line { width: 18px; height: 2px; background: #d7000f; flex-shrink: 0; }
+    .prod-hero-eyebrow-text {
+      font-weight: 700;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+    }
+    .prod-hero-h1 {
+      font-weight: 900;
+      font-size: 78px;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+    .prod-hero-sub {
+      font-weight: 300;
+      font-size: 20px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-tab {
+      height: 36px;
+      padding: 0 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .filter-tab:hover { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+    .filter-tab.active { background: #d7000f; border-color: #d7000f; color: #fff; }
+
+    /* ── MARQUEE ── */
+    .marquee-strip { background: #0d0d0d; height: 46px; overflow: hidden; position: relative; }
+    .marquee-track { display: flex; align-items: center; height: 100%; width: max-content; animation: mq-scroll 28s linear infinite; }
+    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 8px 0 28px; }
+    .marquee-text { font-weight: 600; font-size: 12px; color: #555; letter-spacing: 1.44px; text-transform: uppercase; white-space: nowrap; }
+    .marquee-sep { font-weight: 400; font-size: 8px; color: #555; }
+    @keyframes mq-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── BODY WRAPPER ── */
+    .prod-body { background: #fff; }
+    .prod-wrap { max-width: 1792px; margin: 0 auto; padding: 0 64px; }
+
+    /* ── CATEGORY SECTION ── */
+    .cat-section { padding: 72px 0; border-top: 1px solid #ebebeb; }
+    .cat-section:first-child { border-top: none; }
+    .cat-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; }
+    .cat-header-left { display: flex; flex-direction: column; gap: 0; }
+    .cat-eyebrow-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .cat-eyebrow-line { width: 18px; height: 2px; background: #d7000f; }
+    .cat-eyebrow-text { font-weight: 700; font-size: 11px; color: #9898a8; letter-spacing: 1.44px; text-transform: uppercase; }
+    .cat-title { font-weight: 800; font-size: 28px; color: #0a0a0f; letter-spacing: -0.56px; }
+    .cat-count { font-weight: 600; font-size: 14px; color: #d7000f; padding-bottom: 4px; }
+
+    /* ── FEATURED SSD BANNER ── */
+    .fsb {
+      background: linear-gradient(135deg, #0a0a0f 0%, #1c0008 50%, #520015 100%);
+      border-radius: 16px;
+      padding: 52px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+    }
+    .fsb::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(215,0,15,0.28) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .fsb-left { position: relative; flex: 1; }
+    .fsb-tag {
+      display: inline-block;
+      height: 22px; padding: 0 10px;
+      background: rgba(215,0,15,0.18);
+      border: 1px solid rgba(215,0,15,0.35);
+      border-radius: 4px;
+      font-weight: 700; font-size: 10px;
+      color: #ff5566; letter-spacing: 1.2px;
+      text-transform: uppercase; line-height: 22px;
+      margin-bottom: 18px;
+    }
+    .fsb-title { font-weight: 900; font-size: 56px; color: #fff; line-height: 1; letter-spacing: -2.2px; margin-bottom: 10px; }
+    .fsb-sub { font-weight: 300; font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 28px; max-width: 480px; }
+    .fsb-specs { display: flex; gap: 36px; margin-bottom: 32px; }
+    .fsb-spec-val { font-weight: 800; font-size: 26px; color: #fff; line-height: 1; }
+    .fsb-spec-lbl { font-weight: 400; font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.6px; margin-top: 4px; }
+    .fsb-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 44px; padding: 0 24px;
+      background: #d7000f; border-radius: 8px;
+      font-weight: 600; font-size: 14px; color: #fff;
+      transition: background 0.2s;
+    }
+    .fsb-btn:hover { background: #b5000d; }
+    .fsb-right {
+      flex: 0 0 300px; height: 220px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .fsb-right-label { font-weight: 900; font-size: 20px; color: rgba(255,255,255,0.18); letter-spacing: 3px; text-transform: uppercase; }
+
+    /* ── PRODUCT GRID ── */
+    .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .prod-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .prod-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow 0.22s, border-color 0.22s, transform 0.22s;
+      cursor: pointer;
+      position: relative;
+    }
+    .prod-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); border-color: #ccc; transform: translateY(-2px); }
+    .prod-card-img {
+      background: #f5f5f8;
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .prod-card-placeholder {
+      font-size: 48px; opacity: 0.25;
+    }
+    .prod-card-new {
+      position: absolute; top: 10px; right: 10px;
+      background: #d7000f; color: #fff;
+      font-weight: 700; font-size: 10px;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px;
+    }
+    .prod-card-info { padding: 18px; }
+    .prod-card-name { font-weight: 700; font-size: 16px; color: #0a0a0f; letter-spacing: -0.32px; margin-bottom: 4px; }
+    .prod-card-sub { font-weight: 400; font-size: 13px; color: #9898a8; margin-bottom: 12px; }
+    .prod-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .prod-badge {
+      height: 22px; padding: 0 8px;
+      background: #f3f3f7; border-radius: 4px;
+      font-weight: 600; font-size: 11px; color: #5c5c72; line-height: 22px;
+      white-space: nowrap;
+    }
+    .prod-badge.red { background: rgba(215,0,15,0.08); color: #d7000f; }
+
+    /* ── CTA ── */
+    .cta-sec {
+      position: relative;
+      background: linear-gradient(143deg, #0e0e14 0%, #200008 55%, #5a0015 100%);
+      padding: 96px 0; overflow: hidden; text-align: center;
+    }
+    .cta-sec-dot { position: absolute; width: 474px; height: 386px; overflow: hidden; pointer-events: none; }
+    .cta-sec-dot-l { left: -150px; top: -83px; }
+    .cta-sec-dot-r { right: -150px; bottom: -83px; }
+    .cta-sec-dot img { width: 316px; height: 316px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.2; }
+    .cta-inner { position: relative; max-width: 680px; margin: 0 auto; padding: 0 40px; }
+    .cta-eyebrow { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+    .cta-eyebrow-line { width: 18px; height: 2px; background: rgba(255,255,255,0.3); }
+    .cta-eyebrow-text { font-weight: 700; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 1.44px; text-transform: uppercase; }
+    .cta-heading { font-weight: 900; font-size: 58px; color: #fff; line-height: 1; letter-spacing: -2.9px; margin-bottom: 16px; }
+    .cta-sub { font-weight: 300; font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 12px; align-items: center; justify-content: center; }
+    .cta-btn-r { height: 47px; padding: 0 28px; background: #d7000f; border-radius: 10px; font-weight: 600; font-size: 16px; color: #fff; transition: background 0.2s; }
+    .cta-btn-r:hover { background: #b5000d; }
+    .cta-btn-g { height: 47px; padding: 0 28px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; font-weight: 600; font-size: 16px; color: rgba(255,255,255,0.8); transition: border-color 0.2s, color 0.2s; }
+    .cta-btn-g:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .prod-grid { grid-template-columns: repeat(3, 1fr); }
+      .fsb-right { flex: 0 0 240px; }
+    }
+    @media (max-width: 992px) {
+      .prod-hero { padding: 64px 32px 48px; }
+      .prod-hero-h1 { font-size: 52px; }
+      .prod-wrap { padding: 0 32px; }
+      .prod-grid, .prod-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .fsb { flex-direction: column; padding: 36px 32px; }
+      .fsb-right { display: none; }
+    }
+    @media (max-width: 600px) {
+      .prod-hero-h1 { font-size: 40px; }
+      .prod-grid, .prod-grid-3 { grid-template-columns: 1fr; }
+      .cta-heading { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+    <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link active">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5&quot;</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="prod-hero">
+    <div class="prod-hero-eyebrow">
+      <span class="prod-hero-eyebrow-line"></span>
+      <span class="prod-hero-eyebrow-text">Full Catalog</span>
+    </div>
+    <h1 class="prod-hero-h1">All Products.</h1>
+    <p class="prod-hero-sub">180+ storage solutions engineered for gamers, creators, professionals, and enterprises.</p>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-cat="all">All Products</button>
+      <button class="filter-tab" data-cat="ssd">Solid State</button>
+      <button class="filter-tab" data-cat="memory">Memory (RAM)</button>
+      <button class="filter-tab" data-cat="cards">Memory Cards</button>
+      <button class="filter-tab" data-cat="external">External</button>
+      <button class="filter-tab" data-cat="nas">Home NAS</button>
+      <button class="filter-tab" data-cat="embedded">Embedded Storage</button>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+    </div>
+  </div>
+
+  <!-- ============ PRODUCT BODY ============ -->
+  <div class="prod-body">
+    <div class="prod-wrap">
+
+      <!-- ── SOLID STATE DRIVES ── -->
+      <section class="cat-section" id="ssd">
+        <div class="cat-header">
+          <div class="cat-header-left">
+            <div class="cat-eyebrow-row">
+              <span class="cat-eyebrow-line"></span>
+              <span class="cat-eyebrow-text">Category</span>
+            </div>
+            <div class="cat-title">Solid State Drives</div>
+          </div>
+          <div class="cat-count">30+ models</div>
+        </div>
+
+        <!-- Featured Banner -->
+        <div class="fsb">
+          <div class="fsb-left">
+            <div class="fsb-tag">New Launch · 2025</div>
+            <div class="fsb-title">FUTURE CORE</div>
+            <div class="fsb-sub">The world's fastest consumer SSD. PCIe Gen 5.0 NVMe with custom RGB heatsink and advanced thermal management.</div>
+            <div class="fsb-specs">
+              <div>
+                <div class="fsb-spec-val">14,000</div>
+                <div class="fsb-spec-lbl">MB/s Read</div>
+              </div>
+              <div>
+                <div class="fsb-spec-val">PCIe 5.0</div>
+                <div class="fsb-spec-lbl">Interface</div>
+              </div>
+              <div>
+                <div class="fsb-spec-val">4TB</div>
+                <div class="fsb-spec-lbl">Max Capacity</div>
+              </div>
+            </div>
+            <a href="product-details.html" class="fsb-btn">View the Specs →</a>
+          </div>
+          <div class="fsb-right">
+            <span class="fsb-right-label">FUTURE CORE</span>
+          </div>
+        </div>
+
+        <!-- SSD Grid -->
+        <div class="prod-grid">
+          <a href="product-details.html" class="prod-card">
+            <div class="prod-card-img">
+              <span class="prod-card-placeholder">💾</span>
+              <span class="prod-card-new">NEW</span>
+            </div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE CORE</div>
+              <div class="prod-card-sub">Gen5 NVMe · M.2 2280</div>
+              <div class="prod-badges">
+                <span class="prod-badge red">PCIe 5.0</span>
+                <span class="prod-badge">14K MB/s</span>
+                <span class="prod-badge">2TB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">💾</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE PRO</div>
+              <div class="prod-card-sub">Gen4 NVMe · M.2 2280</div>
+              <div class="prod-badges">
+                <span class="prod-badge">PCIe 4.0</span>
+                <span class="prod-badge">7,400 MB/s</span>
+                <span class="prod-badge">4TB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">💾</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE</div>
+              <div class="prod-card-sub">Gen4 NVMe · M.2 2280</div>
+              <div class="prod-badges">
+                <span class="prod-badge">PCIe 4.0</span>
+                <span class="prod-badge">5,000 MB/s</span>
+                <span class="prod-badge">2TB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">💾</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE ECO</div>
+              <div class="prod-card-sub">Gen3 NVMe · M.2 2280</div>
+              <div class="prod-badges">
+                <span class="prod-badge">PCIe 3.0</span>
+                <span class="prod-badge">3,500 MB/s</span>
+                <span class="prod-badge">1TB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">💾</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">WAVE(S) SATA</div>
+              <div class="prod-card-sub">2.5" SATA SSD</div>
+              <div class="prod-badges">
+                <span class="prod-badge">SATA III</span>
+                <span class="prod-badge">560 MB/s</span>
+                <span class="prod-badge">2TB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">💾</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">E1000 M.2 2242</div>
+              <div class="prod-card-sub">Compact NVMe · M.2 2242</div>
+              <div class="prod-badges">
+                <span class="prod-badge">M.2 2242</span>
+                <span class="prod-badge">1TB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">💾</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">D300 Pro Enterprise</div>
+              <div class="prod-card-sub">Data Center NVMe</div>
+              <div class="prod-badges">
+                <span class="prod-badge">Enterprise</span>
+                <span class="prod-badge">7,000 MB/s</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">💾</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">V310 PRO Surveillance</div>
+              <div class="prod-card-sub">Always-On SATA SSD</div>
+              <div class="prod-badges">
+                <span class="prod-badge">Surveillance</span>
+                <span class="prod-badge">4TB</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ── MEMORY (RAM) ── -->
+      <section class="cat-section" id="memory">
+        <div class="cat-header">
+          <div class="cat-header-left">
+            <div class="cat-eyebrow-row">
+              <span class="cat-eyebrow-line"></span>
+              <span class="cat-eyebrow-text">Category</span>
+            </div>
+            <div class="cat-title">Memory (RAM)</div>
+          </div>
+          <div class="cat-count">12+ models</div>
+        </div>
+        <div class="prod-grid">
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img">
+              <span class="prod-card-placeholder">🧠</span>
+              <span class="prod-card-new">NEW</span>
+            </div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE RGB DDR5</div>
+              <div class="prod-card-sub">Desktop · RGB Heatsink</div>
+              <div class="prod-badges">
+                <span class="prod-badge red">DDR5</span>
+                <span class="prod-badge">6000MHz</span>
+                <span class="prod-badge">32GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🧠</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE White RGB DDR5</div>
+              <div class="prod-card-sub">Desktop · White RGB</div>
+              <div class="prod-badges">
+                <span class="prod-badge">DDR5</span>
+                <span class="prod-badge">6000MHz</span>
+                <span class="prod-badge">White</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🧠</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">ARMOR Black DDR4</div>
+              <div class="prod-card-sub">Desktop · Gaming</div>
+              <div class="prod-badges">
+                <span class="prod-badge">DDR4</span>
+                <span class="prod-badge">3200MHz</span>
+                <span class="prod-badge">16GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🧠</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">ARMOR Purple DDR4</div>
+              <div class="prod-card-sub">Desktop · RGB Gaming</div>
+              <div class="prod-badges">
+                <span class="prod-badge">DDR4</span>
+                <span class="prod-badge">3600MHz</span>
+                <span class="prod-badge">32GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🧠</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">HIKER DDR4 UDIMM</div>
+              <div class="prod-card-sub">Desktop · Value</div>
+              <div class="prod-badges">
+                <span class="prod-badge">DDR4</span>
+                <span class="prod-badge">3200MHz</span>
+                <span class="prod-badge">8–32GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🧠</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">HIKER DDR4 SODIMM</div>
+              <div class="prod-card-sub">Laptop · Value</div>
+              <div class="prod-badges">
+                <span class="prod-badge">SODIMM</span>
+                <span class="prod-badge">DDR4</span>
+                <span class="prod-badge">16GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🧠</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">AKIRA RGB DDR4</div>
+              <div class="prod-card-sub">Desktop · RGB</div>
+              <div class="prod-badges">
+                <span class="prod-badge">DDR4</span>
+                <span class="prod-badge">RGB</span>
+                <span class="prod-badge">32GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🧠</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">ARMOR White DDR4</div>
+              <div class="prod-card-sub">Desktop · White Edition</div>
+              <div class="prod-badges">
+                <span class="prod-badge">DDR4</span>
+                <span class="prod-badge">3200MHz</span>
+                <span class="prod-badge">White</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ── MEMORY CARDS ── -->
+      <section class="cat-section" id="cards">
+        <div class="cat-header">
+          <div class="cat-header-left">
+            <div class="cat-eyebrow-row">
+              <span class="cat-eyebrow-line"></span>
+              <span class="cat-eyebrow-text">Category</span>
+            </div>
+            <div class="cat-title">Memory Cards</div>
+          </div>
+          <div class="cat-count">18+ models</div>
+        </div>
+        <div class="prod-grid">
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img">
+              <span class="prod-card-placeholder">📷</span>
+              <span class="prod-card-new">NEW</span>
+            </div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">CAPTURE PRO SD Card</div>
+              <div class="prod-card-sub">Full-size SD · V90</div>
+              <div class="prod-badges">
+                <span class="prod-badge red">V90</span>
+                <span class="prod-badge">280 MB/s</span>
+                <span class="prod-badge">256GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📷</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">CAPTURE EXPRESS S</div>
+              <div class="prod-card-sub">CFexpress Type B</div>
+              <div class="prod-badges">
+                <span class="prod-badge">CFexpress</span>
+                <span class="prod-badge">1700 MB/s</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📷</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE PRO microSD Express</div>
+              <div class="prod-card-sub">microSD Express · Gaming</div>
+              <div class="prod-badges">
+                <span class="prod-badge">microSD Express</span>
+                <span class="prod-badge">800 MB/s</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📷</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">GUARD PRO Surveillance SD</div>
+              <div class="prod-card-sub">Security · Endurance</div>
+              <div class="prod-badges">
+                <span class="prod-badge">SD</span>
+                <span class="prod-badge">Class 10</span>
+                <span class="prod-badge">128GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📷</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE microSD</div>
+              <div class="prod-card-sub">Smartphone &amp; Tablet</div>
+              <div class="prod-badges">
+                <span class="prod-badge">microSD</span>
+                <span class="prod-badge">A2</span>
+                <span class="prod-badge">256GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📷</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">NAS PLUS microSD</div>
+              <div class="prod-card-sub">NAS Optimized</div>
+              <div class="prod-badges">
+                <span class="prod-badge">microSD</span>
+                <span class="prod-badge">NAS</span>
+                <span class="prod-badge">128GB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📷</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">CAPTURE V90C Card</div>
+              <div class="prod-card-sub">CFexpress Type C</div>
+              <div class="prod-badges">
+                <span class="prod-badge">CFexpress</span>
+                <span class="prod-badge">V90</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📷</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">CITY GO microSD</div>
+              <div class="prod-card-sub">Everyday Use · Budget</div>
+              <div class="prod-badges">
+                <span class="prod-badge">microSD</span>
+                <span class="prod-badge">A1</span>
+                <span class="prod-badge">64GB</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ── EXTERNAL STORAGE ── -->
+      <section class="cat-section" id="external">
+        <div class="cat-header">
+          <div class="cat-header-left">
+            <div class="cat-eyebrow-row">
+              <span class="cat-eyebrow-line"></span>
+              <span class="cat-eyebrow-text">Category</span>
+            </div>
+            <div class="cat-title">External Storage</div>
+          </div>
+          <div class="cat-count">24+ models</div>
+        </div>
+        <div class="prod-grid">
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img">
+              <span class="prod-card-placeholder">📦</span>
+              <span class="prod-card-new">NEW</span>
+            </div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">ELITE Pro Falcon SSD</div>
+              <div class="prod-card-sub">Portable SSD · USB-C</div>
+              <div class="prod-badges">
+                <span class="prod-badge red">2,000 MB/s</span>
+                <span class="prod-badge">USB-C</span>
+                <span class="prod-badge">4TB</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📦</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">FUTURE PRO Portable</div>
+              <div class="prod-card-sub">Portable SSD · USB 3.2</div>
+              <div class="prod-badges">
+                <span class="prod-badge">USB 3.2</span>
+                <span class="prod-badge">1,050 MB/s</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📦</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">KANREN PRO 3</div>
+              <div class="prod-card-sub">Portable Drive · USB-C</div>
+              <div class="prod-badges">
+                <span class="prod-badge">USB-C</span>
+                <span class="prod-badge">1,000 MB/s</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">📦</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">CLASSIC Plus Neo</div>
+              <div class="prod-card-sub">Portable HDD · USB 3.0</div>
+              <div class="prod-badges">
+                <span class="prod-badge">USB 3.0</span>
+                <span class="prod-badge">560 MB/s</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ── HOME NAS ── -->
+      <section class="cat-section" id="nas">
+        <div class="cat-header">
+          <div class="cat-header-left">
+            <div class="cat-eyebrow-row">
+              <span class="cat-eyebrow-line"></span>
+              <span class="cat-eyebrow-text">Category</span>
+            </div>
+            <div class="cat-title">Home NAS</div>
+          </div>
+          <div class="cat-count">3 models</div>
+        </div>
+        <div class="prod-grid-3">
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🖥️</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">ARC-R1 Home NAS</div>
+              <div class="prod-card-sub">2-Bay · Home &amp; SOHO</div>
+              <div class="prod-badges">
+                <span class="prod-badge">2-Bay</span>
+                <span class="prod-badge">EXT4</span>
+                <span class="prod-badge">32TB Max</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🖥️</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">NAS-4 Pro</div>
+              <div class="prod-card-sub">4-Bay · Small Business</div>
+              <div class="prod-badges">
+                <span class="prod-badge">4-Bay</span>
+                <span class="prod-badge">RAID 0/1/5</span>
+                <span class="prod-badge">64TB Max</span>
+              </div>
+            </div>
+          </a>
+          <a href="products.html" class="prod-card">
+            <div class="prod-card-img"><span class="prod-card-placeholder">🖥️</span></div>
+            <div class="prod-card-info">
+              <div class="prod-card-name">VC-8S Pro NAS</div>
+              <div class="prod-card-sub">8-Bay · Enterprise NAS</div>
+              <div class="prod-badges">
+                <span class="prod-badge">8-Bay</span>
+                <span class="prod-badge">Enterprise</span>
+                <span class="prod-badge">128TB Max</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div><!-- end .prod-wrap -->
+  </div><!-- end .prod-body -->
+
+  <!-- ============ CTA ============ -->
+
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="HIKSEMI" />
+        </div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="#">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solution</div>
+          <div class="footer-col-links">
+            <a href="solutions.html">Gaming</a>
+            <a href="solutions.html">Content Creation</a>
+            <a href="solutions.html">Industrial</a>
+            <a href="solutions.html">Surveillance</a>
+            <a href="solutions.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
+  </footer>
+
+  <script>
+    // Filter tab click handler
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const cat = tab.dataset.cat;
+        if (cat === 'all') {
+          document.querySelectorAll('.cat-section').forEach(s => s.style.display = '');
+        } else {
+          document.querySelectorAll('.cat-section').forEach(s => {
+            s.style.display = s.id === cat ? '' : 'none';
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,802 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where to Buy – HIKSEMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
+    /* ── LAYOUT ── */
+    .sec-wrap { max-width: 1792px; margin: 0 auto; padding: 0 64px; }
+
+    /* ── HERO ── */
+    .wtb-hero {
+      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 88px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .wtb-hero::after {
+      content: '';
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(215,0,15,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .wtb-hero-inner { position: relative; }
+    .wtb-hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ccc;
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+    .wtb-hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background: #ccc;
+      flex-shrink: 0;
+    }
+    .wtb-hero-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 78px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -3.9px;
+      margin-bottom: 22px;
+    }
+    .wtb-hero-sub {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      color: #9898a8;
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+    .wtb-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .wtb-btn-primary {
+      background: #d7000f;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      width: 179px;
+      height: 47px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .wtb-btn-primary:hover { background: #b5000d; }
+    .wtb-btn-outline {
+      background: transparent;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      width: 160px;
+      height: 47px;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .wtb-btn-outline:hover { background: rgba(255,255,255,0.08); }
+
+    /* ── MARQUEE ── */
+    .marquee-strip { background: #0d0d0d; height: 46px; overflow: hidden; position: relative; }
+    .marquee-track { display: flex; align-items: center; height: 100%; width: max-content; animation: mq-scroll 28s linear infinite; }
+    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 8px 0 28px; }
+    .marquee-text { font-weight: 600; font-size: 12px; color: #555; letter-spacing: 1.44px; text-transform: uppercase; white-space: nowrap; }
+    .marquee-sep { font-weight: 400; font-size: 8px; color: #555; }
+    @keyframes mq-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── ONLINE CHANNELS ── */
+    .wtb-channels { padding: 80px 0 96px; background: #fff; }
+    .wtb-section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .wtb-section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background: #d7000f;
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+    .wtb-section-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 54px;
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -2.16px;
+      line-height: 56.7px;
+      margin-bottom: 12px;
+    }
+    .wtb-section-desc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      color: #5c5c72;
+      line-height: 30.6px;
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+    .wtb-region-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .wtb-filter {
+      height: 36px;
+      padding: 0 20px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      border-radius: 100px;
+      border: 1px solid #e8e8e8;
+      background: #fff;
+      color: #5c5c72;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .wtb-filter.active { background: #d7000f; color: #fff; border-color: #d7000f; }
+    .wtb-filter:hover:not(.active) { border-color: #d7000f; color: #d7000f; }
+
+    .wtb-channels-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .wtb-channel-card {
+      border: 1px solid #e3e2df;
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 208px;
+      background: #fff;
+      text-decoration: none;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .wtb-channel-card:hover {
+      border-color: #d7000f;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .wtb-channel-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+    .wtb-channel-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #09090b;
+      line-height: 1.42;
+      margin-bottom: 4px;
+    }
+    .wtb-channel-region {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #a8a7a3;
+      line-height: 1.2;
+    }
+    .wtb-channel-url {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #e8341a;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    /* ── LOCAL DISTRIBUTORS ── */
+    .wtb-dist { padding: 80px 0 96px; background: #f7f7f7; }
+    .wtb-dist-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 16px;
+    }
+    .wtb-dist-card {
+      background: #000;
+      border-radius: 20px;
+      height: 360px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wtb-dist-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://www.figma.com/api/mcp/asset/3d3090df-bda7-450e-afce-85156682892d') center/cover no-repeat;
+      opacity: 0.16;
+    }
+    .wtb-dist-card-inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      width: 339px;
+      text-align: center;
+    }
+    .wtb-dist-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .wtb-dist-stats {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .wtb-dist-stat { text-align: center; }
+    .wtb-dist-stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1.44px;
+      line-height: 1;
+    }
+    .wtb-stat-plus { color: #ccc; }
+    .wtb-dist-stat-lbl {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #9898a8;
+      margin-top: 6px;
+    }
+    .wtb-dist-sublabel {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #b9b4b4;
+    }
+    .wtb-dist-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+    .wtb-dist-selector-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0a0a0f;
+    }
+    .wtb-dist-select {
+      width: 100%;
+      height: 44px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 0 40px 0 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      color: #0a0a0f;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%235c5c72' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .wtb-dist-select:focus { border-color: #d7000f; }
+    .wtb-dist-selector-note {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #9898a8;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .wtb-channels-grid { grid-template-columns: repeat(3, 1fr); }
+      .wtb-dist-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 992px) {
+      .wtb-hero-heading { font-size: 52px; }
+      .wtb-section-heading { font-size: 36px; }
+      .wtb-channels-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .wtb-hero-heading { font-size: 40px; }
+      .wtb-cta-heading { font-size: 36px; }
+      .wtb-channels-grid { grid-template-columns: repeat(2, 1fr); }
+      .wtb-dist-stats { gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .wtb-hero-heading { font-size: 32px; }
+      .wtb-channels-grid { grid-template-columns: 1fr 1fr; }
+      .wtb-hero-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+    <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5&quot;</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link active">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="wtb-hero">
+    <div class="sec-wrap wtb-hero-inner">
+      <div class="wtb-hero-eyebrow">Locate our Dealer</div>
+      <h1 class="wtb-hero-heading">Where to Buy.</h1>
+      <p class="wtb-hero-sub">Find HIKSEMI products through authorized online channels and trusted local distributors worldwide.</p>
+      <div class="wtb-hero-btns">
+        <a href="#online-channels" class="wtb-btn-primary">Online Channels →</a>
+        <a href="#local-distributors" class="wtb-btn-outline">Find Distributor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+    </div>
+  </div>
+
+
+  <!-- ============ ONLINE CHANNELS ============ -->
+  <section class="wtb-channels" id="online-channels">
+    <div class="sec-wrap">
+      <div class="wtb-section-eyebrow">Digital Retail</div>
+      <h2 class="wtb-section-heading">Online channels.</h2>
+      <p class="wtb-section-desc">Purchase directly from authorized online retailers with global shipping, official warranty, and buyer protection.</p>
+      <div class="wtb-region-filters">
+        <button class="wtb-filter active" onclick="filterRegion('all', this)">All Regions</button>
+        <button class="wtb-filter" onclick="filterRegion('americas', this)">Americas</button>
+        <button class="wtb-filter" onclick="filterRegion('europe', this)">Europe</button>
+        <button class="wtb-filter" onclick="filterRegion('asia', this)">Asia</button>
+        <button class="wtb-filter" onclick="filterRegion('china', this)">China</button>
+      </div>
+      <div class="wtb-channels-grid" id="channelsGrid">
+        <a href="#" class="wtb-channel-card" data-region="americas">
+          <div class="wtb-channel-logo" style="background:#fff3e0;">🛒</div>
+          <div class="wtb-channel-name">Amazon US</div>
+          <div class="wtb-channel-region">United States · Canada</div>
+          <div class="wtb-channel-url">amazon.com/hiksemi →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="americas">
+          <div class="wtb-channel-logo" style="background:#fff0f0;">🖥️</div>
+          <div class="wtb-channel-name">Newegg</div>
+          <div class="wtb-channel-region">United States</div>
+          <div class="wtb-channel-url">newegg.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="americas">
+          <div class="wtb-channel-logo" style="background:#e8f5e9;">🏪</div>
+          <div class="wtb-channel-name">Walmart</div>
+          <div class="wtb-channel-region">United States</div>
+          <div class="wtb-channel-url">walmart.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="americas">
+          <div class="wtb-channel-logo" style="background:#e3f2fd;">📸</div>
+          <div class="wtb-channel-name">B&amp;H Photo</div>
+          <div class="wtb-channel-region">United States</div>
+          <div class="wtb-channel-url">bhphotovideo.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="europe">
+          <div class="wtb-channel-logo" style="background:#e8f5e9;">🛒</div>
+          <div class="wtb-channel-name">Amazon EU</div>
+          <div class="wtb-channel-region">Germany · UK · France · Italy</div>
+          <div class="wtb-channel-url">amazon.de / amazon.co.uk →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="europe">
+          <div class="wtb-channel-logo" style="background:#e3f2fd;">🖥️</div>
+          <div class="wtb-channel-name">Alternate.de</div>
+          <div class="wtb-channel-region">Germany · Netherlands</div>
+          <div class="wtb-channel-url">alternate.de →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="europe">
+          <div class="wtb-channel-logo" style="background:#e8f5e9;">🔌</div>
+          <div class="wtb-channel-name">Coolblue</div>
+          <div class="wtb-channel-region">Netherlands · Belgium</div>
+          <div class="wtb-channel-url">coolblue.nl →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="europe">
+          <div class="wtb-channel-logo" style="background:#e3f2fd;">🛒</div>
+          <div class="wtb-channel-name">Amazon Spain</div>
+          <div class="wtb-channel-region">Spain · Portugal</div>
+          <div class="wtb-channel-url">amazon.es →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="asia">
+          <div class="wtb-channel-logo" style="background:#fff3e0;">🛒</div>
+          <div class="wtb-channel-name">Amazon Japan</div>
+          <div class="wtb-channel-region">Japan</div>
+          <div class="wtb-channel-url">amazon.co.jp →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="asia">
+          <div class="wtb-channel-logo" style="background:#e3f2fd;">🚀</div>
+          <div class="wtb-channel-name">Coupang</div>
+          <div class="wtb-channel-region">South Korea</div>
+          <div class="wtb-channel-url">coupang.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="asia">
+          <div class="wtb-channel-logo" style="background:#fff3e0;">🛒</div>
+          <div class="wtb-channel-name">Flipkart</div>
+          <div class="wtb-channel-region">India</div>
+          <div class="wtb-channel-url">flipkart.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="asia">
+          <div class="wtb-channel-logo" style="background:#e8f5e9;">🛒</div>
+          <div class="wtb-channel-name">Lazada</div>
+          <div class="wtb-channel-region">SEA · Singapore · Thailand</div>
+          <div class="wtb-channel-url">lazada.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="china">
+          <div class="wtb-channel-logo" style="background:#fff3e0;">🌐</div>
+          <div class="wtb-channel-name">AliExpress</div>
+          <div class="wtb-channel-region">Global · China Export</div>
+          <div class="wtb-channel-url">aliexpress.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="china">
+          <div class="wtb-channel-logo" style="background:#fff0f0;">📦</div>
+          <div class="wtb-channel-name">JD.com</div>
+          <div class="wtb-channel-region">China</div>
+          <div class="wtb-channel-url">jd.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="china">
+          <div class="wtb-channel-logo" style="background:#fff3e0;">🛒</div>
+          <div class="wtb-channel-name">Tmall</div>
+          <div class="wtb-channel-region">China</div>
+          <div class="wtb-channel-url">tmall.com →</div>
+        </a>
+        <a href="#" class="wtb-channel-card" data-region="asia">
+          <div class="wtb-channel-logo" style="background:#fff3e0;">🛒</div>
+          <div class="wtb-channel-name">Shopee</div>
+          <div class="wtb-channel-region">SEA · Philippines · Vietnam</div>
+          <div class="wtb-channel-url">shopee.com →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCAL DISTRIBUTORS ============ -->
+  <section class="wtb-dist" id="local-distributors">
+    <div class="sec-wrap">
+      <div class="wtb-section-eyebrow">Local Partners</div>
+      <h2 class="wtb-section-heading">Local distributors.</h2>
+      <div class="wtb-dist-inner">
+        <div class="wtb-dist-card">
+          <div class="wtb-dist-card-inner">
+            <div class="wtb-dist-card-title">HIKSEMI Global Distribution</div>
+            <div class="wtb-dist-stats">
+              <div class="wtb-dist-stat">
+                <div class="wtb-dist-stat-num">50<span class="wtb-stat-plus">+</span></div>
+                <div class="wtb-dist-stat-lbl">Countries</div>
+              </div>
+              <div class="wtb-dist-stat">
+                <div class="wtb-dist-stat-num">200<span class="wtb-stat-plus">+</span></div>
+                <div class="wtb-dist-stat-lbl">Partners</div>
+              </div>
+              <div class="wtb-dist-stat">
+                <div class="wtb-dist-stat-num">6</div>
+                <div class="wtb-dist-stat-lbl">Continents</div>
+              </div>
+            </div>
+            <div class="wtb-dist-sublabel">Select your region to find the nearest authorized distributor</div>
+          </div>
+        </div>
+        <div class="wtb-dist-selector">
+          <div class="wtb-dist-selector-label">Select Region</div>
+          <select class="wtb-dist-select">
+            <option value="">Choose a region...</option>
+            <option>Asia Pacific</option>
+            <option>Europe</option>
+            <option>Americas</option>
+            <option>Middle East &amp; Africa</option>
+            <option>China</option>
+          </select>
+          <p class="wtb-dist-selector-note">Select a region above to see distributors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="HIKSEMI" />
+        </div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="#">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solution</div>
+          <div class="footer-col-links">
+            <a href="solutions.html">Gaming</a>
+            <a href="solutions.html">Content Creation</a>
+            <a href="solutions.html">Industrial</a>
+            <a href="solutions.html">Surveillance</a>
+            <a href="solutions.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
+  </footer>
+
+  <script>
+    function filterRegion(region, btn) {
+      document.querySelectorAll('.wtb-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.wtb-channel-card');
+      cards.forEach(card => {
+        if (region === 'all' || card.dataset.region === region) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
+

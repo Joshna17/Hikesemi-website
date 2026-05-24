@@ -1,0 +1,80 @@
+1	<!DOCTYPE html>
+2	<html lang="en">
+3	<head>
+4	  <meta charset="UTF-8" />
+5	  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+6	  <title>HIKSEMI – Store Fast. Go Further.</title>
+7	  <link rel="preconnect" href="https://fonts.googleapis.com" />
+8	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+9	  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+10	  <style>
+11	    /* =============================================
+12	       RESET & BASE
+13	    ============================================= */
+14	    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+15	    html { scroll-behavior: smooth; }
+16	    body { font-family: 'Outfit', sans-serif; color: #0a0a0f; background: #fff; line-height: 1.6; overflow-x: hidden; }
+17	    img { max-width: 100%; display: block; }
+18	    a { text-decoration: none; color: inherit; }
+19	    ul { list-style: none; }
+20	    button { cursor: pointer; font-family: inherit; }
+21	
+22	    /* =============================================
+23	       VARIABLES
+24	    ============================================= */
+25	    :root {
+26	      --red: #d7000f;
+27	      --red-dark: #b5000d;
+28	      --black: #0a0a0f;
+29	      --steel: #1c1c26;
+30	      --comet: #5c5c72;
+31	      --muted: #9898a8;
+32	      --border: #e8e8e8;
+33	      --white: #ffffff;
+34	      --inner: 1280px;
+35	    }
+36	
+37	    /* =============================================
+38	       LAYOUT
+39	    ============================================= */
+40	    .wrap {
+41	      width: 100%;
+42	      max-width: var(--inner);
+43	      margin: 0 auto;
+44	      padding: 0 40px;
+45	    }
+46	
+47	    /* =============================================
+48	       ANNOUNCEMENT BAR
+49	    ============================================= */
+50	    .announce-bar {
+51	      background: var(--red);
+52	      height: 36px;
+53	      display: flex;
+54	      align-items: center;
+55	      justify-content: center;
+56	      gap: 32px;
+57	      overflow: hidden;
+58	    }
+59	    .announce-bar p {
+60	      font-family: 'Outfit', sans-serif;
+61	      font-size: 12px;
+62	      font-weight: 600;
+63	      color: #fff;
+64	      letter-spacing: 0.3px;
+65	      white-space: nowrap;
+66	    }
+67	    .announce-bar a {
+68	      font-size: 12px;
+69	      font-weight: 700;
+70	      color: rgba(255,255,255,0.8);
+71	      text-decoration: underline;
+72	      text-underline-offset: 2px;
+73	      white-space: nowrap;
+74	    }
+75	    .announce-bar a:hover { color: #fff; }
+76	
+77	    /* =============================================
+78	       NAVBAR
+79	    ============================================= */
+80	    .navbar {

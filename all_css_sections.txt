@@ -1,0 +1,492 @@
+=== toolUseResult at LINE 101 (has CSS line 744) ===
+242:                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+246:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+250:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+254:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+258:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+262:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+313:              <div class="mega-footer-bar">
+323:        <div class="nav-item"><a href="#" class="nav-link">News</a></div>
+744:            <a href="#">News</a>
+
+=== toolUseResult at LINE 133 (has CSS line 624) ===
+604-      font-weight: 400;
+605-      color: #5c5c72;
+606-      line-height: 1.55;
+607-      flex: 1;
+608-    }
+609-    .co-news-footer {
+610-      display: flex;
+611-      align-items: center;
+612-      justify-content: space-between;
+613-      padding-top: 12px;
+614-      border-top: 1px solid #f2f2f2;
+615-    }
+616-    .co-news-date {
+617-      font-size: 12px;
+618-      font-weight: 400;
+619-      color: #9898a8;
+620-    }
+621-    .co-news-read {
+622-      font-size: 14px;
+623-      font-weight: 600;
+624-      color: #d7000f;
+625-      transition: opacity 0.2s;
+626-    }
+627-    .co-news-read:hover { opacity: 0.7; }
+628-
+629-    /* ── RESPONSIVE ── */
+630-    @media (max-width: 1200px) {
+631-      .co-hero { grid-template-columns: 1fr; gap: 48px; }
+632-      .co-stat-grid { grid-template-columns: repeat(4, 1fr); }
+633-      .mission-inner { grid-template-columns: 1fr; gap: 48px; }
+634-      .quality-inner { grid-template-columns: 1fr; gap: 48px; }
+635-      .values-grid { grid-template-columns: repeat(2, 1fr); }
+636-      \* 2-column: reset 3-column rules, apply 2-column borders */
+637-      .val-card:nth-child(-n+3) { border-bottom: none; }
+638-      .val-card:not(:nth-child(3n)) { border-right: none; }
+639-      .val-card:nth-child(-n+4) { border-bottom: 1px solid #bbb4b4; }
+640-      .val-card:not(:nth-child(2n)) { border-right: 1px solid #bbb4b4; }
+641-      .val-card:nth-child(5), .val-card:nth-child(6) { border-bottom: none; }
+642-    }
+643-    @media (max-width: 992px) {
+644-      .co-hero { padding: 64px 32px; }
+645-      .sec-wrap { padding: 0 32px; }
+646-      .sec-h2 { font-size: 40px; }
+647-      .co-hero-h1 { font-size: 54px; }
+648-      .co-stat-grid { grid-template-columns: repeat(2, 1fr); }
+649-      .footer { padding: 48px 32px 0; }
+650-      .footer-main { grid-template-columns: 1fr; gap: 40px; }
+651-      .cta-sec { padding: 64px 32px; }
+652-      .cta-h2 { font-size: 40px; }
+653-      .co-news-grid { grid-template-columns: repeat(2, 1fr); }
+654-    }
+655-    @media (max-width: 768px) {
+656-      .nav-links { display: none; }
+657-      .values-grid { grid-template-columns: 1fr; }
+658-      \* Single column: only bottom borders */
+659-      .val-card:not(:nth-child(3n)) { border-right: none; }
+660-      .val-card:nth-child(-n+3) { border-bottom: none; }
+661-      .val-card { border-bottom: 1px solid #bbb4b4; }
+662-      .val-card:last-child { border-bottom: none; }
+663-      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+664-      .co-news-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+665-      .co-news-grid { grid-template-columns: 1fr; }
+666-    }
+667-    @media (max-width: 480px) {
+668-      .co-hero-h1 { font-size: 40px; }
+669-      .sec-h2 { font-size: 30px; }
+670-      .cta-btns { flex-direction: column; align-items: center; }
+671-      .footer-cols { grid-template-columns: 1fr; }
+672-    }
+673-  </style>
+674-</head>
+675-<body>
+676-
+677-  <!-- ANNOUNCE BAR -->
+678-  <div class="announce-bar">
+679-    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+680-    <a href="products.html">Shop Now →</a>
+681-  </div>
+682-
+683-  <!-- NAVBAR -->
+684:  <nav class="navbar">
+685-    <div class="nav-wrap">
+686-      <a href="index.html" class="nav-logo">
+687-        <img src="images/logo.png" alt="HIKSEMI" />
+688-      </a>
+689-      <div class="nav-links">
+690-        <div class="nav-item">
+691-          <a href="products.html" class="nav-link">
+692-            Products
+693-            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+694-          </a>
+695-          <div class="mega-menu">
+696-            <div class="mega-sidebar">
+697-              <span class="mega-sidebar-item active">Solid State Drives</span>
+698-              <span class="mega-sidebar-item">Memory (RAM)</span>
+699-              <span class="mega-sidebar-item">Memory Cards</span>
+700-              <span class="mega-sidebar-item">External Storage</span>
+701-              <span class="mega-sidebar-item">Home NAS</span>
+702-              <span class="mega-sidebar-item">Embedded Storage</span>
+703-            </div>
+704-            <div class="mega-content">
+705-              <a href="product-details.html" class="mega-link">
+706-                <div class="mega-link-icon">💾</div>
+707-                <div class="mega-link-text">
+708-                  <span class="mega-link-name">FUTURE CORE</span>
+709-                  <span class="mega-link-sub">PCIe 5.0 NVMe · NEW</span>
+710-                </div>
+711-              </a>
+712-              <a href="products.html" class="mega-link">
+713-                <div class="mega-link-icon">💾</div>
+714-                <div class="mega-link-text">
+715-                  <span class="mega-link-name">FUTURE PRO</span>
+716-                  <span class="mega-link-sub">PCIe 4.0 NVMe</span>
+717-                </div>
+718-              </a>
+719-              <a href="products.html" class="mega-link">
+720-                <div class="mega-link-icon">💾</div>
+721-                <div class="mega-link-text">
+722-                  <span class="mega-link-name">FUTURE</span>
+723-                  <span class="mega-link-sub">PCIe 4.0 NVMe</span>
+724-                </div>
+725-              </a>
+726-              <a href="products.html" class="mega-link">
+727-                <div class="mega-link-icon">💾</div>
+728-                <div class="mega-link-text">
+729-                  <span class="mega-link-name">FUTURE ECO</span>
+730-                  <span class="mega-link-sub">PCIe 3.0 NVMe</span>
+731-                </div>
+732-              </a>
+733-              <a href="products.html" class="mega-link">
+734-                <div class="mega-link-icon">💾</div>
+735-                <div class="mega-link-text">
+736-                  <span class="mega-link-name">WAVE(S) SATA</span>
+737-                  <span class="mega-link-sub">SATA III 2.5"</span>
+738-                </div>
+739-              </a>
+740-              <a href="products.html" class="mega-link">
+741-                <div class="mega-link-icon">💾</div>
+742-                <div class="mega-link-text">
+743-                  <span class="mega-link-name">D300 Pro Enterprise</span>
+744-                  <span class="mega-link-sub">Enterprise PCIe</span>
+745-                </div>
+746-              </a>
+747-              <div class="mega-footer">
+748-                <span>180+ products across all categories</span>
+749-                <a href="products.html">View All Products →</a>
+750-              </div>
+751-            </div>
+752-          </div>
+753-        </div>
+754-        <div class="nav-item">
+755-          <a href="solutions.html" class="nav-link">Solutions</a>
+756-        </div>
+757-        <div class="nav-item">
+758-          <a href="company.html" class="nav-link active">Company</a>
+759-        </div>
+760-        <div class="nav-item">
+761-          <a href="support.html" class="nav-link">Support</a>
+762-        </div>
+763-        <div class="nav-item">
+764-          <a href="#" class="nav-link">News</a>
+
+=== toolUseResult at LINE 172 (has CSS line 714) ===
+698:                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+702:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+706:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+710:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+714:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+718:                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+769:              <div class="mega-footer-bar">
+779:        <div class="nav-item"><a href="#" class="nav-link">News</a></div>
+
+=== toolUseResult at LINE 242 (has CSS line 714) ===
+710-  padding: 20px 55px;
+711-}
+712-.nav-logo img { width: 108px; height: 16px; display: block; object-fit: contain; }
+713-.nav-links { display: flex; align-items: center; gap: 0; }
+714-.nav-item { position: relative; }
+715:.nav-link {
+716-  font-family: 'Outfit', sans-serif;
+717-  font-weight: 500;
+718-  font-size: 16px;
+719-  color: #5c5c72;
+720-  padding: 8px 18px;
+
+=== toolUseResult at LINE 274 (has CSS line 714) ===
+700-  z-index: 999;
+701-  background: #fff;
+702-  border-bottom: 1px solid #ebebeb;
+703-}
+704:.nav-wrap {
+705-  display: flex;
+706-  align-items: center;
+707-  justify-content: space-between;
+708-  max-width: 1920px;
+--
+711-}
+712-.nav-logo img { width: 108px; height: 16px; display: block; object-fit: contain; }
+713-.nav-links { display: flex; align-items: center; gap: 0; }
+714-.nav-item { position: relative; }
+715:.nav-link {
+716-  font-family: 'Outfit', sans-serif;
+717-  font-weight: 500;
+718-  font-size: 16px;
+719-  color: #5c5c72;
+--
+925-  justify-content: center;
+926-  transition: border-color 0.2s, background 0.2s;
+927-}
+928-.nav-search-btn:hover { background: #f7f7f9; border-color: #c8c8c8; }
+929:.nav-contact-btn {
+930-  background: #d7000f;
+931-  color: #fff;
+932-  font-family: 'Outfit', sans-serif;
+933-  font-weight: 600;
+--
+1136-/* =============================================
+1137-   RESPONSIVE – NAVBAR + FOOTER
+1138-============================================= */
+1139-@media (max-width: 1100px) {
+1140:  .nav-wrap { padding: 16px 32px; }
+1141-}
+1142-@media (max-width: 992px) {
+1143-  .footer-main { flex-direction: column; gap: 40px; padding: 48px 32px 0; }
+1144-  .footer-cols  { flex-wrap: wrap; gap: 32px; }
+--
+1146-}
+1147-@media (max-width: 768px) {
+1148-  .announce-bar { display: none; }
+1149-  .nav-links    { display: none; }
+1150:  .nav-wrap     { padding: 16px 24px; }
+1151-  .footer-cols  { gap: 24px; }
+1152-}
+
+=== toolUseResult at LINE 326 (has CSS line 624) ===
+612-  margin: 0 auto;
+613-  padding: 20px 55px;
+614-}
+615-.nav-logo img { width: 108px; height: 16px; display: block; object-fit: contain; }
+616-.nav-links { display: flex; align-items: center; gap: 0; }
+617-.nav-item { position: relative; }
+618:.nav-link {
+619-  font-family: 'Outfit', sans-serif;
+620-  font-weight: 500;
+621-  font-size: 16px;
+622-  color: #5c5c72;
+623-  padding: 8px 18px;
+624-  display: flex;
+
+=== toolUseResult at LINE 800 (has CSS line 414) ===
+227-       HERO
+228-    ============================================= */
+229:    .hero {
+230-      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+231-      min-height: 800px;
+--
+235-      overflow: hidden;
+236-    }
+237:    .hero::after {
+238-      content: '';
+239-      position: absolute;
+--
+243-      pointer-events: none;
+244-    }
+245:    .hero-inner {
+246-      max-width: 1920px;
+247-      margin: 0 auto;
+--
+252-      flex: 1;
+253-    }
+254:    .hero-content { flex: 0 0 527px; }
+255:    .hero-eyebrow {
+256-      display: flex;
+257-      align-items: center;
+--
+259-      margin-bottom: 24px;
+260-    }
+261:    .hero-eyebrow-line { width: 18px; height: 1px; background: rgba(255,255,255,0.4); flex-shrink: 0; }
+262:    .hero-eyebrow-text {
+263-      font-family: 'Outfit', sans-serif;
+264-      font-weight: 700;
+--
+268-      text-transform: uppercase;
+269-    }
+270:    .hero-h1 {
+271-      font-family: 'Outfit', sans-serif;
+272-      font-weight: 800;
+--
+276-      margin-bottom: 24px;
+277-    }
+278:    .hero-h1 .line1 { color: #fff; display: block; }
+279:    .hero-h1 .line2 { color: #d7000f; display: block; }
+280:    .hero-desc {
+281-      font-family: 'Outfit', sans-serif;
+282-      font-weight: 400;
+--
+287-      max-width: 420px;
+288-    }
+289:    .hero-btns { display: flex; gap: 12px; align-items: center; margin-bottom: 48px; }
+290:    .hero-btn-primary {
+291-      background: var(--red);
+292-      color: #fff;
+--
+302-      transition: background 0.2s, transform 0.15s;
+303-    }
+304:    .hero-btn-primary:hover { background: #b5000d; transform: translateY(-1px); }
+305:    .hero-btn-ghost {
+306-      color: rgba(255,255,255,0.7);
+307-      font-family: 'Outfit', sans-serif;
+--
+314-      transition: border-color 0.2s, color 0.2s;
+315-    }
+316:    .hero-btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+317:    .hero-dots { display: flex; gap: 8px; align-items: center; }
+318:    .hero-dot {
+319-      width: 8px; height: 8px;
+320-      border-radius: 50%;
+--
+324-      border: none;
+325-    }
+326:    .hero-dot.active { background: #d7000f; width: 24px; border-radius: 4px; }
+327-
+328-    /* Hero visual / video */
+329:    .hero-visual { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+330:    .hero-video-wrap {
+331-      position: relative;
+332-      width: 600px;
+333-      max-width: 100%;
+334-    }
+335:    .hero-video-wrap video {
+336-      width: 100%;
+337-      height: auto;
+--
+340-    }
+341-    /* legacy ring kept for no-js fallback reference */
+342:    .hero-ring {
+343-      width: 572px; height: 572px;
+344-      border-radius: 50%;
+--
+350-      flex-shrink: 0;
+351-    }
+352:    .hero-ring::before {
+353-      content: '';
+354-      position: absolute;
+--
+357-      border: 1px solid rgba(255,255,255,0.06);
+358-    }
+359:    .hero-product-card {
+360-      width: 320px;
+361-      background: linear-gradient(145deg, #2a1a1a, #1a0a0a);
+--
+367-      z-index: 2;
+368-    }
+369:    .hero-card-img-placeholder {
+370-      height: 160px;
+371-      background: linear-gradient(135deg, rgba(215,0,15,0.2), rgba(215,0,15,0.05));
+--
+381-      letter-spacing: 1px;
+382-    }
+383:    .hero-card-name {
+384-      font-family: 'Outfit', sans-serif;
+385-      font-weight: 700;
+--
+388-      margin-bottom: 4px;
+389-    }
+390:    .hero-card-sub {
+391-      font-family: 'Outfit', sans-serif;
+392-      font-size: 13px;
+--
+395-
+396-    /* Floating pills */
+397:    .hero-pill {
+398-      position: absolute;
+399-      background: rgba(255,255,255,0.08);
+--
+408-      white-space: nowrap;
+409-    }
+410:    .hero-pill-1 { top: 80px; right: -20px; }
+411:    .hero-pill-2 { bottom: 120px; left: -30px; }
+412:    .hero-pill-3 { top: 50%; right: -40px; transform: translateY(-50%); }
+413-
+414-    /* =============================================
+--
+1616-    @media (max-width: 1100px) {
+1617-      .nav-wrap { padding: 16px 32px; }
+1618:      .hero-inner { padding: 80px 5% 70px; gap: 40px; }
+1619:      .hero-content { flex: 0 0 460px; }
+1620:      .hero-ring { width: 460px; height: 460px; }
+1621-    }
+1622-
+1623-    @media (max-width: 992px) {
+1624:      .hero-inner { flex-direction: column; align-items: flex-start; padding: 60px 5% 60px; }
+1625:      .hero-content { flex: none; }
+1626:      .hero-ring { width: 380px; height: 380px; }
+1627-      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+1628-      .feat-card { flex-direction: column; height: auto; }
+--
+1650-      .announce-bar { display: none; }
+1651-      .nav-links { display: none; }
+1652:      .hero-h1 { font-size: clamp(44px, 12vw, 72px); letter-spacing: -2px; }
+1653-      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+1654-      .feat-content { padding: 40px 24px; }
+--
+2755-
+2756-    // Hero dots
+2757:    document.querySelectorAll('.hero-dot').forEach((dot, i) => {
+2758-      dot.addEventListener('click', () => {
+2759:        document.querySelectorAll('.hero-dot').forEach(d => d.classList.remove('active'));
+2760-        dot.classList.add('active');
+2761-      });
+
+=== toolUseResult at LINE 938 (has CSS line 414) ===
+74-    .filter-tab.active { background: #d7000f; border-color: #d7000f; color: #fff; }
+75-
+76-    /* ── MARQUEE ── */
+77:    .marquee-strip { background: #212121; height: 48px; overflow: hidden; }
+78:    .marquee-track {
+79-      display: flex; align-items: center; height: 100%;
+80-      width: max-content;
+81-      animation: mq-scroll 28s linear infinite;
+82-    }
+83:    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+84:    .marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 8px 0 28px; }
+85:    .marquee-text { font-weight: 600; font-size: 12px; color: #555; letter-spacing: 1.44px; text-transform: uppercase; white-space: nowrap; }
+86:    .marquee-sep { font-weight: 400; font-size: 8px; color: #555; }
+87-    @keyframes mq-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+88-
+89-    /* ── BODY WRAPPER ── */
+--
+403-  </section>
+404-
+405-  <!-- ============ MARQUEE ============ -->
+406:  <div class="marquee-strip">
+407:    <div class="marquee-track">
+408:      <span class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></span>
+409:      <span class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></span>
+410:      <span class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></span>
+411:      <span class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></span>
+412:      <span class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></span>
+413:      <span class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></span>
+414:      <span class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></span>
+415:      <span class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></span>
+416:      <span class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></span>
+417:      <span class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></span>
+418:      <span class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></span>
+419:      <span class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></span>
+420:      <span class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></span>
+421:      <span class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></span>
+422:      <span class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></span>
+423:      <span class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></span>
+424-    </div>
+425-  </div>
+426-
+
+=== toolUseResult at LINE 948 (has CSS line 534) ===
+104-
+105-    /* ── CATEGORY SCROLL BAR ── */
+106:    .wtb-cats {
+107-      background: #0d0d0d;
+108-      padding: 0;
+109-      overflow: hidden;
+110-    }
+111:    .wtb-cats-track {
+112-      display: flex;
+113-      align-items: center;
+--
+530-  </nav>
+531-
+532:  <!-- ============ HERO ============ -->
+533-  <section class="wtb-hero">
+534-    <div class="sec-wrap wtb-hero-inner">
+--
+543-  </section>
+544-
+545:  <!-- ============ CATEGORY CHIPS ============ -->
+546:  <div class="wtb-cats">
+547:    <div class="wtb-cats-track">
+548-      <a href="products.html" class="wtb-cat-chip">Solid State Drive</a>
+549-      <a href="products.html" class="wtb-cat-chip">DDR5 Memory</a>
+

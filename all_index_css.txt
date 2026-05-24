@@ -1,0 +1,743 @@
+=== LINE 86 ===
+1	import re, os
+2	
+3	BASE = r'C:\Users\HP\hiksemi'
+4	
+5	# ── New CSS to append to styles.css ──────────────────────────────────────────
+6	NEW_CSS = """
+7	
+8	/* =============================================
+9	   OUTFIT FONT + UPDATED DESIGN TOKENS
+10	============================================= */
+11	@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+12	
+13	:root {
+14	  --red: #d7000f;
+15	  --red-dark: #b5000d;
+16	  --inner: 1280px;
+17	}
+18	
+19	/* =============================================
+20	   ANNOUNCE BAR
+21	============================================= */
+22	.announce-bar {
+23	  background: #d7000f;
+24	  height: 36px;
+25	  display: flex;
+26	  align-items: center;
+27	  justify-content: center;
+28	  gap: 32px;
+29	  overflow: hidden;
+30	}
+31	.announce-bar p {
+32	  font-family: 'Outfit', sans-serif;
+33	  font-size: 12px;
+34	  font-weight: 600;
+35	  color: #fff;
+36	  letter-spacing: 0.3px;
+37	  white-space: nowrap;
+38	}
+39	.announce-bar a {
+40	  font-family: 'Outfit', sans-serif;
+41	  font-size: 12px;
+42	  font-weight: 700;
+43	  color: rgba(255,255,255,0.8);
+44	  text-decoration: underline;
+45	  text-underline-offset: 2px;
+46	  white-space: nowrap;
+47	}
+48	.announce-bar a:hover { color: #fff; }
+49	
+50	/* =============================================
+51	   NAVBAR (NEW)
+52	============================================= */
+53	.navbar {
+54	  position: sticky;
+55	  top: 0;
+56	  z-index: 999;
+57	  background: #fff;
+58	  border-bottom: 1px solid #ebebeb;
+59	}
+60	.nav-wrap {
+61	  display: flex;
+62	  align-items: center;
+63	  justify-content: space-between;
+64	  max-width: 1920px;
+65	  margin: 0 auto;
+66	  padding: 20px 55px;
+67	}
+68	.nav-logo img { width: 108px; height: 16px; display: block; object-fit: contain; }
+69	.nav-links { display: flex; align-items: center; gap: 0; }
+70	.nav-item { position: relative; }
+71	.nav-link {
+72	  font-family: 'Outfit', sans-serif;
+73	  font-weight: 500;
+74	  font-size: 16px;
+75	  color: #5c5c72;
+76	  padding: 8px 18px;
+77	  display: flex;
+78	  align-items: center;
+79	  gap: 5px;
+80	  transition: color 0.2s;
+81	  white-space: nowrap;
+82	}
+83	.nav-link:hover { color: #0a0a0f; }
+84	.nav-link .chev { width: 12px; height: 12px; transition: transform 0.2s; }
+85	.nav-item:hover .chev { transform: rotate(180deg); }
+86	
+87	/* Mega menu */
+88	.mega-menu {
+89	  display: none;
+90	  position: absolute;
+91	  top: calc(100% + 12px);
+92	  left: 50%;
+93	  transform: translateX(-50%);
+94	  width: 820px;
+95	  background: #fff;
+96	  border-radius: 16px;
+97	  box-shadow: 0 16px 60px rgba(0,0,0,0.12);
+98	  border: 1px solid #ebebeb;
+99	  overflow: hidden;
+100	}
+101	.nav-item:hover .mega-menu { display: flex; }
+102	.mega-sidebar {
+103	  width: 200px;
+104	  background: #f7f7f9;
+105	  padding: 16px 0;
+106	  flex-shrink: 0;
+107	}
+108	.mega-sidebar-item {
+109	  display: block;
+110	  padding: 10px 20px;
+111	  font-family: 'Outfit', sans-serif;
+112	  font-size: 14px;
+113	  font-weight: 500;
+114	  color: #5c5c72;
+115	  transition: background 0.15s, color 0.15s;
+116	  cursor: pointer;
+117	}
+118	.mega-sidebar-item:hover,
+119	.mega-sidebar-item.active { background: #ededf0; color: #0a0a0f; }
+120	.mega-content {
+121	  flex: 1;
+122	  padding: 24px;
+123	  display: grid;
+124	  grid-template-columns: 1fr 1fr;
+125	  gap: 4px;
+126	}
+127	.mega-link {
+128	  display: flex;
+129	  align-items: center;
+130	  gap: 12px;
+131	  padding: 12px 14px;
+132	  border-radius: 10px;
+133	  transition: background 0.15s;
+134	}
+135	.mega-link:hover { background: #f7f7f9; }
+136	.mega-link-icon {
+137	  width: 36px; height: 36px;
+138	  background: #f0f0f4;
+139	  border-radius: 8px;
+140	  display: flex;
+141	  align-items: center;
+142	  justify-content: center;
+143	  font-size: 18px;
+144	  flex-shrink: 0;
+145	}
+146	.mega-link-text { font-family: 'Outfit', sans-serif; }
+147	.mega-link-name { font-size: 14px; font-weight: 600; color: #0a0a0f; display: block; }
+148	.mega-link-sub  { font-size: 12px; color: #9898a8; display: block; }
+149	
+150	/* Simple dropdown */
+151	.simple-drop {
+152	  display: none;
+153	  position: absolute;
+154	  top: calc(100% + 8px);
+155	  left: 50%;
+156	  transform: translateX(-50%);
+157	  background: #fff;
+158	  border-radius: 12px;
+159	  box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+160	  border: 1px solid #ebebeb;
+161	  padding: 8px;
+162	  min-width: 180px;
+163	}
+164	.nav-item:hover .simple-drop { display: block; }
+165	.simple-drop a {
+166	  display: block;
+167	  padding: 8px 14px;
+168	  font-family: 'Outfit', sans-serif;
+169	  font-size: 14px;
+170	  font-weight: 500;
+171	  color: #5c5c72;
+172	  border-radius: 8px;
+173	  transition: background 0.15s, color 0.15s;
+174	}
+175	.simple-drop a:hover { background: #f7f7f9; color: #0a0a0f; }
+176	
+177	.nav-actions { display: flex; align-items: center; gap: 12px; }
+178	.nav-search-btn {
+179	  width: 38px; height: 38px;
+180	  border-radius: 50%;
+181	  border: 1px solid #e8e8e8;
+182	  background: #fff;
+183	  display: flex;
+184	  align-items: center;
+185	  justify-content: center;
+186	  transition: border-color 0.2s, background 0.2s;
+187	}
+188	.nav-search-btn:hover { background: #f7f7f9; border-color: #c8c8c8; }
+189	.nav-contact-btn {
+190	  background: #d7000f;
+191	  color: #fff;
+192	  font-family: 'Outfit', sans-serif;
+193	  font-weight: 600;
+194	  font-size: 15px;
+195	  padding: 13px 16px;
+196	  border-radius: 8px;
+197	  border: none;
+198	  display: inline-flex;
+199	  align-items: center;
+200	  gap: 6px;
+201	  transition: background 0.2s;
+202	  text-decoration: none;
+203	}
+204	.nav-contact-btn:hover { background: #b5000d; }
+205	
+206	/* =============================================
+207	   FOOTER (NEW)
+208	============================================= */
+209	.footer { background: #000; overflow: hidden; }
+210	.footer-main {
+211	  padding: 64px 102px 0;
+212	  max-width: 1716px;
+213	  margin: 0 auto;
+214	  display: flex;
+215	  gap: 80px;
+216	  align-items: flex-start;
+217	}
+218	.footer-brand { flex: 0 0 280px; }
+219	.footer-logo { margin-bottom: 18px; }
+220	.footer-logo img { height: 15px; width: auto; display: block; }
+221	.footer-tagline {
+222	  font-family: 'Outfit', sans-serif;
+223	  font-weight: 300;
+224	  font-size: 16px;
+225	  color: #555;
+226	  line-height: 23.8px;
+227	  margin-bottom: 28px;
+228	  max-width: 250px;
+229	}
+230	.footer-socials { display: flex; gap: 10px; }
+231	.footer-social-btn {
+232	  width: 36px; height: 36px;
+233	  background: #0f0f0f;
+234	  border: 1px solid #212121;
+235	  border-radius: 8px;
+236	  display: flex;
+237	  align-items: center;
+238	  justify-content: center;
+239	  font-family: 'Outfit', sans-serif;
+240	  font-weight: 700;
+241	  font-size: 12px;
+242	  color: #555;
+243	  transition: border-color 0.2s, color 0.2s;
+244	  cursor: pointer;
+245	  text-decoration: none;
+246	}
+247	.footer-social-btn:hover { border-color: #444; color: #888; }
+248	.footer-cols {
+249	  flex: 1;
+250	  display: flex;
+251	  justify-content: space-between;
+252	}
+253	.footer-col { flex: 0 0 auto; }
+254	.footer-col-title {
+255	  font-family: 'Outfit', sans-serif;
+256	  font-weight: 700;
+257	  font-size: 14px;
+258	  letter-spacing: 1.32px;
+259	  color: #fff;
+260	  text-transform: uppercase;
+261	  margin-bottom: 32px;
+262	}
+263	.footer-col-links { display: flex; flex-direction: column; gap: 24px; }
+264	.footer-col-links a {
+265	  font-family: 'Outfit', sans-serif;
+266	  font-weight: 400;
+267	  font-size: 16px;
+268	  color: #555;
+269	  transition: color 0.2s;
+270	  display: block;
+271	}
+272	.footer-col-links a:hover { color: #888; }
+273	.footer-bottom-bar {
+274	  max-width: 1716px;
+275	  margin: 32px auto 0;
+276	  padding: 32px 102px 31px;
+277	  border-top: 1px solid #121212;
+278	  display: flex;
+279	  align-items: center;
+280	  justify-content: space-between;
+281	}
+282	.footer-copy,
+283	.footer-contact-info {
+284	  font-family: 'Outfit', sans-serif;
+285	  font-weight: 400;
+286	  font-size: 16px;
+287	  color: #333;
+288	}
+289	.footer-decoration { width: 100%; display: block; height: auto; }
+290	
+291	/* =============================================
+292	   RESPONSIVE – NAVBAR + FOOTER
+293	============================================= */
+294	@media (max-width: 1100px) {
+295	  .nav-wrap { padding: 16px 32px; }
+296	}
+297	@media (max-width: 992px) {
+298	  .footer-main { flex-direction: column; gap: 40px; padding: 48px 32px 0; }
+299	  .footer-cols  { flex-wrap: wrap; gap: 32px; }
+300	  .footer-bottom-bar { padding: 24px 32px; flex-direction: column; gap: 8px; text-align: center; }
+301	}
+302	@media (max-width: 768px) {
+303	  .announce-bar { display: none; }
+304	  .nav-links    { display: none; }
+305	  .nav-wrap     { padding: 16px 24px; }
+306	  .footer-cols  { gap: 24px; }
+307	}
+308	"""
+309	
+310	# ── New announce bar + navbar HTML ────────────────────────────────────────────
+311	NEW_NAV = """  <div class="announce-bar">
+312	    <p>Free shipping on orders over $49 — Worldwide delivery available</p>
+313	    <a href="products.html">Shop Now →</a>
+314	  </div>
+315	
+316	  <!-- ============ NAVBAR ============ -->
+317	  <nav class="navbar">
+318	    <div class="nav-wrap">
+319	      <a href="index.html" class="nav-logo">
+320	        <img src="images/logo.png" alt="HIKSEMI" />
+321	      </a>
+322	      <div class="nav-links">
+323	        <div class="nav-item">
+324	          <a href="products.html" class="nav-link">
+325	            Products
+326	            <svg class="chev" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+327	              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+328	            </svg>
+329	          </a>
+330	          <div class="mega-menu">
+331	            <div class="mega-sidebar">
+332	              <span class="mega-sidebar-item active">All Products</span>
+333	              <span class="mega-sidebar-item">SSD</span>
+334	              <span class="mega-sidebar-item">Memory</span>
+335	              <span class="mega-sidebar-item">Memory Cards</span>
+336	              <span class="mega-sidebar-item">External Storage</span>
+337	              <span class="mega-sidebar-item">NAS</span>
+338	            </div>
+339	            <div class="mega-content">
+340	              <a href="product-details.html" class="mega-link">
+341	                <div class="mega-link-icon">💾</div>
+342	                <div class="mega-link-text">
+343	                  <span class="mega-link-name">FUTURE CORE Gen5 NVMe</span>
+344	                  <span class="mega-link-sub">PCIe 5.0 · Up to 2TB</span>
+345	                </div>
+346	              </a>
+347	              <a href="products.html" class="mega-link">
+348	                <div class="mega-link-icon">🧠</div>
+349	                <div class="mega-link-text">
+350	                  <span class="mega-link-name">FUTURE RGB DDR5</span>
+351	                  <span class="mega-link-sub">6000MHz · 32GB Kit</span>
+352	                </div>
+353	              </a>
+354	              <a href="products.html" class="mega-link">
+355	                <div class="mega-link-icon">📷</div>
+356	                <div class="mega-link-text">
+357	                  <span class="mega-link-name">CAPTURE V90 SD Card</span>
+358	                  <span class="mega-link-sub">V90 · 280 MB/s</span>
+359	                </div>
+360	              </a>
+361	              <a href="products.html" class="mega-link">
+362	                <div class="mega-link-icon">📦</div>
+363	                <div class="mega-link-text">
+364	                  <span class="mega-link-name">ELITE 7S Portable SSD</span>
+365	                  <span class="mega-link-sub">2,000 MB/s · 4TB</span>
+366	                </div>
+367	              </a>
+368	              <a href="products.html" class="mega-link">
+369	                <div class="mega-link-icon">🎮</div>
+370	                <div class="mega-link-text">
+371	                  <span class="mega-link-name">FUTURE PRO microSD Express</span>
+372	                  <span class="mega-link-sub">800 MB/s · Gaming</span>
+373	                </div>
+374	              </a>
+375	              <a href="products.html" class="mega-link">
+376	                <div class="mega-link-icon">🖥️</div>
+377	                <div class="mega-link-text">
+378	                  <span class="mega-link-name">AFS-R1 Home NAS</span>
+379	                  <span class="mega-link-sub">2-Bay · 32TB Max</span>
+380	                </div>
+381	              </a>
+382	            </div>
+383	          </div>
+384	        </div>
+385	        <div class="nav-item">
+386	          <a href="solutions.html" class="nav-link">Solutions</a>
+387	        </div>
+388	        <div class="nav-item">
+389	          <a href="company.html" class="nav-link">Company</a>
+390	        </div>
+391	        <div class="nav-item">
+392	          <a href="support.html" class="nav-link">Support</a>
+393	        </div>
+394	        <div class="nav-item">
+395	          <a href="where-to-buy.html" class="nav-link">
+396	            Our Partners
+397	            <svg class="chev" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+398	              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+399	            </svg>
+400	          </a>
+401	          <div class="simple-drop">
+402	            <a href="where-to-buy.html">Where to Buy</a>
+403	            <a href="where-to-buy.html#distributors">Distributors</a>
+404	            <a href="where-to-buy.html#online">Online Retailers</a>
+405	          </div>
+406	        </div>
+407	      </div>
+408	      <div class="nav-actions">
+409	        <button class="nav-search-btn" aria-label="Search">
+410	          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+411	            <circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/>
+412	            <path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/>
+413	          </svg>
+414	        </button>
+415	        <a href="contact.html" class="nav-contact-btn">Contact →</a>
+416	      </div>
+417	    </div>
+418	  </nav>"""
+419	
+420	# ── New footer HTML ───────────────────────────────────────────────────────────
+421	NEW_FOOTER = """  <!-- ============ FOOTER ============ -->
+422	  <footer class="footer">
+423	    <div class="footer-main">
+424	      <div class="footer-brand">
+425	        <div class="footer-logo">
+426	          <img src="images/logo.png" alt="HIKSEMI" />
+427	        </div>
+428	        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+429	        <div class="footer-socials">
+430	          <a href="#" class="footer-social-btn">f</a>
+431	          <a href="#" class="footer-social-btn">in</a>
+432	          <a href="#" class="footer-social-btn">tw</a>
+433	          <a href="#" class="footer-social-btn">yt</a>
+434	          <a href="#" class="footer-social-btn">ig</a>
+435	        </div>
+436	      </div>
+437	      <div class="footer-cols">
+438	        <div class="footer-col">
+439	          <div class="footer-col-title">Products</div>
+440	          <div class="footer-col-links">
+441	            <a href="product-details.html">FUTURE CORE SSD</a>
+442	            <a href="products.html">Memory (RAM)</a>
+443	            <a href="products.html">Memory Cards</a>
+444	            <a href="products.html">External Storage</a>
+445	            <a href="products.html">Home NAS</a>
+446	            <a href="products.html">Embedded Storage</a>
+447	          </div>
+448	        </div>
+449	        <div class="footer-col">
+450	          <div class="footer-col-title">Company</div>
+451	          <div class="footer-col-links">
+452	            <a href="company.html">About HIKSEMI</a>
+453	            <a href="company.html">Why HIKSEMI</a>
+454	            <a href="#">News</a>
+455	            <a href="company.html">Quality</a>
+456	            <a href="where-to-buy.html">Partners</a>
+457	          </div>
+458	        </div>
+459	        <div class="footer-col">
+460	          <div class="footer-col-title">Solution</div>
+461	          <div class="footer-col-links">
+462	            <a href="solutions.html">Gaming</a>
+463	            <a href="solutions.html">Content Creation</a>
+464	            <a href="solutions.html">Industrial</a>
+465	            <a href="solutions.html">Surveillance</a>
+466	            <a href="solutions.html">Enterprise</a>
+467	          </div>
+468	        </div>
+469	        <div class="footer-col">
+470	          <div class="footer-col-title">Support</div>
+471	          <div class="footer-col-links">
+472	            <a href="support.html">Support Home</a>
+473	            <a href="support.html">Warranty</a>
+474	            <a href="support.html">FAQ</a>
+475	            <a href="support.html">Downloads</a>
+476	            <a href="contact.html">Contact Us</a>
+477	          </div>
+478	        </div>
+479	      </div>
+480	    </div>
+481	    <div class="footer-bottom-bar">
+482	      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+483	      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+484	    </div>
+485	    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
+486	  </footer>"""
+487	
+488	# ── 1. Append CSS to styles.css ───────────────────────────────────────────────
+489	css_path = os.path.join(BASE, 'css', 'styles.css')
+490	with open(css_path, 'r', encoding='utf-8') as f:
+491	    css_content = f.read()
+492	
+493	if 'OUTFIT FONT + UPDATED DESIGN TOKENS' not in css_content:
+494	    with open(css_path, 'a', encoding='utf-8') as f:
+495	        f.write(NEW_CSS)
+496	    print('Updated css/styles.css')
+497	else:
+498	    print('css/styles.css already updated')
+499	
+500	# ── 2. Update each page ───────────────────────────────────────────────────────
+501	pages = ['products', 'solutions', 'company', 'support', 'contact', 'where-to-buy', 'product-details']
+502	
+503	for page in pages:
+504	    path = os.path.join(BASE, f'{page}.html')
+505	    with open(path, 'r', encoding='utf-8') as f:
+506	        html = f.read()
+507	
+508	    original = html
+509	
+510	    # Replace old navbar (any <nav class="navbar"> ... </nav> block)
+511	    html = re.sub(
+512	        r'<nav class="navbar">.*?</nav>',
+513	        NEW_NAV,
+514	        html,
+515	        flags=re.DOTALL
+516	    )
+517	
+518	    # Replace old footer (site-footer or plain footer)
+519	    html = re.sub(
+520	        r'<footer class="site-footer">.*?</footer>',
+521	        NEW_FOOTER,
+522	        html,
+523	        flags=re.DOTALL
+524	    )
+525	    # Also handle pages that already have class="footer"
+526	    html = re.sub(
+527	        r'<footer class="footer">.*?</footer>',
+528	        NEW_FOOTER,
+529	        html,
+530	        flags=re.DOTALL
+531	    )
+532	
+533	    # Remove any leftover mobile-menu divs from old navbar
+534	    html = re.sub(
+535	        r'\s*<div class="mobile-menu"[^>]*>.*?</div>',
+536	        '',
+537	        html,
+538	        flags=re.DOTALL
+539	    )
+540	
+541	    if html != original:
+542	        with open(path, 'w', encoding='utf-8') as f:
+543	            f.write(html)
+544	        print(f'Updated {page}.html')
+545	    else:
+546	        print(f'No changes in {page}.html — check manually')
+547	
+
+=== LINE 343 ===
+=== index.html ===
+218:    .hero {
+224:    .hero-inner {
+233:    .hero-content { flex: 0 0 527px; }
+297:    .hero-dot {
+309:    .hero-ring {
+319:    .hero-ring::before {
+1586:      .hero-content { flex: 0 0 460px; }
+1592:      .hero-content { flex: none; }
+2750:    document.querySelectorAll('.hero-dot').forEach((dot, i) => {
+2752:        document.querySelectorAll('.hero-dot').forEach(d => d.classList.remove('active'));
+=== products.html ===
+16:    .prod-hero {
+22:    .prod-hero::after {
+231:      .prod-hero { padding: 64px 32px 48px; }
+=== company.html ===
+16:    .co-hero {
+644:      .co-hero { padding: 64px 32px; }
+=== support.html ===
+=== contact.html ===
+24:    .ct-hero {
+28:    .ct-hero-inner {
+336:      .ct-hero { padding: 64px 0 80px; }
+=== where-to-buy.html ===
+13:    .wtb-hero {
+19:    .wtb-hero-inner { position: relative; }
+=== product-details.html ===
+=== become-a-dealer.html ===
+13:    .bd-hero {
+19:    .bd-hero-inner { position: relative; }
+
+=== LINE 800 ===
+227-       HERO
+228-    ============================================= */
+229:    .hero {
+230-      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+231-      min-height: 800px;
+--
+235-      overflow: hidden;
+236-    }
+237:    .hero::after {
+238-      content: '';
+239-      position: absolute;
+--
+243-      pointer-events: none;
+244-    }
+245:    .hero-inner {
+246-      max-width: 1920px;
+247-      margin: 0 auto;
+--
+252-      flex: 1;
+253-    }
+254:    .hero-content { flex: 0 0 527px; }
+255:    .hero-eyebrow {
+256-      display: flex;
+257-      align-items: center;
+--
+259-      margin-bottom: 24px;
+260-    }
+261:    .hero-eyebrow-line { width: 18px; height: 1px; background: rgba(255,255,255,0.4); flex-shrink: 0; }
+262:    .hero-eyebrow-text {
+263-      font-family: 'Outfit', sans-serif;
+264-      font-weight: 700;
+--
+268-      text-transform: uppercase;
+269-    }
+270:    .hero-h1 {
+271-      font-family: 'Outfit', sans-serif;
+272-      font-weight: 800;
+--
+276-      margin-bottom: 24px;
+277-    }
+278:    .hero-h1 .line1 { color: #fff; display: block; }
+279:    .hero-h1 .line2 { color: #d7000f; display: block; }
+280:    .hero-desc {
+281-      font-family: 'Outfit', sans-serif;
+282-      font-weight: 400;
+--
+287-      max-width: 420px;
+288-    }
+289:    .hero-btns { display: flex; gap: 12px; align-items: center; margin-bottom: 48px; }
+290:    .hero-btn-primary {
+291-      background: var(--red);
+292-      color: #fff;
+--
+302-      transition: background 0.2s, transform 0.15s;
+303-    }
+304:    .hero-btn-primary:hover { background: #b5000d; transform: translateY(-1px); }
+305:    .hero-btn-ghost {
+306-      color: rgba(255,255,255,0.7);
+307-      font-family: 'Outfit', sans-serif;
+--
+314-      transition: border-color 0.2s, color 0.2s;
+315-    }
+316:    .hero-btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+317:    .hero-dots { display: flex; gap: 8px; align-items: center; }
+318:    .hero-dot {
+319-      width: 8px; height: 8px;
+320-      border-radius: 50%;
+--
+324-      border: none;
+325-    }
+326:    .hero-dot.active { background: #d7000f; width: 24px; border-radius: 4px; }
+327-
+328-    /* Hero visual / video */
+329:    .hero-visual { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+330:    .hero-video-wrap {
+331-      position: relative;
+332-      width: 600px;
+333-      max-width: 100%;
+334-    }
+335:    .hero-video-wrap video {
+336-      width: 100%;
+337-      height: auto;
+--
+340-    }
+341-    /* legacy ring kept for no-js fallback reference */
+342:    .hero-ring {
+343-      width: 572px; height: 572px;
+344-      border-radius: 50%;
+--
+350-      flex-shrink: 0;
+351-    }
+352:    .hero-ring::before {
+353-      content: '';
+354-      position: absolute;
+--
+357-      border: 1px solid rgba(255,255,255,0.06);
+358-    }
+359:    .hero-product-card {
+360-      width: 320px;
+361-      background: linear-gradient(145deg, #2a1a1a, #1a0a0a);
+--
+367-      z-index: 2;
+368-    }
+369:    .hero-card-img-placeholder {
+370-      height: 160px;
+371-      background: linear-gradient(135deg, rgba(215,0,15,0.2), rgba(215,0,15,0.05));
+--
+381-      letter-spacing: 1px;
+382-    }
+383:    .hero-card-name {
+384-      font-family: 'Outfit', sans-serif;
+385-      font-weight: 700;
+--
+388-      margin-bottom: 4px;
+389-    }
+390:    .hero-card-sub {
+391-      font-family: 'Outfit', sans-serif;
+392-      font-size: 13px;
+--
+395-
+396-    /* Floating pills */
+397:    .hero-pill {
+398-      position: absolute;
+399-      background: rgba(255,255,255,0.08);
+--
+408-      white-space: nowrap;
+409-    }
+410:    .hero-pill-1 { top: 80px; right: -20px; }
+411:    .hero-pill-2 { bottom: 120px; left: -30px; }
+412:    .hero-pill-3 { top: 50%; right: -40px; transform: translateY(-50%); }
+413-
+414-    /* =============================================
+--
+1616-    @media (max-width: 1100px) {
+1617-      .nav-wrap { padding: 16px 32px; }
+1618:      .hero-inner { padding: 80px 5% 70px; gap: 40px; }
+1619:      .hero-content { flex: 0 0 460px; }
+1620:      .hero-ring { width: 460px; height: 460px; }
+1621-    }
+1622-
+1623-    @media (max-width: 992px) {
+1624:      .hero-inner { flex-direction: column; align-items: flex-start; padding: 60px 5% 60px; }
+1625:      .hero-content { flex: none; }
+1626:      .hero-ring { width: 380px; height: 380px; }
+1627-      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+1628-      .feat-card { flex-direction: column; height: auto; }
+--
+1650-      .announce-bar { display: none; }
+1651-      .nav-links { display: none; }
+1652:      .hero-h1 { font-size: clamp(44px, 12vw, 72px); letter-spacing: -2px; }
+1653-      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+1654-      .feat-content { padding: 40px 24px; }
+--
+2755-
+2756-    // Hero dots
+2757:    document.querySelectorAll('.hero-dot').forEach((dot, i) => {
+2758-      dot.addEventListener('click', () => {
+2759:        document.querySelectorAll('.hero-dot').forEach(d => d.classList.remove('active'));
+2760-        dot.classList.add('active');
+2761-      });
+

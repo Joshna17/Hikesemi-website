@@ -1,0 +1,1009 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solutions – HIKSEMI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ── HERO ── */
+    .sol-hero {
+      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 88px 64px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sol-hero::after {
+      content: '';
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(215,0,15,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .sol-hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .sol-hero-eyebrow-line { width: 18px; height: 2px; background: #d7000f; flex-shrink: 0; }
+    .sol-hero-eyebrow-text { font-weight: 700; font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 1.44px; text-transform: uppercase; }
+    .sol-hero-h1 { font-weight: 900; font-size: 78px; color: #fff; line-height: 1; letter-spacing: -3px; margin-bottom: 20px; }
+    .sol-hero-sub { font-weight: 300; font-size: 20px; color: rgba(255,255,255,0.5); line-height: 1.5; max-width: 580px; margin-bottom: 48px; }
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-tab {
+      height: 36px; padding: 0 21px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      font-weight: 500; font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap; transition: all 0.2s;
+    }
+    .filter-tab:hover { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+    .filter-tab.active { background: #d7000f; border-color: #d7000f; color: #fff; }
+
+    /* ── MARQUEE ── */
+    .marquee-strip { background: #0d0d0d; height: 46px; overflow: hidden; position: relative; }
+    .marquee-track { display: flex; align-items: center; height: 100%; width: max-content; animation: mq-scroll 28s linear infinite; }
+    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 8px 0 28px; }
+    .marquee-text { font-weight: 600; font-size: 12px; color: #555; letter-spacing: 1.44px; text-transform: uppercase; white-space: nowrap; }
+    .marquee-sep { font-weight: 400; font-size: 8px; color: #555; }
+    @keyframes mq-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── SOLUTION SECTIONS ── */
+    .sol-section {
+      padding: 80px 64px;
+      border-top: 1px solid #ebebeb;
+    }
+    .sol-section:first-child { border-top: none; }
+    .sol-section-grey { background: #f7f7f7; border-bottom: 1px solid #f2f2f2; }
+    .sol-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      max-width: 1792px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    /* Reverse: text first, image second */
+    .sol-inner.rev .sol-img { order: 2; }
+    .sol-inner.rev .sol-content { order: 1; }
+
+    /* ── IMAGE PANEL ── */
+    .sol-img {
+      position: relative;
+      height: 360px;
+      background: #111;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sol-img-num {
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      font-weight: 800;
+      font-size: 100px;
+      color: rgba(255,255,255,0.20);
+      line-height: 1;
+      letter-spacing: -6px;
+      user-select: none;
+      pointer-events: none;
+    }
+    .sol-img-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(215,0,15,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .sol-img-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .sol-img-emoji {
+      font-size: 60px;
+      line-height: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -80px);
+      pointer-events: none;
+    }
+    /* Figma-style stat badges (centred row) */
+    .sol-stat-badges {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    .sol-stat-badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 88px;
+    }
+    .sol-stat-val {
+      font-weight: 700;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .sol-stat-lbl {
+      font-weight: 400;
+      font-size: 11px;
+      color: #9898a8;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    /* legacy pill badges kept for other solutions */
+    .sol-img-badges {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .sol-img-badge {
+      height: 26px; padding: 0 10px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      font-weight: 700; font-size: 11px;
+      color: rgba(255,255,255,0.8);
+      line-height: 26px;
+      white-space: nowrap;
+    }
+    .sol-img-badge.red {
+      background: rgba(215,0,15,0.25);
+      border-color: rgba(215,0,15,0.4);
+      color: #ff6677;
+    }
+
+    /* ── TEXT CONTENT ── */
+    .sol-content { display: flex; flex-direction: column; gap: 0; }
+    .sol-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .sol-eyebrow-line { width: 18px; height: 2px; background: #d7000f; }
+    .sol-eyebrow-text { font-weight: 700; font-size: 12px; color: #d7000f; letter-spacing: 1.98px; text-transform: uppercase; }
+    .sol-heading { font-weight: 800; font-size: 36px; color: #0a0a0f; letter-spacing: -1.44px; line-height: 1.1; margin-bottom: 16px; }
+    .sol-desc { font-weight: 300; font-size: 16px; color: #5c5c72; line-height: 1.8; margin-bottom: 0; }
+
+    /* ── FEATURE ROWS (Figma bullet style) ── */
+    .sol-features { margin: 28px 0; }
+    .sol-feature-row {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid #f2f2f2;
+      align-items: flex-start;
+    }
+    .sol-feature-dot {
+      width: 8px; height: 8px;
+      background: #828282;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .sol-feature-body { display: flex; flex-direction: column; gap: 6px; }
+    .sol-feature-title { font-weight: 500; font-size: 18px; color: #0a0a0f; line-height: 1; }
+    .sol-feature-sub   { font-weight: 300; font-size: 16px; color: #5c5c72; line-height: 1; }
+
+    /* ── SPEC ROWS (kept for other solutions) ── */
+    .sol-specs { margin: 28px 0; }
+    .sol-spec-row {
+      display: flex;
+      gap: 24px;
+      padding: 16px 0 16px 12px;
+      border-top: 1px solid #ebebeb;
+    }
+    .sol-specs .sol-spec-row:last-child { border-bottom: 1px solid #ebebeb; }
+    .sol-spec-label { font-weight: 700; font-size: 14px; color: #0a0a0f; flex: 0 0 200px; padding-top: 1px; }
+    .sol-spec-value { font-weight: 400; font-size: 14px; color: #5c5c72; line-height: 1.5; flex: 1; }
+
+    /* ── RECOMMENDED PRODUCTS ── */
+    .sol-recommended { margin-bottom: 28px; }
+    .sol-rec-label { font-weight: 600; font-size: 14px; color: #9898a8; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 10px; }
+    .sol-rec-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .sol-rec-chip {
+      height: 31px; padding: 0 14px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      font-weight: 400; font-size: 12px;
+      color: #5c5c72; line-height: 31px;
+      white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .sol-rec-chip:hover { border-color: #d7000f; color: #d7000f; }
+
+    /* ── CTA BUTTON ── */
+    .sol-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 47px; padding: 0 28px;
+      background: #d7000f; border-radius: 10px;
+      font-weight: 600; font-size: 15px;
+      color: #fff; transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .sol-btn:hover { background: #b5000d; }
+
+    /* ── CTA SECTION ── */
+    .cta-sec {
+      position: relative;
+      background: linear-gradient(143deg, #0e0e14 0%, #200008 55%, #5a0015 100%);
+      padding: 96px 0; overflow: hidden; text-align: center;
+    }
+    .cta-dot { position: absolute; width: 474px; height: 386px; overflow: hidden; pointer-events: none; }
+    .cta-dot-l { left: -150px; top: -83px; }
+    .cta-dot-r { right: -150px; bottom: -83px; }
+    .cta-dot img { width: 316px; height: 316px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.2; }
+    .cta-inner { position: relative; max-width: 680px; margin: 0 auto; padding: 0 40px; }
+    .cta-eyebrow { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+    .cta-eyebrow-line { width: 18px; height: 2px; background: rgba(255,255,255,0.3); }
+    .cta-eyebrow-text { font-weight: 700; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 1.44px; text-transform: uppercase; }
+    .cta-heading { font-weight: 900; font-size: 58px; color: #fff; line-height: 1; letter-spacing: -2.9px; margin-bottom: 16px; }
+    .cta-sub { font-weight: 300; font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 12px; align-items: center; justify-content: center; }
+    .cta-btn-r { height: 47px; padding: 0 28px; background: #d7000f; border-radius: 10px; font-weight: 600; font-size: 16px; color: #fff; transition: background 0.2s; }
+    .cta-btn-r:hover { background: #b5000d; }
+    .cta-btn-g { height: 47px; padding: 0 28px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; font-weight: 600; font-size: 16px; color: rgba(255,255,255,0.8); transition: border-color 0.2s, color 0.2s; }
+    .cta-btn-g:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .sol-section { padding: 64px 40px; }
+      .sol-inner { gap: 48px; }
+      .sol-heading { font-size: 32px; }
+    }
+    @media (max-width: 900px) {
+      .sol-hero { padding: 64px 32px 48px; }
+      .sol-hero-h1 { font-size: 52px; }
+      .sol-section { padding: 56px 32px; }
+      .sol-inner { grid-template-columns: 1fr; gap: 36px; }
+      .sol-inner.rev .sol-img { order: unset; }
+      .sol-inner.rev .sol-content { order: unset; }
+      .sol-img { height: 280px; }
+      .sol-heading { font-size: 28px; }
+      .sol-spec-label { flex: 0 0 140px; }
+    }
+    @media (max-width: 600px) {
+      .sol-hero-h1 { font-size: 40px; }
+      .cta-heading { font-size: 38px; }
+      .sol-spec-row { flex-direction: column; gap: 4px; }
+      .sol-spec-label { flex: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+    <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5&quot;</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link active">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="sol-hero">
+    <div class="sol-hero-eyebrow">
+      <span class="sol-hero-eyebrow-line"></span>
+      <span class="sol-hero-eyebrow-text">Applications</span>
+    </div>
+    <h1 class="sol-hero-h1">Solutions.</h1>
+    <p class="sol-hero-sub">HIKSEMI storage engineered for every use case — from esports PCs to enterprise data centers.</p>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-sol="gaming">Gaming</button>
+      <button class="filter-tab" data-sol="content">Content Creation</button>
+      <button class="filter-tab" data-sol="personal">Personal Backup</button>
+      <button class="filter-tab" data-sol="nas">Home &amp; NAS</button>
+      <button class="filter-tab" data-sol="industrial">Industrial</button>
+      <button class="filter-tab" data-sol="datacenter">Data Center</button>
+      <button class="filter-tab" data-sol="surveillance">Surveillance</button>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+    </div>
+  </div>
+
+  <!-- ============ SOLUTION 01 — GAMING & ENTERTAINMENT ============ -->
+  <section class="sol-section" id="gaming">
+    <div class="sol-inner">
+      <!-- Left image panel -->
+      <div class="sol-img">
+        <img src="images/sol-gaming-bg.jpg" alt="" class="sol-img-bg" />
+        <div class="sol-img-num">01</div>
+        <div class="sol-img-gradient"></div>
+        <div class="sol-img-emoji">🎮</div>
+        <div class="sol-stat-badges">
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">14K</div>
+            <div class="sol-stat-lbl">MB/s Read</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">PCIe 5</div>
+            <div class="sol-stat-lbl">Interface</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">RGB</div>
+            <div class="sol-stat-lbl">Lighting</div>
+          </div>
+        </div>
+      </div>
+      <!-- Right content -->
+      <div class="sol-content">
+        <div class="sol-eyebrow">
+          <span class="sol-eyebrow-line"></span>
+          <span class="sol-eyebrow-text">Solution 01</span>
+        </div>
+        <h2 class="sol-heading">Gaming &amp;<br>Entertainment</h2>
+        <p class="sol-desc">Blazing-speed storage that slashes load times, eliminates stutters, and powers immersive gaming experiences. With RGB aesthetics to match your build.</p>
+        <div class="sol-features">
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">PCIe 5.0 NVMe — up to 14,000 MB/s</div>
+              <div class="sol-feature-sub">Near-instant game loading and asset streaming with full Gen 5 bandwidth.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Excellent thermal control</div>
+              <div class="sol-feature-sub">Custom RGB heatsink dissipates heat under sustained gaming sessions.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">RGB DDR5 memory</div>
+              <div class="sol-feature-sub">High-speed DDR5 at 6000MHz+ with customizable ARGB lighting.</div>
+            </div>
+          </div>
+        </div>
+        <div class="sol-recommended">
+          <div class="sol-rec-label">Recommended Products</div>
+          <div class="sol-rec-chips">
+            <a href="product-details.html" class="sol-rec-chip">FUTURE CORE PCIe 5.0</a>
+            <a href="products.html" class="sol-rec-chip">FUTURE RGB DDR5</a>
+            <a href="products.html" class="sol-rec-chip">FUTURE PRO microSD</a>
+          </div>
+        </div>
+        <a href="products.html#ssd" class="sol-btn">Shop Gaming SSDs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION 02 — CONTENT CREATION ============ -->
+  <section class="sol-section sol-section-grey" id="content">
+    <div class="sol-inner rev">
+      <!-- Image panel (right via rev) -->
+      <div class="sol-img">
+        <img src="images/sol-content-bg.jpg" alt="" class="sol-img-bg" style="opacity:0.10;" />
+        <div class="sol-img-num">02</div>
+        <div class="sol-img-gradient"></div>
+        <div class="sol-img-emoji">🎥</div>
+        <div class="sol-stat-badges">
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">V90</div>
+            <div class="sol-stat-lbl">SD Rating</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">280</div>
+            <div class="sol-stat-lbl">MB/s Write</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">8K</div>
+            <div class="sol-stat-lbl">Supported</div>
+          </div>
+        </div>
+      </div>
+      <!-- Text content (left via rev) -->
+      <div class="sol-content">
+        <div class="sol-eyebrow">
+          <span class="sol-eyebrow-line"></span>
+          <span class="sol-eyebrow-text">Solution 02</span>
+        </div>
+        <h2 class="sol-heading">Content<br>Creation</h2>
+        <p class="sol-desc">Whether shooting RAW stills or 8K video, HIKSEMI's professional-grade cards and SSDs keep up with the highest creative demands without dropping a frame.</p>
+        <div class="sol-features">
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">UHS-II V90 &amp; CFexpress cards</div>
+              <div class="sol-feature-sub">Up to 280 MB/s write sustained for burst RAW and video capture.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">High-endurance design</div>
+              <div class="sol-feature-sub">Shock, vibration, temperature, and waterproof rated for field use.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Fast portable SSDs</div>
+              <div class="sol-feature-sub">2,000 MB/s portable SSDs for instant offload and on-set editing.</div>
+            </div>
+          </div>
+        </div>
+        <a href="products.html#cards" class="sol-btn">Shop Memory Cards →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION 03 — PERSONAL BACKUP ============ -->
+  <section class="sol-section" id="personal">
+    <div class="sol-inner">
+      <!-- Image panel (left) -->
+      <div class="sol-img">
+        <img src="images/sol-backup-bg.jpg" alt="" class="sol-img-bg" style="opacity:0.10;" />
+        <div class="sol-img-num">03</div>
+        <div class="sol-img-gradient"></div>
+        <div class="sol-img-emoji">💼</div>
+        <div class="sol-stat-badges">
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">4TB</div>
+            <div class="sol-stat-lbl">Portable</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">USB-C</div>
+            <div class="sol-stat-lbl">Interface</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">IP68</div>
+            <div class="sol-stat-lbl">Rated</div>
+          </div>
+        </div>
+      </div>
+      <!-- Text content (right) -->
+      <div class="sol-content">
+        <div class="sol-eyebrow">
+          <span class="sol-eyebrow-line"></span>
+          <span class="sol-eyebrow-text">Solution 03</span>
+        </div>
+        <h2 class="sol-heading">Personal<br>Backup</h2>
+        <p class="sol-desc">Compact, rugged portable SSDs that keep your memories, work, and projects safe. Ultra-fast USB-C transfers in a pocket-sized device.</p>
+        <div class="sol-features">
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Compact design</div>
+              <div class="sol-feature-sub">Fits in your pocket — lighter and smaller than a deck of cards.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">USB 3.2 Gen 2 speed</div>
+              <div class="sol-feature-sub">Transfer 100GB in under a minute over USB-C.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Rugged build</div>
+              <div class="sol-feature-sub">Drop-proof, dust-proof, and splash-resistant for everyday carry.</div>
+            </div>
+          </div>
+        </div>
+        <a href="products.html#external" class="sol-btn">Shop Portable SSDs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION 04 — HOME BACKUP & NAS ============ -->
+  <section class="sol-section sol-section-grey" id="nas">
+    <div class="sol-inner rev">
+      <!-- Image panel (right via rev) -->
+      <div class="sol-img">
+        <img src="images/sol-nas-bg.jpg" alt="" class="sol-img-bg" style="opacity:0.20;" />
+        <div class="sol-img-num">04</div>
+        <div class="sol-img-gradient"></div>
+        <div class="sol-img-emoji">🏠</div>
+        <div class="sol-stat-badges">
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">48TB</div>
+            <div class="sol-stat-lbl">Max Storage</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">2.5G</div>
+            <div class="sol-stat-lbl">LAN Speed</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">App</div>
+            <div class="sol-stat-lbl">Controlled</div>
+          </div>
+        </div>
+      </div>
+      <!-- Text content (left via rev) -->
+      <div class="sol-content">
+        <div class="sol-eyebrow">
+          <span class="sol-eyebrow-line"></span>
+          <span class="sol-eyebrow-text">Solution 04</span>
+        </div>
+        <h2 class="sol-heading">Home Backup<br>&amp; NAS</h2>
+        <p class="sol-desc">Centralized home storage for the whole family. Auto-backup your photos, stream your media library, and access everything from anywhere via mobile app.</p>
+        <div class="sol-features">
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Huge capacity up to 48TB</div>
+              <div class="sol-feature-sub">Multi-bay NAS systems that grow with your family's storage needs.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Hikbox mobile app</div>
+              <div class="sol-feature-sub">Access, share, and manage your home storage from anywhere in the world.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Easy setup</div>
+              <div class="sol-feature-sub">Plug in, download the app, and you're done — no technical knowledge needed.</div>
+            </div>
+          </div>
+        </div>
+        <a href="products.html#nas" class="sol-btn">Shop Home NAS →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION 05 — INDUSTRIAL APPLICATIONS ============ -->
+  <section class="sol-section" id="industrial">
+    <div class="sol-inner">
+      <!-- Image panel (left) -->
+      <div class="sol-img">
+        <img src="images/sol-industrial-bg.jpg" alt="" class="sol-img-bg" style="opacity:0.20;" />
+        <div class="sol-img-num">05</div>
+        <div class="sol-img-gradient"></div>
+        <div class="sol-img-emoji">🏭</div>
+        <div class="sol-stat-badges">
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">−40°</div>
+            <div class="sol-stat-lbl">Min Temp</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">eMMC</div>
+            <div class="sol-stat-lbl">Embedded</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">Grade</div>
+            <div class="sol-stat-lbl">Industrial</div>
+          </div>
+        </div>
+      </div>
+      <!-- Text content (right) -->
+      <div class="sol-content">
+        <div class="sol-eyebrow">
+          <span class="sol-eyebrow-line"></span>
+          <span class="sol-eyebrow-text">Solution 05</span>
+        </div>
+        <h2 class="sol-heading">Industrial<br>Applications</h2>
+        <p class="sol-desc">Industrial-grade embedded storage and SSDs designed for automation, robotics, edge computing, and harsh environments where failure is not an option.</p>
+        <div class="sol-features">
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Wide temperature range</div>
+              <div class="sol-feature-sub">Operating range from −40°C to 85°C for extreme environments.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">eMMC &amp; LPDDR embedded</div>
+              <div class="sol-feature-sub">Consumer, industrial, and automotive eMMC grades for every application.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Power-loss protection</div>
+              <div class="sol-feature-sub">Built-in PLP capacitors ensure no data corruption during sudden power cuts.</div>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="sol-btn">View Embedded Storage →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION 06 — DATA CENTER SOLUTIONS ============ -->
+  <section class="sol-section sol-section-grey" id="datacenter">
+    <div class="sol-inner rev">
+      <!-- Image panel (right via rev) -->
+      <div class="sol-img">
+        <img src="images/sol-datacenter-bg.jpg" alt="" class="sol-img-bg" style="opacity:0.20;" />
+        <div class="sol-img-num">06</div>
+        <div class="sol-img-gradient"></div>
+        <div class="sol-img-emoji">🗄️</div>
+        <div class="sol-stat-badges">
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">U.2</div>
+            <div class="sol-stat-lbl">Form Factor</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">7K</div>
+            <div class="sol-stat-lbl">IOPS ×1000</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">E1.S</div>
+            <div class="sol-stat-lbl">Available</div>
+          </div>
+        </div>
+      </div>
+      <!-- Text content (left via rev) -->
+      <div class="sol-content">
+        <div class="sol-eyebrow">
+          <span class="sol-eyebrow-line"></span>
+          <span class="sol-eyebrow-text">Solution 06</span>
+        </div>
+        <h2 class="sol-heading">Data Center<br>Solutions</h2>
+        <p class="sol-desc">Enterprise-class NVMe SSDs delivering consistent performance under heavy workloads. Broad compatibility and certifications for major server platforms.</p>
+        <div class="sol-features">
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Consistent QoS performance</div>
+              <div class="sol-feature-sub">Low latency variance ensures predictable performance for critical workloads.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Robust data protection</div>
+              <div class="sol-feature-sub">End-to-end data path protection with advanced ECC and RAID support.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Broad platform compatibility</div>
+              <div class="sol-feature-sub">Validated with major server and storage platforms across leading vendors.</div>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="sol-btn">Contact Enterprise Sales →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION 07 — VIDEO SURVEILLANCE ============ -->
+  <section class="sol-section" id="surveillance">
+    <div class="sol-inner">
+      <!-- Image panel (left) -->
+      <div class="sol-img">
+        <img src="images/sol-surveillance-bg.jpg" alt="" class="sol-img-bg" style="opacity:0.20;" />
+        <div class="sol-img-num">07</div>
+        <div class="sol-img-gradient"></div>
+        <div class="sol-img-emoji">📹</div>
+        <div class="sol-stat-badges">
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">7×24</div>
+            <div class="sol-stat-lbl">Workloads</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">128TB</div>
+            <div class="sol-stat-lbl">Max Write</div>
+          </div>
+          <div class="sol-stat-badge">
+            <div class="sol-stat-val">−25°</div>
+            <div class="sol-stat-lbl">Cold Start</div>
+          </div>
+        </div>
+      </div>
+      <!-- Text content (right) -->
+      <div class="sol-content">
+        <div class="sol-eyebrow">
+          <span class="sol-eyebrow-line"></span>
+          <span class="sol-eyebrow-text">Solution 07</span>
+        </div>
+        <h2 class="sol-heading">Video<br>Surveillance</h2>
+        <p class="sol-desc">Purpose-built storage for continuous recording environments. Exceptional endurance and reliability for security cameras, DVRs, and NVRs running around the clock.</p>
+        <div class="sol-features">
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">7×24 continuous write endurance</div>
+              <div class="sol-feature-sub">Optimized firmware for sustained sequential writes without performance degradation.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Ultra-strong adaptability</div>
+              <div class="sol-feature-sub">Certified for leading NVR, DVR, and IP camera brands worldwide.</div>
+            </div>
+          </div>
+          <div class="sol-feature-row">
+            <div class="sol-feature-dot"></div>
+            <div class="sol-feature-body">
+              <div class="sol-feature-title">Low-temperature start</div>
+              <div class="sol-feature-sub">Reliable cold start performance down to −25°C for outdoor installations.</div>
+            </div>
+          </div>
+        </div>
+        <a href="products.html#cards" class="sol-btn">Shop Surveillance Cards →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="images/logo.png" alt="HIKSEMI" /></div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="#">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solution</div>
+          <div class="footer-col-links">
+            <a href="solutions.html#gaming">Gaming</a>
+            <a href="solutions.html#content">Content Creation</a>
+            <a href="solutions.html#industrial">Industrial</a>
+            <a href="solutions.html#surveillance">Surveillance</a>
+            <a href="solutions.html#datacenter">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
+  </footer>
+
+  <script>
+    // Filter tab scroll-to
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const id = tab.dataset.sol;
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+=== READ at 436, result at 437 ===
+2617	              <a href="#" class="news-read">Read →</a>
+2618	            </div>
+2619	          </div>
+2620	        </div>
+2621	
+2622	        <!-- Card 3: Company -->
+2623	        <div class="news-card">
+2624	          <img class="news-img" src="images/news-3.jpg" alt="HIKSEMI EMEA expansion" />
+2625	          <div class="news-body">
+2626	            <span class="news-tag news-tag-green">Company</span>
+2627	            <div class="news-title">HIKSEMI Expands to 10 New EMEA Countries — 50+ Total</div>
+2628	            <div class="news-excerpt">Strategic partnerships with leading distributors across Poland, Greece, and more.</div>
+2629	            <div class="news-footer">
+2630	              <span class="news-date">November 2024</span>
+2631	              <a href="#" class="news-read">Read →</a>
+2632	            </div>
+2633	          </div>
+2634	        </div>
+2635	
+2636	      </div>
+2637	    </div>
+2638	  </section>
+2639	
+2640	  <!-- ============ CTA BANNER ============ -->
+2641	  <section class="cta-section">
+2642	    <div class="cta-dot cta-dot-left">
+2643	      <img src="images/dot-pattern.svg" alt="" />
+2644	    </div>
+2645	    <div class="cta-dot cta-dot-right">
+2646	      <img src="images/dot-pattern.svg" alt="" />
+
+=== READ at 436, result at 440 ===
+2646	      <img src="images/dot-pattern.svg" alt="" />
+2647	    </div>
+2648	    <div class="cta-inner">
+2649	      <div class="cta-eyebrow">
+2650	        <span class="cta-eyebrow-line"></span>
+2651	        <span class="cta-eyebrow-text">Get Started</span>
+2652	      </div>
+2653	      <h2 class="cta-heading">Ready to upgrade your storage?</h2>
+2654	      <p class="cta-sub">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+2655	      <div class="cta-btns">
+2656	        <a href="where-to-buy.html" class="cta-btn-primary">Find a Store →</a>
+2657	        <a href="contact.html" class="cta-btn-ghost">Contact Us</a>
+2658	      </div>
+2659	    </div>
+2660	  </section>
+2661	
+2662	
+2663	  <!-- ============ CTA ============ -->
+2664	  <section class="site-cta">
+2665	    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.svg" alt="" /></div>
+2666	    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.svg" alt="" /></div>
+2667	    <div class="site-cta-inner">
+2668	      <div class="site-cta-eyebrow">Get Started</div>
+2669	      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+2670	      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+2671	      <div class="site-cta-btns">
+2672	        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+2673	        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+2674	      </div>
+2675	    </div>
+2676	  </section>
+2677	  <footer class="footer">
+2678	    <div class="footer-main">
+2679	      <!-- Brand -->
+2680	      <div class="footer-brand">
+2681	        <div class="footer-logo">
+2682	          <img src="images/logo.png" alt="HIKSEMI" />
+2683	        </div>
+2684	        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+2685	        <div class="footer-socials">
+2686	          <a href="#" class="footer-social-btn">f</a>
+2687	          <a href="#" class="footer-social-btn">in</a>
+2688	          <a href="#" class="footer-social-btn">tw</a>
+2689	          <a href="#" class="footer-social-btn">yt</a>
+2690	          <a href="#" class="footer-social-btn">ig</a>
+2691	        </div>
+2692	      </div>
+2693	
+2694	      <!-- Link columns -->
+2695	      <div class="footer-cols">
+2696	        <div class="footer-col">
+2697	          <div class="footer-col-title">Products</div>
+2698	          <div class="footer-col-links">
+2699	            <a href="product-details.html">FUTURE CORE SSD</a>
+2700	            <a href="products.html">Memory (RAM)</a>
+2701	            <a href="products.html">Memory Cards</a>
+2702	            <a href="products.html">External Storage</a>
+2703	            <a href="products.html">Home NAS</a>
+2704	            <a href="products.html">Embedded Storage</a>
+2705	          </div>
+
+=== READ at 439, result at 440 ===
+2646	      <img src="images/dot-pattern.svg" alt="" />
+2647	    </div>
+2648	    <div class="cta-inner">
+2649	      <div class="cta-eyebrow">
+2650	        <span class="cta-eyebrow-line"></span>
+2651	        <span class="cta-eyebrow-text">Get Started</span>
+2652	      </div>
+2653	      <h2 class="cta-heading">Ready to upgrade your storage?</h2>
+2654	      <p class="cta-sub">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+2655	      <div class="cta-btns">
+2656	        <a href="where-to-buy.html" class="cta-btn-primary">Find a Store →</a>
+2657	        <a href="contact.html" class="cta-btn-ghost">Contact Us</a>
+2658	      </div>
+2659	    </div>
+2660	  </section>
+2661	
+2662	
+2663	  <!-- ============ CTA ============ -->
+2664	  <section class="site-cta">
+2665	    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.svg" alt="" /></div>
+2666	    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.svg" alt="" /></div>
+2667	    <div class="site-cta-inner">
+2668	      <div class="site-cta-eyebrow">Get Started</div>
+2669	      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+2670	      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+2671	      <div class="site-cta-btns">
+2672	        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+2673	        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+2674	      </div>
+2675	    </div>
+2676	  </section>
+2677	  <footer class="footer">
+2678	    <div class="footer-main">
+2679	      <!-- Brand -->
+2680	      <div class="footer-brand">
+2681	        <div class="footer-logo">
+2682	          <img src="images/logo.png" alt="HIKSEMI" />
+2683	        </div>
+2684	        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+2685	        <div class="footer-socials">
+2686	          <a href="#" class="footer-social-btn">f</a>
+2687	          <a href="#" class="footer-social-btn">in</a>
+2688	          <a href="#" class="footer-social-btn">tw</a>
+2689	          <a href="#" class="footer-social-btn">yt</a>
+2690	          <a href="#" class="footer-social-btn">ig</a>
+2691	        </div>
+2692	      </div>
+2693	
+2694	      <!-- Link columns -->
+2695	      <div class="footer-cols">
+2696	        <div class="footer-col">
+2697	          <div class="footer-col-title">Products</div>
+2698	          <div class="footer-col-links">
+2699	            <a href="product-details.html">FUTURE CORE SSD</a>
+2700	            <a href="products.html">Memory (RAM)</a>
+2701	            <a href="products.html">Memory Cards</a>
+2702	            <a href="products.html">External Storage</a>
+2703	            <a href="products.html">Home NAS</a>
+2704	            <a href="products.html">Embedded Storage</a>
+2705	          </div>
+

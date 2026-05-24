@@ -1,0 +1,60 @@
+1	/* ================================================
+2	   HIKSEMI - Shared Stylesheet
+3	   Colors: Red #CC0000 | Dark #0A0A0A | White #FFFFFF
+4	   Font: Barlow (Google Fonts)
+5	   ================================================ */
+6	
+7	@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap');
+8	
+9	/* === RESET === */
+10	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+11	html { scroll-behavior: smooth; }
+12	img { max-width: 100%; display: block; }
+13	a { text-decoration: none; color: inherit; }
+14	ul, ol { list-style: none; }
+15	button { cursor: pointer; font-family: inherit; }
+16	input, textarea, select { font-family: inherit; }
+17	
+18	/* === VARIABLES === */
+19	:root {
+20	  --red: #CC0000;
+21	  --red-dark: #a30000;
+22	  --black: #0A0A0A;
+23	  --dark: #1a1a1a;
+24	  --gray-50: #FAFAFA;
+25	  --gray-100: #F5F5F5;
+26	  --gray-200: #E8E8E8;
+27	  --gray-300: #D4D4D4;
+28	  --gray-400: #AAAAAA;
+29	  --gray-600: #666666;
+30	  --text: #222222;
+31	  --white: #FFFFFF;
+32	  --container: 1240px;
+33	  --gap: 80px;
+34	  --radius: 4px;
+35	}
+36	
+37	/* === BASE === */
+38	body {
+39	  font-family: 'Barlow', sans-serif;
+40	  color: var(--text);
+41	  background: var(--white);
+42	  line-height: 1.6;
+43	  font-size: 16px;
+44	}
+45	
+46	/* === CONTAINER === */
+47	.container {
+48	  width: 100%;
+49	  max-width: var(--container);
+50	  margin: 0 auto;
+51	  padding: 0 24px;
+52	}
+53	
+54	/* === TYPOGRAPHY === */
+55	h1, h2, h3, h4 { line-height: 1.1; font-weight: 800; }
+56	
+57	.section-tag {
+58	  display: inline-flex;
+59	  align-items: center;
+60	  gap: 10px;

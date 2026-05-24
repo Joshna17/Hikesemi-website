@@ -1,0 +1,1270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company – HIKSEMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
+    a { text-decoration: none; color: inherit; }
+    /* ── HERO ── */
+    .co-hero {
+      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 90px 64px 80px;
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      gap: 80px;
+      align-items: center;
+      max-width: 1920px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .co-hero::after {
+      content: '';
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(215,0,15,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .co-hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .co-hero-eyebrow-line { width: 18px; height: 2px; background: #a8a8a8; }
+    .co-hero-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ccc;
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+    }
+    .co-hero-h1 {
+      font-size: 78px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -3.9px;
+      margin-bottom: 24px;
+    }
+    .co-hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: #9898a8;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    /* Stat cards grid 2x2 */
+    .co-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .co-stat-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      padding: 24px 24px 22px;
+      min-height: 123px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .co-stat-num {
+      font-size: 38px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1.9px;
+      line-height: 1;
+    }
+    .co-stat-num span { color: #ccc; }
+    .co-stat-iso {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.6px;
+      line-height: 1;
+    }
+    .co-stat-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: #9898a8;
+      line-height: 1.4;
+      margin-top: 8px;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-strip {
+      background: #0d0d0d;
+      height: 46px;
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: max-content;
+      animation: mq-scroll 28s linear infinite;
+    }
+    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 8px 0 28px;
+    }
+    .marquee-text {
+      font-weight: 600;
+      font-size: 12px;
+      color: #555;
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .marquee-sep { font-weight: 400; font-size: 8px; color: #555; }
+    @keyframes mq-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION COMMONS ── */
+    .sec-wrap {
+      max-width: 1792px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+    .sec-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .sec-eyebrow-line { width: 18px; height: 2px; background: #d7000f; flex-shrink: 0; }
+    .sec-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+    }
+    .sec-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -2.16px;
+      line-height: 1.05;
+    }
+
+    /* ── MISSION SECTION ── */
+    .mission-sec {
+      padding: 96px 0 100px;
+      background: #fff;
+    }
+    .mission-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 56px;
+    }
+    .mission-left {}
+    .mission-subhead {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0a0a0f;
+      letter-spacing: -0.84px;
+      line-height: 1.2;
+      margin-bottom: 48px;
+    }
+    .mission-subhead em { font-style: normal; color: #d7000f; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: #f2f2f2;
+    }
+    .tl-item { position: relative; padding-bottom: 36px; padding-left: 28px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -19px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border: 2px solid #d7000f;
+    }
+    .tl-dot.filled { background: #d7000f; }
+    .tl-year {
+      font-size: 16px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 0.52px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .tl-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #0a0a0f;
+      margin-bottom: 6px;
+    }
+    .tl-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: #5c5c72;
+      line-height: 1.6;
+    }
+
+    /* Right paragraphs */
+    .mission-right {}
+    .mission-paras { display: flex; flex-direction: column; gap: 24px; }
+    .mission-para {
+      font-size: 18px;
+      font-weight: 300;
+      color: #5c5c72;
+      line-height: 1.5;
+    }
+
+    /* ── VALUES SECTION ── */
+    .values-sec {
+      padding: 96px 0 100px;
+      background: #f7f7f7;
+    }
+    .values-grid-wrap {
+      margin-top: 56px;
+      background: #e8e8e8;
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 20px;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .val-card {
+      background: #fff;
+      padding: 33px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    /* Row 1 (cards 1-3): bottom border; Cols 1-2 (non-3rd): right border */
+    .val-card:nth-child(-n+3) { border-bottom: 1px solid #bbb4b4; }
+    .val-card:not(:nth-child(3n)) { border-right: 1px solid #bbb4b4; }
+    .val-icon { font-size: 32px; line-height: 1; }
+    .val-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0a0a0f;
+      letter-spacing: -0.4px;
+    }
+    .val-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: #5c5c72;
+      line-height: 1.4;
+    }
+
+    /* ── QUALITY SECTION ── */
+    .quality-sec {
+      padding: 96px 0 100px;
+      background: #fff;
+    }
+    .quality-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+      margin-top: 56px;
+    }
+    .qual-steps { display: flex; flex-direction: column; }
+    .qual-step {
+      padding: 24px 0;
+      border-bottom: 1px solid #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .qual-step:first-child { padding-top: 0; }
+    .qual-step-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+    .qual-step-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #0a0a0f;
+    }
+    .qual-step-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: #5c5c72;
+      line-height: 1.4;
+    }
+
+    /* Certs right column */
+    .qual-right {
+      position: sticky;
+      top: 88px;
+      align-self: start;
+    }
+    .qual-cert-card {
+      background: linear-gradient(120.25deg, #1e1818 22.83%, #750c0c 110.15%);
+      border-radius: 20px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .qual-cert-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .qual-cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .cert-tile {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #292929;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .cert-tile-icon { font-size: 24px; line-height: 1; }
+    .cert-tile-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .cert-tile-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: #9898a8;
+    }
+
+    /* ── GLOBAL PRESENCE ── */
+    .reach-sec {
+      background: #f7f7f7;
+      padding: 96px 0 100px;
+    }
+    .reach-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .reach-eyebrow-line { width: 18px; height: 2px; background: #d7000f; flex-shrink: 0; }
+    .reach-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 1.76px;
+      text-transform: uppercase;
+    }
+    .reach-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -2.16px;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .reach-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: #5c5c72;
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* Offices dark card */
+    .offices-card {
+      background: #0d0d0d;
+      border-radius: 20px;
+      padding: 42px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .offices-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .offices-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .offices-row {
+      display: flex;
+      gap: 16px;
+    }
+    .office-card {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #292929;
+      border-radius: 12px;
+      padding: 21px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+    .office-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .office-city {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .office-hq-badge {
+      background: rgba(130,130,130,0.15);
+      border: 1px solid rgba(130,130,130,0.3);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #ccc;
+      letter-spacing: 0.8px;
+      flex-shrink: 0;
+    }
+    .office-country {
+      font-size: 16px;
+      font-weight: 400;
+      color: #9898a8;
+    }
+    .office-type {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    /* Reach responsive */
+    @media (max-width: 1200px) {
+      .offices-row { flex-wrap: wrap; }
+      .office-card { flex: 1 1 calc(50% - 8px); }
+    }
+    @media (max-width: 768px) {
+      .offices-card { padding: 24px 20px; }
+      .office-card { flex: 1 1 100%; }
+      .reach-h2 { font-size: 40px; }
+    }
+
+    /* ── CTA ── */
+    .cta-sec {
+      background: linear-gradient(123.87deg, #1e1818 0%, #750c0c 100%);
+      padding: 88px 64px;
+      text-align: center;
+    }
+    .cta-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .cta-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+    }
+    .cta-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -2.16px;
+      line-height: 1.05;
+      margin-bottom: 36px;
+    }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; }
+    .btn-red-cta {
+      height: 52px;
+      padding: 0 28px;
+      background: #d7000f;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-outline-cta {
+      height: 52px;
+      padding: 0 28px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+    }
+
+
+    /* ── NEWS SECTION ── */
+    .co-news-sec {
+      padding: 96px 0 100px;
+      background: #fff;
+    }
+    .co-news-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+    }
+    .co-news-all-link {
+      font-size: 15px;
+      font-weight: 600;
+      color: #5c5c72;
+      border-bottom: 1.5px solid #e8e8e8;
+      padding-bottom: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .co-news-all-link:hover { color: #d7000f; border-color: #d7000f; }
+    .co-news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .co-news-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .co-news-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .co-news-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+    .co-news-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .co-news-tag {
+      display: inline-block;
+      height: 20px;
+      padding: 0 9px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      line-height: 20px;
+      width: fit-content;
+    }
+    .co-news-tag-dark  { background: #f2f2f2; color: #1c1c26; }
+    .co-news-tag-blue  { background: #eef1ff; color: #1a40e8; }
+    .co-news-tag-green { background: #edf9f4; color: #0fa86e; }
+    .co-news-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0a0a0f;
+      letter-spacing: -0.32px;
+      line-height: 1.2;
+    }
+    .co-news-excerpt {
+      font-size: 15px;
+      font-weight: 400;
+      color: #5c5c72;
+      line-height: 1.55;
+      flex: 1;
+    }
+    .co-news-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid #f2f2f2;
+    }
+    .co-news-date {
+      font-size: 12px;
+      font-weight: 400;
+      color: #9898a8;
+    }
+    .co-news-read {
+      font-size: 14px;
+      font-weight: 600;
+      color: #d7000f;
+      transition: opacity 0.2s;
+    }
+    .co-news-read:hover { opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .co-hero { grid-template-columns: 1fr; gap: 48px; }
+      .co-stat-grid { grid-template-columns: repeat(4, 1fr); }
+      .mission-inner { grid-template-columns: 1fr; gap: 48px; }
+      .quality-inner { grid-template-columns: 1fr; gap: 48px; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      /* 2-column: reset 3-column rules, apply 2-column borders */
+      .val-card:nth-child(-n+3) { border-bottom: none; }
+      .val-card:not(:nth-child(3n)) { border-right: none; }
+      .val-card:nth-child(-n+4) { border-bottom: 1px solid #bbb4b4; }
+      .val-card:not(:nth-child(2n)) { border-right: 1px solid #bbb4b4; }
+      .val-card:nth-child(5), .val-card:nth-child(6) { border-bottom: none; }
+    }
+    @media (max-width: 992px) {
+      .co-hero { padding: 64px 32px; }
+      .sec-wrap { padding: 0 32px; }
+      .sec-h2 { font-size: 40px; }
+      .co-hero-h1 { font-size: 54px; }
+      .co-stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer { padding: 48px 32px 0; }
+      .footer-main { grid-template-columns: 1fr; gap: 40px; }
+      .cta-sec { padding: 64px 32px; }
+      .cta-h2 { font-size: 40px; }
+      .co-news-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .values-grid { grid-template-columns: 1fr; }
+      /* Single column: only bottom borders */
+      .val-card:not(:nth-child(3n)) { border-right: none; }
+      .val-card:nth-child(-n+3) { border-bottom: none; }
+      .val-card { border-bottom: 1px solid #bbb4b4; }
+      .val-card:last-child { border-bottom: none; }
+      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+      .co-news-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .co-news-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .co-hero-h1 { font-size: 40px; }
+      .sec-h2 { font-size: 30px; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+      <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5&quot;</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link active">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="background: linear-gradient(123.87deg, #1e1818 0%, #750c0c 100%);">
+    <div class="co-hero">
+      <div class="co-hero-left">
+        <div class="co-hero-eyebrow">
+          <div class="co-hero-eyebrow-line"></div>
+          <span class="co-hero-eyebrow-text">Company</span>
+        </div>
+        <h1 class="co-hero-h1">Save Moments.<br>Create Futures.</h1>
+        <p class="co-hero-sub">A global storage technology company committed to innovation across every application — from consumer electronics to enterprise infrastructure.</p>
+      </div>
+      <div class="co-stat-grid">
+        <div class="co-stat-card">
+          <div class="co-stat-num">50<span>+</span></div>
+          <div class="co-stat-label">Countries with active distribution</div>
+        </div>
+        <div class="co-stat-card">
+          <div class="co-stat-num">180<span>+</span></div>
+          <div class="co-stat-label">Products in the lineup</div>
+        </div>
+        <div class="co-stat-card">
+          <div class="co-stat-num">15<span>+</span></div>
+          <div class="co-stat-label">Years of storage R&amp;D</div>
+        </div>
+        <div class="co-stat-card">
+          <div class="co-stat-iso">ISO Certified</div>
+          <div class="co-stat-label">Manufacturing quality assurance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+    </div>
+  </div>
+
+  <!-- MISSION & STORY -->
+  <section class="mission-sec">
+    <div class="sec-wrap">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-text">Mission &amp; Story</span>
+      </div>
+      <h2 class="sec-h2">Who we are.</h2>
+      <div class="mission-inner">
+        <div class="mission-left">
+          <p class="mission-subhead">We go above and beyond to embrace <em>the future.</em></p>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">Founded</div>
+              <div class="tl-title">Hikstorage Technology established</div>
+              <div class="tl-body">Founded in Hangzhou, China as a professional storage solutions provider.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">Growth</div>
+              <div class="tl-title">Global expansion begins</div>
+              <div class="tl-body">Distribution channels established across Asia, Europe, and the Americas.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">Innovation</div>
+              <div class="tl-title">PCIe 4.0 lineup launched</div>
+              <div class="tl-body">FUTURE series introduces competitive Gen 4 NVMe with premium aesthetics.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot filled"></div>
+              <div class="tl-year">2024–Now</div>
+              <div class="tl-title">PCIe 5.0 FUTURE CORE</div>
+              <div class="tl-body">Industry-leading 14,000 MB/s consumer SSD sets new performance records.</div>
+            </div>
+          </div>
+        </div>
+        <div class="mission-right">
+          <div class="mission-paras">
+            <p class="mission-para">As a global provider of ultimate storage products and solutions, HIKSEMI is committed to continuous innovation to meet the diverse needs of applications including industrial control, video surveillance, data centers, consumer electronics, and more.</p>
+            <p class="mission-para">We leverage years of deep engineering expertise and state-of-the-art manufacturing to produce storage products that deliver exceptional value at every price point — from everyday USB drives to enterprise-class NVMe arrays.</p>
+            <p class="mission-para">Our product development philosophy centers on three principles: performance that sets benchmarks, reliability that customers can trust, and design that elevates the experience. Every HIKSEMI product is an expression of these values.</p>
+            <p class="mission-para">From our headquarters in Hangzhou's Binjiang District — China's 'Silicon Valley' — our team of engineers, designers, and support specialists work together to bring next-generation storage technology to users worldwide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="values-sec">
+    <div class="sec-wrap">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-text">Core Values</span>
+      </div>
+      <h2 class="sec-h2">Why HIKSEMI.</h2>
+      <div class="values-grid-wrap">
+        <div class="values-grid">
+          <div class="val-card">
+            <div class="val-icon">⚡</div>
+            <div class="val-title">Performance First</div>
+            <div class="val-body">We never compromise on speed. Every product is designed to push the boundaries of what's technically possible at its price point.</div>
+          </div>
+          <div class="val-card">
+            <div class="val-icon">🔬</div>
+            <div class="val-title">Engineering Excellence</div>
+            <div class="val-body">Our R&amp;D teams invest deeply in NAND flash research, firmware optimization, and thermal engineering to deliver consistently superior products.</div>
+          </div>
+          <div class="val-card">
+            <div class="val-icon">🌍</div>
+            <div class="val-title">Global Reach</div>
+            <div class="val-body">With distribution in 50+ countries and multilingual support, we're committed to serving customers wherever they are in the world.</div>
+          </div>
+          <div class="val-card">
+            <div class="val-icon">🛡️</div>
+            <div class="val-title">Reliability You Can Trust</div>
+            <div class="val-body">Industry-leading warranty terms and rigorous quality control mean our products are built to last — and we'll stand behind them if they don't.</div>
+          </div>
+          <div class="val-card">
+            <div class="val-icon">💡</div>
+            <div class="val-title">Design &amp; Aesthetics</div>
+            <div class="val-body">Storage should look as good as it performs. Our design team ensures every product is visually compelling across the full product lifecycle.</div>
+          </div>
+          <div class="val-card">
+            <div class="val-icon">♻️</div>
+            <div class="val-title">Sustainability</div>
+            <div class="val-body">We're committed to reducing environmental impact through responsible packaging, energy-efficient manufacturing, and recycling programs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY CONTROL -->
+  <section class="quality-sec">
+    <div class="sec-wrap">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-text">Quality Control</span>
+      </div>
+      <h2 class="sec-h2">Built to last.</h2>
+      <div class="quality-inner">
+        <div class="qual-steps">
+          <div class="qual-step">
+            <div class="qual-step-label">01 — NAND Selection</div>
+            <div class="qual-step-title">Premium 3D NAND sourcing</div>
+            <div class="qual-step-body">We source only premium 3D NAND from Tier 1 manufacturers, ensuring consistent cell quality and long-term endurance across all product lines.</div>
+          </div>
+          <div class="qual-step">
+            <div class="qual-step-label">02 — Testing</div>
+            <div class="qual-step-title">10,000+ hour validation</div>
+            <div class="qual-step-body">Every product undergoes extensive burn-in testing, stress testing, and compatibility validation before leaving our facilities.</div>
+          </div>
+          <div class="qual-step">
+            <div class="qual-step-label">03 — Firmware</div>
+            <div class="qual-step-title">In-house firmware development</div>
+            <div class="qual-step-body">Proprietary firmware developed by our engineers maximizes the performance, reliability, and lifespan of each drive.</div>
+          </div>
+          <div class="qual-step">
+            <div class="qual-step-label">04 — Warranty</div>
+            <div class="qual-step-title">Up to 5-year warranty</div>
+            <div class="qual-step-body">Industry-leading warranty coverage backed by a global support network in 50+ countries for responsive, local assistance.</div>
+          </div>
+          <div class="qual-step">
+            <div class="qual-step-label">05 — Authenticity</div>
+            <div class="qual-step-title">Anti-counterfeiting protection</div>
+            <div class="qual-step-body">Every product ships with a unique authentication code. Verify yours at hiksemitech.com to ensure you have a genuine HIKSEMI product.</div>
+          </div>
+        </div>
+        <div class="qual-right">
+          <div class="qual-cert-card">
+            <div class="qual-cert-title">Certifications &amp; Standards</div>
+            <div class="qual-cert-grid">
+              <div class="cert-tile">
+                <div class="cert-tile-icon">📋</div>
+                <div class="cert-tile-name">ISO 9001</div>
+                <div class="cert-tile-sub">Quality management</div>
+              </div>
+              <div class="cert-tile">
+                <div class="cert-tile-icon">🌱</div>
+                <div class="cert-tile-name">RoHS</div>
+                <div class="cert-tile-sub">Hazardous substances</div>
+              </div>
+              <div class="cert-tile">
+                <div class="cert-tile-icon">⚡</div>
+                <div class="cert-tile-name">CE Mark</div>
+                <div class="cert-tile-sub">European conformity</div>
+              </div>
+              <div class="cert-tile">
+                <div class="cert-tile-icon">🔒</div>
+                <div class="cert-tile-name">FCC Part 15</div>
+                <div class="cert-tile-sub">EMI compliance</div>
+              </div>
+              <div class="cert-tile">
+                <div class="cert-tile-icon">🌍</div>
+                <div class="cert-tile-name">REACH</div>
+                <div class="cert-tile-sub">Chemical safety EU</div>
+              </div>
+              <div class="cert-tile">
+                <div class="cert-tile-icon">🏆</div>
+                <div class="cert-tile-name">NVMe 1.4</div>
+                <div class="cert-tile-sub">Protocol certified</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL PRESENCE -->
+  <section class="reach-sec">
+    <div class="sec-wrap">
+      <div class="reach-eyebrow">
+        <div class="reach-eyebrow-line"></div>
+        <span class="reach-eyebrow-text">Global Presence</span>
+      </div>
+      <h2 class="reach-h2">Worldwide reach.</h2>
+      <p class="reach-desc">HIKSEMI operates from its headquarters in Hangzhou, China, with sales and support offices across four continents.</p>
+
+      <div class="offices-card">
+        <div class="offices-title">Our Global Offices</div>
+        <div class="offices-rows">
+          <div class="offices-row">
+            <div class="office-card">
+              <div class="office-name-row">
+                <span class="office-city">Hangzhou</span>
+                <span class="office-hq-badge">HQ</span>
+              </div>
+              <div class="office-country">China</div>
+              <div class="office-type">Global Headquarters &amp; R&amp;D</div>
+            </div>
+            <div class="office-card">
+              <div class="office-city">Frankfurt</div>
+              <div class="office-country">Germany</div>
+              <div class="office-type">EMEA Regional Office</div>
+            </div>
+            <div class="office-card">
+              <div class="office-city">New York</div>
+              <div class="office-country">United States</div>
+              <div class="office-type">Americas Sales Office</div>
+            </div>
+            <div class="office-card">
+              <div class="office-city">Singapore</div>
+              <div class="office-country">Singapore</div>
+              <div class="office-type">Asia-Pacific Hub</div>
+            </div>
+          </div>
+          <div class="offices-row">
+            <div class="office-card">
+              <div class="office-city">Tokyo</div>
+              <div class="office-country">Japan</div>
+              <div class="office-type">Japan Sales Representative</div>
+            </div>
+            <div class="office-card">
+              <div class="office-city">Seoul</div>
+              <div class="office-country">South Korea</div>
+              <div class="office-type">Korea Sales Representative</div>
+            </div>
+            <div class="office-card">
+              <div class="office-city">São Paulo</div>
+              <div class="office-country">Brazil</div>
+              <div class="office-type">Latin America Distributor</div>
+            </div>
+            <div class="office-card">
+              <div class="office-city">Dubai</div>
+              <div class="office-country">UAE</div>
+              <div class="office-type">Middle East Representative</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS & PRESS -->
+  <section class="co-news-sec">
+    <div class="sec-wrap">
+      <div class="co-news-header">
+        <div>
+          <div class="sec-eyebrow">
+            <div class="sec-eyebrow-line"></div>
+            <span class="sec-eyebrow-text">Press &amp; News</span>
+          </div>
+          <h2 class="sec-h2">HIKSEMI News.</h2>
+        </div>
+        <a href="#" class="co-news-all-link">All News →</a>
+      </div>
+      <div class="co-news-grid">
+
+        <!-- Card 1: Product Launch -->
+        <div class="co-news-card">
+          <img class="co-news-img" src="images/news-1.jpg" alt="FUTURE CORE SSD launch" />
+          <div class="co-news-body">
+            <span class="co-news-tag co-news-tag-dark">Product Launch</span>
+            <div class="co-news-title">HIKSEMI Launches FUTURE CORE — World's Fastest Consumer SSD at 14,000 MB/s</div>
+            <div class="co-news-excerpt">PCIe 5.0 NVMe with custom RGB heatsink sets new performance benchmarks at an accessible price point.</div>
+            <div class="co-news-footer">
+              <span class="co-news-date">March 2025</span>
+              <a href="#" class="co-news-read">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Award -->
+        <div class="co-news-card">
+          <img class="co-news-img" src="images/news-2.jpg" alt="CES 2025 Innovation Award" />
+          <div class="co-news-body">
+            <span class="co-news-tag co-news-tag-blue">Award</span>
+            <div class="co-news-title">CES 2025 Innovation Award — Computer Hardware Category</div>
+            <div class="co-news-excerpt">FUTURE CORE recognized by CES judges for its breakthrough PCIe 5.0 architecture and thermal design.</div>
+            <div class="co-news-footer">
+              <span class="co-news-date">January 2025</span>
+              <a href="#" class="co-news-read">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Expansion -->
+        <div class="co-news-card">
+          <img class="co-news-img" src="images/news-3.jpg" alt="HIKSEMI EMEA expansion" />
+          <div class="co-news-body">
+            <span class="co-news-tag co-news-tag-green">Company</span>
+            <div class="co-news-title">HIKSEMI Expands to 10 New EMEA Countries — 50+ Total Markets</div>
+            <div class="co-news-excerpt">Strategic distributor partnerships across Poland, Greece, and the broader Balkans region cement our European footprint.</div>
+            <div class="co-news-footer">
+              <span class="co-news-date">November 2024</span>
+              <a href="#" class="co-news-read">Read →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="HIKSEMI" />
+        </div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="#">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solution</div>
+          <div class="footer-col-links">
+            <a href="solutions.html">Gaming</a>
+            <a href="solutions.html">Content Creation</a>
+            <a href="solutions.html">Industrial</a>
+            <a href="solutions.html">Surveillance</a>
+            <a href="solutions.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
+  </footer>
+
+</body>
+</html>
+

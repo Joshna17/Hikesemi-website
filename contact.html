@@ -1,0 +1,889 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – HIKSEMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    /* ── SECTION COMMONS ── */
+    .sec-wrap {
+      max-width: 1792px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    /* ── CONTACT HERO ── */
+    .ct-hero {
+      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 80px 0 96px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ct-hero::after {
+      content: '';
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(215,0,15,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ct-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .ct-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 46px;
+    }
+    .ct-eyebrow-line { width: 18px; height: 2px; background: #a8a8a8; border-radius: 1px; flex-shrink: 0; }
+    .ct-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ccc;
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+    }
+    .ct-h1 {
+      font-size: 78px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -3.9px;
+      line-height: 78px;
+      margin-bottom: 28px;
+      white-space: nowrap;
+    }
+    .ct-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: #9898a8;
+      line-height: 30.6px;
+      margin-bottom: 40px;
+    }
+    .ct-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ct-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 21px;
+      height: 73px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      transition: background 0.2s;
+    }
+    .ct-link:hover { background: rgba(255,255,255,0.08); }
+    .ct-link-icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
+    .ct-link-body { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    .ct-link-label { font-size: 16px; font-weight: 500; color: #fff; }
+    .ct-link-value { font-size: 14px; font-weight: 400; color: #9898a8; }
+    .ct-link-arrow { font-size: 18px; color: #fff; flex-shrink: 0; }
+
+    /* Right: Response Times card */
+    .ct-resp-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 41px;
+      margin-top: 72px;
+    }
+    .ct-resp-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .ct-resp-rows { display: flex; flex-direction: column; }
+    .ct-resp-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .ct-resp-row:last-child { border-bottom: none; }
+    .ct-resp-channel { font-size: 16px; font-weight: 400; color: #fff; }
+    .ct-resp-time { font-size: 16px; font-weight: 500; color: #fff; }
+    .ct-hq {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 24px;
+      margin-top: 8px;
+    }
+    .ct-hq-label {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.84px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .ct-hq-addr {
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 22.1px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #000;
+      padding: 64px 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-main {
+      max-width: 1716px;
+      margin: 0 auto;
+      padding: 0 0 56px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-logo img { height: 18px; display: block; margin-bottom: 20px; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social-btn {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social-btn:hover { border-color: #d7000f; color: #fff; }
+    .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.5px; margin-bottom: 20px; }
+    .footer-col-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col-links a { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-col-links a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1716px;
+      margin: 0 auto;
+      padding: 20px 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); }
+    .footer-contact-info { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); }
+
+    /* ── SEND MESSAGE SECTION ── */
+    .ct-msg-sec {
+      padding: 80px 0 96px;
+      background: #fff;
+    }
+    .ct-msg-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .ct-msg-eyebrow-line { width: 18px; height: 2px; background: #e8321a; border-radius: 1px; flex-shrink: 0; }
+    .ct-msg-eyebrow-text { font-size: 12px; font-weight: 700; color: #e8321a; letter-spacing: 1.9775px; text-transform: uppercase; }
+    .ct-msg-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -2.16px;
+      line-height: 56.7px;
+      margin-bottom: 30px;
+    }
+    .ct-msg-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Form */
+    .ct-form { display: flex; flex-direction: column; gap: 20px; }
+    .ct-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ct-form-group { display: flex; flex-direction: column; gap: 7px; }
+    .ct-form-label { font-size: 16px; font-weight: 500; color: #0a0a0f; }
+    .ct-form-input,
+    .ct-form-select,
+    .ct-form-textarea {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #e4e4eb;
+      border-radius: 10px;
+      padding: 14px 17px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #0a0a0f;
+      font-family: 'Outfit', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .ct-form-input::placeholder,
+    .ct-form-textarea::placeholder { color: #757575; }
+    .ct-form-input:focus,
+    .ct-form-select:focus,
+    .ct-form-textarea:focus { border-color: #e8321a; }
+    .ct-form-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23888888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .ct-form-select option { color: #0a0a0f; }
+    .ct-form-textarea { resize: vertical; min-height: 130px; line-height: 1.5; }
+    .ct-send-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 28px;
+      background: #e8321a;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .ct-send-btn:hover { background: #c42814; }
+    .ct-form-note { font-size: 14px; font-weight: 400; color: #9898a8; }
+    .ct-form-note a { color: #e8321a; text-decoration: underline; }
+
+    /* Sidebar */
+    .ct-sidebar {
+      background: #f7f7f9;
+      border-radius: 18px;
+      padding: 36px;
+    }
+    .ct-sidebar-title { font-size: 18px; font-weight: 700; color: #0a0a0f; margin-bottom: 28px; }
+    .ct-sidebar-items { display: flex; flex-direction: column; gap: 24px; margin-bottom: 28px; }
+    .ct-sidebar-item { display: flex; gap: 14px; align-items: flex-start; }
+    .ct-sidebar-icon { font-size: 18px; line-height: 1; flex-shrink: 0; padding-top: 2px; }
+    .ct-sidebar-body { display: flex; flex-direction: column; gap: 4px; }
+    .ct-sidebar-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #9898a8;
+      letter-spacing: 0.96px;
+      text-transform: uppercase;
+    }
+    .ct-sidebar-value { font-size: 16px; font-weight: 400; color: #0a0a0f; line-height: 20px; }
+    .ct-rg { border-top: 1px solid #e4e4eb; padding-top: 24px; }
+    .ct-rg-title { font-size: 16px; font-weight: 600; color: #0a0a0f; margin-bottom: 16px; }
+    .ct-rg-rows { display: flex; flex-direction: column; }
+    .ct-rg-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0 11px;
+      border-bottom: 1px solid #f2f2f5;
+    }
+    .ct-rg-row:last-child { border-bottom: none; }
+    .ct-rg-channel { font-size: 16px; font-weight: 400; color: #5c5c72; }
+    .ct-rg-time { font-size: 16px; font-weight: 500; color: #0a0a0f; }
+
+    /* ── REGIONAL CONTACTS SECTION ── */
+    .ct-regional-sec {
+      padding: 88px 0 80px;
+      background: #f7f7f9;
+    }
+    .ct-regional-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+    .ct-regional-eyebrow-line { width: 18px; height: 2px; background: #e8321a; border-radius: 1px; flex-shrink: 0; }
+    .ct-regional-eyebrow-text { font-size: 12px; font-weight: 700; color: #e8321a; letter-spacing: 1.9775px; text-transform: uppercase; }
+    .ct-regional-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -2.16px;
+      line-height: 56.7px;
+    }
+    .ct-regional-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 30px;
+    }
+    .ct-regional-card {
+      background: #fff;
+      border: 1px solid #e4e4eb;
+      border-radius: 16px;
+      padding: 29px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ct-regional-title { font-size: 18px; font-weight: 700; color: #0a0a0f; line-height: normal; }
+    .ct-regional-countries { font-size: 14px; font-weight: 400; color: #9898a8; line-height: normal; }
+    .ct-regional-details { padding-top: 12px; display: flex; flex-direction: column; }
+    .ct-regional-details p { font-size: 16px; font-weight: 400; color: #e8321a; line-height: 22.1px; margin: 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .ct-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .ct-resp-card { margin-top: 0; }
+      .ct-h1 { font-size: 56px; }
+      .ct-regional-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 992px) {
+      .sec-wrap { padding: 0 32px; }
+      .ct-hero { padding: 64px 0 80px; }
+      .ct-h1 { font-size: 44px; white-space: normal; }
+      .footer { padding: 48px 32px 0; }
+      .footer-main { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .ct-h1 { font-size: 36px; }
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+      <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5&quot;</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTACT HERO -->
+  <section class="ct-hero">
+    <div class="sec-wrap">
+      <div class="ct-hero-inner">
+
+        <!-- Left: heading + contact links -->
+        <div class="ct-hero-left">
+          <div class="ct-eyebrow">
+            <div class="ct-eyebrow-line"></div>
+            <span class="ct-eyebrow-text">Get in Touch</span>
+          </div>
+          <h1 class="ct-h1">Contact HIKSEMI.</h1>
+          <p class="ct-desc">Whether you're a distributor, developer, journalist, or customer — we'd love<br>to hear from you.</p>
+          <div class="ct-links">
+            <a href="mailto:sales@hiksemitech.com" class="ct-link">
+              <span class="ct-link-icon">📧</span>
+              <div class="ct-link-body">
+                <span class="ct-link-label">Sales Inquiries</span>
+                <span class="ct-link-value">sales@hiksemitech.com</span>
+              </div>
+              <span class="ct-link-arrow">→</span>
+            </a>
+            <a href="mailto:support@hiksemitech.com" class="ct-link">
+              <span class="ct-link-icon">🛠️</span>
+              <div class="ct-link-body">
+                <span class="ct-link-label">Technical Support</span>
+                <span class="ct-link-value">support@hiksemitech.com</span>
+              </div>
+              <span class="ct-link-arrow">→</span>
+            </a>
+            <a href="mailto:press@hiksemitech.com" class="ct-link">
+              <span class="ct-link-icon">📰</span>
+              <div class="ct-link-body">
+                <span class="ct-link-label">Press &amp; Media</span>
+                <span class="ct-link-value">press@hiksemitech.com</span>
+              </div>
+              <span class="ct-link-arrow">→</span>
+            </a>
+            <a href="tel:4006804998" class="ct-link">
+              <span class="ct-link-icon">📞</span>
+              <div class="ct-link-body">
+                <span class="ct-link-label">Phone (China)</span>
+                <span class="ct-link-value">400-680-4998</span>
+              </div>
+              <span class="ct-link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Response Times card -->
+        <div class="ct-resp-card">
+          <div class="ct-resp-title">Response Times</div>
+          <div class="ct-resp-rows">
+            <div class="ct-resp-row">
+              <span class="ct-resp-channel">Sales Inquiries</span>
+              <span class="ct-resp-time">Within 24 hrs</span>
+            </div>
+            <div class="ct-resp-row">
+              <span class="ct-resp-channel">Technical Support</span>
+              <span class="ct-resp-time">1–2 Business Days</span>
+            </div>
+            <div class="ct-resp-row">
+              <span class="ct-resp-channel">Partnership</span>
+              <span class="ct-resp-time">3–5 Business Days</span>
+            </div>
+            <div class="ct-resp-row">
+              <span class="ct-resp-channel">Press &amp; Media</span>
+              <span class="ct-resp-time">Same Day</span>
+            </div>
+          </div>
+          <div class="ct-hq">
+            <div class="ct-hq-label">Headquarters</div>
+            <div class="ct-hq-addr">
+              Room 307, Unit B, Building 2<br>
+              No. 399 Danfeng Road, Binjiang District<br>
+              Hangzhou, Zhejiang Province, China
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEND MESSAGE -->
+  <section class="ct-msg-sec">
+    <div class="sec-wrap">
+      <div class="ct-msg-eyebrow">
+        <div class="ct-msg-eyebrow-line"></div>
+        <span class="ct-msg-eyebrow-text">Send Message</span>
+      </div>
+      <h2 class="ct-msg-h2">Leave us a message.</h2>
+      <div class="ct-msg-inner">
+
+        <!-- Left: Form -->
+        <form class="ct-form" onsubmit="return false;">
+          <div class="ct-form-row">
+            <div class="ct-form-group">
+              <label class="ct-form-label">First Name *</label>
+              <input class="ct-form-input" type="text" placeholder="Rajesh" required />
+            </div>
+            <div class="ct-form-group">
+              <label class="ct-form-label">Last Name *</label>
+              <input class="ct-form-input" type="text" placeholder="Sharma" required />
+            </div>
+          </div>
+          <div class="ct-form-group">
+            <label class="ct-form-label">Email Address *</label>
+            <input class="ct-form-input" type="email" placeholder="rajesh@company.com" required />
+          </div>
+          <div class="ct-form-group">
+            <label class="ct-form-label">Company</label>
+            <input class="ct-form-input" type="text" placeholder="Company name (optional)" />
+          </div>
+          <div class="ct-form-group">
+            <label class="ct-form-label">Country *</label>
+            <select class="ct-form-select" required>
+              <option value="" disabled selected>Select your country</option>
+              <option>China</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>Germany</option>
+              <option>Japan</option>
+              <option>South Korea</option>
+              <option>India</option>
+              <option>Singapore</option>
+              <option>Australia</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="ct-form-group">
+            <label class="ct-form-label">Inquiry Type *</label>
+            <select class="ct-form-select" required>
+              <option value="" disabled selected>Select inquiry type</option>
+              <option>Sales Inquiry</option>
+              <option>Technical Support</option>
+              <option>Warranty / RMA</option>
+              <option>Partnership / Distribution</option>
+              <option>Press &amp; Media</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="ct-form-group">
+            <label class="ct-form-label">Product (optional)</label>
+            <select class="ct-form-select">
+              <option value="" disabled selected>Select a product</option>
+              <option>FUTURE CORE (PCIe 5.0 NVMe)</option>
+              <option>FUTURE PRO (PCIe 4.0 NVMe)</option>
+              <option>FUTURE ECO (PCIe 3.0 NVMe)</option>
+              <option>WAVE(S) SATA SSD</option>
+              <option>DDR5 / DDR4 Memory</option>
+              <option>Memory Cards</option>
+              <option>Portable SSD</option>
+              <option>Home NAS</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="ct-form-group">
+            <label class="ct-form-label">Message *</label>
+            <textarea class="ct-form-textarea" placeholder="Please describe your inquiry in detail. The more context you provide, the faster we can help." required></textarea>
+          </div>
+          <button type="submit" class="ct-send-btn">Send Message →</button>
+          <p class="ct-form-note">* Required fields. By submitting this form you agree to our <a href="#">Privacy Policy</a>.</p>
+        </form>
+
+        <!-- Right: Sidebar -->
+        <div class="ct-sidebar">
+          <div class="ct-sidebar-title">Headquarters</div>
+          <div class="ct-sidebar-items">
+            <div class="ct-sidebar-item">
+              <span class="ct-sidebar-icon">📍</span>
+              <div class="ct-sidebar-body">
+                <span class="ct-sidebar-label">Address</span>
+                <span class="ct-sidebar-value">Room 307, Unit B, Building 2<br>No. 399 Danfeng Road<br>Binjiang District, Hangzhou<br>Zhejiang Province, China</span>
+              </div>
+            </div>
+            <div class="ct-sidebar-item">
+              <span class="ct-sidebar-icon">📞</span>
+              <div class="ct-sidebar-body">
+                <span class="ct-sidebar-label">Phone</span>
+                <span class="ct-sidebar-value">400-680-4998<br>(China, Mon–Fri 9am–6pm CST)</span>
+              </div>
+            </div>
+            <div class="ct-sidebar-item">
+              <span class="ct-sidebar-icon">📧</span>
+              <div class="ct-sidebar-body">
+                <span class="ct-sidebar-label">General Email</span>
+                <span class="ct-sidebar-value">info@hiksemitech.com</span>
+              </div>
+            </div>
+            <div class="ct-sidebar-item">
+              <span class="ct-sidebar-icon">🌐</span>
+              <div class="ct-sidebar-body">
+                <span class="ct-sidebar-label">Website</span>
+                <span class="ct-sidebar-value">www.hiksemitech.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="ct-rg">
+            <div class="ct-rg-title">Response Time Guidelines</div>
+            <div class="ct-rg-rows">
+              <div class="ct-rg-row">
+                <span class="ct-rg-channel">Sales inquiries</span>
+                <span class="ct-rg-time">≤ 24 hours</span>
+              </div>
+              <div class="ct-rg-row">
+                <span class="ct-rg-channel">Technical support</span>
+                <span class="ct-rg-time">1–2 business days</span>
+              </div>
+              <div class="ct-rg-row">
+                <span class="ct-rg-channel">Warranty claims</span>
+                <span class="ct-rg-time">2–3 business days</span>
+              </div>
+              <div class="ct-rg-row">
+                <span class="ct-rg-channel">Partnership inquiries</span>
+                <span class="ct-rg-time">3–5 business days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORLDWIDE SUPPORT / REGIONAL CONTACTS -->
+  <section class="ct-regional-sec">
+    <div class="sec-wrap">
+      <div class="ct-regional-eyebrow">
+        <div class="ct-regional-eyebrow-line"></div>
+        <span class="ct-regional-eyebrow-text">Worldwide Support</span>
+      </div>
+      <h2 class="ct-regional-h2">Regional offices.</h2>
+      <div class="ct-regional-grid">
+
+        <div class="ct-regional-card">
+          <div class="ct-regional-title">Asia Pacific</div>
+          <div class="ct-regional-countries">China · Japan · Korea · SEA</div>
+          <div class="ct-regional-details">
+            <p>Headquarters in Hangzhou, China</p>
+            <p>Regional hub in Singapore</p>
+            <p>apac@hiksemitech.com</p>
+          </div>
+        </div>
+
+        <div class="ct-regional-card">
+          <div class="ct-regional-title">Europe, Middle East &amp; Africa</div>
+          <div class="ct-regional-countries">EU · UK · UAE · Africa</div>
+          <div class="ct-regional-details">
+            <p>Regional office in Frankfurt, Germany</p>
+            <p>Middle East rep in Dubai, UAE</p>
+            <p>emea@hiksemitech.com</p>
+          </div>
+        </div>
+
+        <div class="ct-regional-card">
+          <div class="ct-regional-title">Americas</div>
+          <div class="ct-regional-countries">USA · Canada · Latin America</div>
+          <div class="ct-regional-details">
+            <p>Sales office in New York, USA</p>
+            <p>LatAm distributor in São Paulo</p>
+            <p>americas@hiksemitech.com</p>
+          </div>
+        </div>
+
+        <div class="ct-regional-card">
+          <div class="ct-regional-title">South Asia</div>
+          <div class="ct-regional-countries">India · Nepal · Sri Lanka · Bangladesh</div>
+          <div class="ct-regional-details">
+            <p>Distribution through India office</p>
+            <p>Partners in Kathmandu, Nepal</p>
+            <p>southasia@hiksemitech.com</p>
+          </div>
+        </div>
+
+        <div class="ct-regional-card">
+          <div class="ct-regional-title">Japan &amp; Korea</div>
+          <div class="ct-regional-countries">Japan · South Korea</div>
+          <div class="ct-regional-details">
+            <p>Sales rep office in Tokyo</p>
+            <p>Korea representative in Seoul</p>
+            <p>japan@hiksemitech.com</p>
+          </div>
+        </div>
+
+        <div class="ct-regional-card">
+          <div class="ct-regional-title">Enterprise &amp; OEM</div>
+          <div class="ct-regional-countries">Global B2B Sales</div>
+          <div class="ct-regional-details">
+            <p>Dedicated enterprise sales team</p>
+            <p>OEM and embedded storage inquiries</p>
+            <p>enterprise@hiksemitech.com</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="HIKSEMI" />
+        </div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="#">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solutions</div>
+          <div class="footer-col-links">
+            <a href="solutions.html">Gaming</a>
+            <a href="solutions.html">Content Creation</a>
+            <a href="solutions.html">Industrial</a>
+            <a href="solutions.html">Surveillance</a>
+            <a href="solutions.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html#faq">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,1285 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support – HIKSEMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    /* ── HERO ── */
+    .support-hero {
+      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 88px 64px 80px;
+      max-width: 1920px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .support-hero::after {
+      content: '';
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(215,0,15,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .sp-hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+    .sp-hero-eyebrow-line { width: 18px; height: 2px; background: #a8a8a8; border-radius: 1px; flex-shrink: 0; }
+    .sp-hero-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ccc;
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+    }
+    .sp-hero-h1 {
+      font-size: 78px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -3.9px;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .sp-hero-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: #9898a8;
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: 32px;
+    }
+    .sp-hero-btns { display: flex; align-items: center; gap: 12px; }
+    .sp-btn-primary {
+      height: 48px;
+      padding: 0 24px;
+      background: #d7000f;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .sp-btn-outline {
+      height: 48px;
+      padding: 0 24px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      transition: border-color 0.2s;
+    }
+    .sp-btn-outline:hover { border-color: rgba(255,255,255,0.6); }
+
+    /* ── MARQUEE ── */
+    .marquee-strip {
+      background: #0d0d0d;
+      height: 46px;
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: max-content;
+      animation: mq-scroll 28s linear infinite;
+    }
+    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 8px 0 28px;
+    }
+    .marquee-text {
+      font-weight: 600;
+      font-size: 12px;
+      color: #555;
+      letter-spacing: 1.44px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .marquee-sep { font-weight: 400; font-size: 8px; color: #555; }
+    @keyframes mq-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION COMMONS ── */
+    .sec-wrap {
+      max-width: 1792px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+    .sec-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .sec-eyebrow-line { width: 18px; height: 2px; background: #d7000f; flex-shrink: 0; }
+    .sec-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+    }
+    .sec-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -2.16px;
+      line-height: 1.05;
+    }
+
+    /* ── RESOURCES / GET HELP SECTION ── */
+    .sp-resources-sec {
+      padding: 96px 0 100px;
+      background: #fff;
+    }
+    .sp-resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .sp-resource-card {
+      padding: 36px 30px 30px;
+      border: 1px solid #e8e8e8;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .sp-resource-card:hover { border-color: #d7000f; box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
+    .sp-resource-icon {
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 26px;
+    }
+    .sp-resource-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0a0a0f;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+    .sp-resource-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: #5c5c72;
+      line-height: 22.4px;
+      flex: 1;
+    }
+    .sp-resource-link {
+      font-size: 16px;
+      font-weight: 500;
+      color: #d7000f;
+      margin-top: 18px;
+    }
+
+    /* ── WARRANTY SECTION ── */
+    .sp-warranty-sec {
+      padding: 96px 0 100px;
+      background: #fff;
+    }
+    .sp-warranty-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 48px;
+      align-items: start;
+    }
+    .sp-warranty-table-wrap {
+      border: 1px solid #e8e8e8;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .sp-warranty-table-wrap table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .sp-warranty-table-wrap col.col-cat  { width: 50%; }
+    .sp-warranty-table-wrap col.col-war  { width: 25%; }
+    .sp-warranty-table-wrap col.col-sup  { width: 25%; }
+    .sp-wt-head tr { background: #0d0d0d; height: 44px; }
+    .sp-wt-head th {
+      padding: 0 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.72px;
+      text-transform: uppercase;
+      text-align: left;
+      border-right: 1px solid #292929;
+    }
+    .sp-wt-head th:last-child { border-right: none; }
+    .sp-wt-body tr { border-bottom: 1px solid #f2f2f2; }
+    .sp-wt-body tr:last-child { border-bottom: none; }
+    .sp-wt-body td {
+      height: 47px;
+      padding: 0 18px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #1c1c26;
+      border-right: 1px solid #f2f2f2;
+      vertical-align: middle;
+    }
+    .sp-wt-body td:last-child { border-right: none; }
+    .sp-wt-warranty { font-weight: 500; color: #10b981; }
+    .sp-warranty-info { display: flex; flex-direction: column; }
+    .sp-winfo-item {
+      padding: 22px 0 23px;
+      border-bottom: 1px solid #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sp-winfo-item:last-child { border-bottom: none; }
+    .sp-winfo-title { font-size: 18px; font-weight: 500; color: #0a0a0f; }
+    .sp-winfo-body { font-size: 16px; font-weight: 300; color: #5c5c72; line-height: 22.4px; }
+
+    /* ── FAQ SECTION ── */
+    .sp-faq-sec {
+      padding: 96px 0 100px;
+      background: #f7f7f7;
+    }
+    .sp-faq-inner {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 60px;
+      margin-top: 48px;
+      align-items: start;
+    }
+    .sp-faq-sticky {
+      position: sticky;
+      top: 90px;
+    }
+    .sp-faq-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 36px;
+    }
+    .sp-faq-tab {
+      height: 38px;
+      padding: 0 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #5c5c72;
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sp-faq-tab.active {
+      background: #fff;
+      color: #d7000f;
+      font-weight: 500;
+    }
+    .sp-faq-tab:hover:not(.active) { color: #0a0a0f; }
+    .sp-faq-list { display: flex; flex-direction: column; }
+    .sp-faq-item { border-bottom: 1px solid #e8e8e8; }
+    .sp-faq-item:first-child { border-top: 1px solid #e8e8e8; }
+    .sp-faq-item.hidden { display: none; }
+    .sp-faq-btn {
+      width: 100%;
+      padding: 20px 0;
+      min-height: 69px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 500;
+      color: #0a0a0f;
+      gap: 16px;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: color 0.2s;
+    }
+    .sp-faq-btn:hover { color: #d7000f; }
+    .sp-faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 14px;
+      border: 1px solid #e8e8e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: #5c5c72;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+    .sp-faq-btn.open .sp-faq-icon { background: #d7000f; border-color: #d7000f; color: #fff; transform: rotate(45deg); }
+    .sp-faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .sp-faq-content.open { max-height: 400px; padding-bottom: 20px; }
+    .sp-faq-content p { font-size: 15px; font-weight: 300; color: #5c5c72; line-height: 1.75; }
+
+    /* ── DOWNLOADS SECTION ── */
+    .sp-downloads-sec {
+      padding: 96px 0 100px;
+      background: #fff;
+    }
+    .sp-downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .sp-dl-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 14px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .sp-dl-card:hover { border-color: #d7000f; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .sp-dl-icon { font-size: 28px; line-height: 1; }
+    .sp-dl-body { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .sp-dl-title { font-size: 18px; font-weight: 500; color: #0a0a0f; }
+    .sp-dl-desc { font-size: 16px; font-weight: 300; color: #5c5c72; line-height: 1.4; }
+    .sp-dl-link { font-size: 16px; font-weight: 500; color: #d7000f; }
+
+    /* ── AUTHENTICITY SECTION ── */
+    .sp-auth-sec {
+      padding: 80px 0 80px;
+      background: #0d0d0d;
+    }
+    .sp-auth-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .sp-auth-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .sp-auth-eyebrow-line { width: 18px; height: 2px; background: #d7000f; flex-shrink: 0; }
+    .sp-auth-eyebrow-text {
+      font-size: 11px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 1.76px;
+      text-transform: uppercase;
+    }
+    .sp-auth-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -2.16px;
+      line-height: 56.7px;
+      margin-bottom: 20px;
+    }
+    .sp-auth-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: #9898a8;
+      line-height: 30.6px;
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+    .sp-auth-form {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sp-auth-input {
+      flex: 1;
+      height: 47px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 0 16px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #0a0a0f;
+      outline: none;
+      font-family: 'Outfit', sans-serif;
+    }
+    .sp-auth-input::placeholder { color: #555; }
+    .sp-auth-submit {
+      height: 47px;
+      padding: 0 24px;
+      background: #828282;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .sp-auth-submit:hover { background: #d7000f; }
+    .sp-auth-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #212121;
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .sp-auth-card-icon { font-size: 60px; line-height: 1; margin-bottom: 20px; }
+    .sp-auth-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .sp-auth-card-desc {
+      font-size: 16px;
+      font-weight: 400;
+      color: #9898a8;
+      line-height: 20.8px;
+      margin-bottom: 28px;
+    }
+    .sp-auth-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      text-align: left;
+    }
+    .sp-auth-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .sp-auth-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 14px;
+      background: rgba(130,130,130,0.15);
+      border: 1px solid rgba(130,130,130,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ccc;
+    }
+    .sp-auth-step-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #9898a8;
+    }
+
+    /* ── CTA ── */
+    .cta-sec {
+      background: linear-gradient(123.87deg, #1e1818 0%, #750c0c 100%);
+      padding: 88px 64px;
+      text-align: center;
+    }
+    .cta-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .cta-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1.9775px;
+      text-transform: uppercase;
+    }
+    .cta-h2 {
+      font-size: 54px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -2.16px;
+      line-height: 1.05;
+      margin-bottom: 36px;
+    }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; }
+    .btn-red-cta {
+      height: 52px;
+      padding: 0 28px;
+      background: #d7000f;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-outline-cta {
+      height: 52px;
+      padding: 0 28px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+    }
+
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .sp-resources-grid { grid-template-columns: repeat(2, 1fr); }
+      .sp-downloads-grid { grid-template-columns: repeat(2, 1fr); }
+      .sp-faq-inner { grid-template-columns: 1fr; gap: 48px; }
+      .sp-faq-sticky { position: static; }
+      .sp-warranty-layout { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 600px) {
+      .sp-downloads-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 992px) {
+      .support-hero { padding: 64px 32px; }
+      .sec-wrap { padding: 0 32px; }
+      .sec-h2 { font-size: 40px; }
+      .sp-hero-h1 { font-size: 54px; }
+      .sp-auth-inner { grid-template-columns: 1fr; gap: 48px; }
+      .sp-auth-h2 { font-size: 40px; }
+      .cta-sec { padding: 64px 32px; }
+      .cta-h2 { font-size: 40px; }
+      .footer { padding: 48px 32px 0; }
+      .footer-main { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .sp-resources-grid { grid-template-columns: 1fr; }
+      .sp-warranty-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .sp-hero-h1 { font-size: 40px; }
+      .sec-h2 { font-size: 30px; }
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+      <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5&quot;</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link active">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SUPPORT HERO -->
+  <section style="background: linear-gradient(122.52deg, #1e1818 0%, #750c0c 100%);">
+    <div class="support-hero">
+      <div class="sp-hero-eyebrow">
+        <div class="sp-hero-eyebrow-line"></div>
+        <span class="sp-hero-eyebrow-text">Support Center</span>
+      </div>
+      <h1 class="sp-hero-h1">How can we<br>help you?</h1>
+      <p class="sp-hero-desc">Find answers, download resources, verify your product, and get in touch with our global support team.</p>
+      <div class="sp-hero-btns">
+        <a href="#faq" class="sp-btn-primary">Browse FAQ</a>
+        <a href="contact.html" class="sp-btn-outline">Contact Support →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
+      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
+    </div>
+  </div>
+
+  <!-- SUPPORT RESOURCES / GET HELP -->
+  <section class="sp-resources-sec">
+    <div class="sec-wrap">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-text">Get Help</span>
+      </div>
+      <h2 class="sec-h2">Support resources.</h2>
+      <div class="sp-resources-grid">
+
+        <a href="support.html#warranty" class="sp-resource-card">
+          <div class="sp-resource-icon">🛡️</div>
+          <div class="sp-resource-title">Warranty Policy</div>
+          <div class="sp-resource-desc">Understand what's covered, for how long, and how to make a claim for your HIKSEMI products.</div>
+          <span class="sp-resource-link">View Warranty Policy →</span>
+        </a>
+
+        <a href="support.html#downloads" class="sp-resource-card">
+          <div class="sp-resource-icon">⬇️</div>
+          <div class="sp-resource-title">Downloads</div>
+          <div class="sp-resource-desc">Data sheets, product brochures, firmware updates, compatibility lists, and software tools.</div>
+          <span class="sp-resource-link">Go to Downloads →</span>
+        </a>
+
+        <a href="support.html#faq" class="sp-resource-card">
+          <div class="sp-resource-icon">💬</div>
+          <div class="sp-resource-title">FAQ</div>
+          <div class="sp-resource-desc">Quick answers to the most common questions about installation, compatibility, and troubleshooting.</div>
+          <span class="sp-resource-link">Browse FAQ →</span>
+        </a>
+
+        <a href="support.html#authenticity" class="sp-resource-card">
+          <div class="sp-resource-icon">✅</div>
+          <div class="sp-resource-title">Authenticity Check</div>
+          <div class="sp-resource-desc">Verify your HIKSEMI product is genuine by entering the serial number from the packaging.</div>
+          <span class="sp-resource-link">Verify Product →</span>
+        </a>
+
+        <a href="where-to-buy.html" class="sp-resource-card">
+          <div class="sp-resource-icon">🛒</div>
+          <div class="sp-resource-title">Where to Buy</div>
+          <div class="sp-resource-desc">Find authorized online channels and local distributors near you in 50+ countries worldwide.</div>
+          <span class="sp-resource-link">Find a Store →</span>
+        </a>
+
+        <a href="contact.html" class="sp-resource-card">
+          <div class="sp-resource-icon">📩</div>
+          <div class="sp-resource-title">Contact Us</div>
+          <div class="sp-resource-desc">Get in touch with our global support team for technical issues, sales inquiries, or partnership questions.</div>
+          <span class="sp-resource-link">Send Message →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WARRANTY POLICY -->
+  <section class="sp-warranty-sec" id="warranty">
+    <div class="sec-wrap">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-text">Coverage</span>
+      </div>
+      <h2 class="sec-h2">Warranty policy.</h2>
+      <div class="sp-warranty-layout">
+
+        <!-- Left: Table -->
+        <div class="sp-warranty-table-wrap">
+          <table>
+            <colgroup>
+              <col class="col-cat" />
+              <col class="col-war" />
+              <col class="col-sup" />
+            </colgroup>
+            <thead class="sp-wt-head">
+              <tr>
+                <th>Product Category</th>
+                <th>Warranty</th>
+                <th>Support</th>
+              </tr>
+            </thead>
+            <tbody class="sp-wt-body">
+              <tr>
+                <td>PCIe 5.0 / 4.0 SSDs</td>
+                <td class="sp-wt-warranty">5 Years</td>
+                <td>Global</td>
+              </tr>
+              <tr>
+                <td>PCIe 3.0 / SATA SSDs</td>
+                <td class="sp-wt-warranty">3 Years</td>
+                <td>Global</td>
+              </tr>
+              <tr>
+                <td>DDR4 / DDR5 Memory</td>
+                <td class="sp-wt-warranty">Lifetime</td>
+                <td>Global</td>
+              </tr>
+              <tr>
+                <td>Memory Cards (Pro)</td>
+                <td class="sp-wt-warranty">5 Years</td>
+                <td>Regional</td>
+              </tr>
+              <tr>
+                <td>Memory Cards (Standard)</td>
+                <td class="sp-wt-warranty">3 Years</td>
+                <td>Regional</td>
+              </tr>
+              <tr>
+                <td>Portable SSDs</td>
+                <td class="sp-wt-warranty">3 Years</td>
+                <td>Global</td>
+              </tr>
+              <tr>
+                <td>USB Flash Drives</td>
+                <td class="sp-wt-warranty">2 Years</td>
+                <td>Regional</td>
+              </tr>
+              <tr>
+                <td>Home NAS</td>
+                <td class="sp-wt-warranty">3 Years</td>
+                <td>Global</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Right: Coverage info -->
+        <div class="sp-warranty-info">
+          <div class="sp-winfo-item">
+            <div class="sp-winfo-title">What's covered</div>
+            <div class="sp-winfo-body">Manufacturing defects, premature failure under normal use conditions, and defects in materials. HIKSEMI will repair or replace the product at no charge.</div>
+          </div>
+          <div class="sp-winfo-item">
+            <div class="sp-winfo-title">What's not covered</div>
+            <div class="sp-winfo-body">Physical damage, misuse, water damage beyond IP-rated specifications, modifications, or exceeding TBW endurance ratings (where applicable).</div>
+          </div>
+          <div class="sp-winfo-item">
+            <div class="sp-winfo-title">How to claim</div>
+            <div class="sp-winfo-body">Contact our support team with your serial number and proof of purchase. We'll guide you through the RMA process and coordinate with your nearest service center.</div>
+          </div>
+          <div class="sp-winfo-item">
+            <div class="sp-winfo-title">Data recovery</div>
+            <div class="sp-winfo-body">Warranty replacements do not include data recovery services. We strongly recommend regular backups. Contact our support team for data recovery referrals.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sp-faq-sec" id="faq">
+    <div class="sec-wrap">
+      <div class="sp-faq-inner">
+
+        <div class="sp-faq-sticky">
+          <div class="sec-eyebrow">
+            <div class="sec-eyebrow-line"></div>
+            <span class="sec-eyebrow-text">Answers</span>
+          </div>
+          <h2 class="sec-h2">Frequently asked<br>questions.</h2>
+          <div class="sp-faq-tabs">
+            <button class="sp-faq-tab active" onclick="filterFaq('all', this)">All Questions</button>
+            <button class="sp-faq-tab" onclick="filterFaq('ssd', this)">Solid State Drives</button>
+            <button class="sp-faq-tab" onclick="filterFaq('ram', this)">Memory (RAM)</button>
+            <button class="sp-faq-tab" onclick="filterFaq('cards', this)">Memory Cards</button>
+            <button class="sp-faq-tab" onclick="filterFaq('warranty', this)">Warranty &amp; Returns</button>
+            <button class="sp-faq-tab" onclick="filterFaq('compatibility', this)">Compatibility</button>
+          </div>
+        </div>
+
+        <div class="sp-faq-list">
+
+          <div class="sp-faq-item" data-category="ssd">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              How do I install an M.2 NVMe SSD?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>Power off your system and unplug it. Locate the M.2 slot on your motherboard, remove the retaining screw, insert the SSD at a 30° angle until it clicks, press it flat and secure with the screw. For PCIe 5.0 drives, ensure your motherboard has a PCIe 5.0 M.2 slot.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="ssd">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              My SSD is running slower than expected. What should I do?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>Check that the drive is seated in the correct PCIe generation slot. Update your motherboard BIOS and chipset drivers. Ensure the drive isn't nearly full — SSDs perform best with 10–20% free space. Run HIKSEMI Storage Manager to check drive health and update firmware.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="ssd">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              What does TBW mean and how long will my drive last?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>TBW (Terabytes Written) is the total data that can be written before the NAND wears out. For everyday use, a 1TB HIKSEMI SSD with 600 TBW would last over 30 years writing 50GB per day. Our PCIe 5.0 drives feature industry-leading TBW ratings.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="ram">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              How do I enable XMP/EXPO for my HIKSEMI DDR5?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>Restart your PC and enter BIOS (usually Del or F2 at startup). Look for XMP (Intel) or EXPO (AMD) in memory settings and enable it. Save and exit. Your RAM will now run at its rated speed. If your system is unstable, try a lower XMP profile first.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="ram">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              Can I mix HIKSEMI RAM with other brands?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>While mixing RAM brands is technically possible, we recommend using matched kits for best stability and to ensure XMP/EXPO profiles work correctly. Mixed configurations may default to lower JEDEC speeds. For dual-channel, use identical capacity modules in matching slots.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="cards">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              What does the V rating on memory cards mean?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>The Video Speed Class (V rating) defines the minimum sustained write speed: V10 = 10 MB/s, V30 = 30 MB/s, V60 = 60 MB/s, V90 = 90 MB/s. For 4K video recording use at least V30; for 8K or high frame-rate 4K use V60 or higher.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="cards">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              Which memory card is best for my surveillance camera?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>For surveillance cameras, choose a card rated for high endurance and continuous write cycles — our Surveillance series microSD cards are designed for 24/7 recording and extreme temperatures. Match capacity to your camera's resolution and desired recording duration.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="warranty">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              How do I start a warranty claim?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>Contact our support team via the Contact page with your product serial number, proof of purchase, and a description of the issue. Our team will verify eligibility and initiate an RMA within 1 business day. Keep the original packaging to facilitate the return.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="compatibility">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              Is my HIKSEMI SSD compatible with my laptop?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>Most laptops support M.2 2280 NVMe SSDs. Check your laptop specs for the supported interface (PCIe 3.0, 4.0, or 5.0) and form factor. Our compatibility tool in the Downloads section lets you search by device model to find the right HIKSEMI SSD.</p>
+            </div>
+          </div>
+
+          <div class="sp-faq-item" data-category="compatibility">
+            <button class="sp-faq-btn" onclick="toggleFaq(this)">
+              Where can I find the compatibility list for HIKSEMI memory?
+              <span class="sp-faq-icon">+</span>
+            </button>
+            <div class="sp-faq-content">
+              <p>Download the Compatibility List PDF from our Downloads section, or use the online compatibility checker tool. The list is updated monthly and covers major motherboard brands (ASUS, MSI, Gigabyte, ASRock) and popular laptops. Contact support for specific queries.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOADS -->
+  <section class="sp-downloads-sec" id="downloads">
+    <div class="sec-wrap">
+      <div class="sec-eyebrow">
+        <div class="sec-eyebrow-line"></div>
+        <span class="sec-eyebrow-text">Resources</span>
+      </div>
+      <h2 class="sec-h2">Downloads.</h2>
+      <div class="sp-downloads-grid">
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">📄</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Data Sheets</div>
+            <div class="sp-dl-desc">Full technical specifications for all products</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">📋</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Product Brochures</div>
+            <div class="sp-dl-desc">Marketing materials and feature overviews</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">🔧</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Firmware Updates</div>
+            <div class="sp-dl-desc">Latest firmware for SSDs and memory cards</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">✅</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Compatibility Lists</div>
+            <div class="sp-dl-desc">Tested platforms, systems, and motherboards</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">💻</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Software Tools</div>
+            <div class="sp-dl-desc">Hikbox app, health monitors, cloning tools</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">🖼️</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Product Images</div>
+            <div class="sp-dl-desc">High-resolution product photography</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">📑</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Safety Documents</div>
+            <div class="sp-dl-desc">Compliance, certifications, and safety data</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+        <a href="#" class="sp-dl-card">
+          <div class="sp-dl-icon">♻️</div>
+          <div class="sp-dl-body">
+            <div class="sp-dl-title">Recycling Info</div>
+            <div class="sp-dl-desc">Packaging recycling and disposal guidance</div>
+          </div>
+          <span class="sp-dl-link">Browse →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHENTICITY CHECK -->
+  <section class="sp-auth-sec" id="authenticity">
+    <div class="sec-wrap">
+      <div class="sp-auth-inner">
+        <div>
+          <div class="sp-auth-eyebrow">
+            <div class="sp-auth-eyebrow-line"></div>
+            <span class="sp-auth-eyebrow-text">Verify</span>
+          </div>
+          <h2 class="sp-auth-h2">Check product<br>authenticity.</h2>
+          <p class="sp-auth-desc">Enter the serial number from your product packaging to verify it's a genuine HIKSEMI product and register your warranty.</p>
+          <div class="sp-auth-form">
+            <input class="sp-auth-input" type="text" placeholder="Enter serial number (e.g. HS-SSD-FC-2TB-1234567)" />
+            <button class="sp-auth-submit">Verify →</button>
+          </div>
+        </div>
+        <div class="sp-auth-card">
+          <div class="sp-auth-card-icon">🔐</div>
+          <div class="sp-auth-card-title">3-Step Verification</div>
+          <p class="sp-auth-card-desc">Every genuine HIKSEMI product has a unique serial number. Our system verifies authenticity in seconds.</p>
+          <div class="sp-auth-steps">
+            <div class="sp-auth-step">
+              <div class="sp-auth-step-num">1</div>
+              <span class="sp-auth-step-text">Find the serial number on the product label or box</span>
+            </div>
+            <div class="sp-auth-step">
+              <div class="sp-auth-step-num">2</div>
+              <span class="sp-auth-step-text">Enter it in the field and click Verify</span>
+            </div>
+            <div class="sp-auth-step">
+              <div class="sp-auth-step-num">3</div>
+              <span class="sp-auth-step-text">Receive instant confirmation and warranty registration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="HIKSEMI" />
+        </div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="#">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solution</div>
+          <div class="footer-col-links">
+            <a href="solutions.html">Gaming</a>
+            <a href="solutions.html">Content Creation</a>
+            <a href="solutions.html">Industrial</a>
+            <a href="solutions.html">Surveillance</a>
+            <a href="solutions.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html#faq">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+      document.querySelectorAll('.sp-faq-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.sp-faq-btn').forEach(b => b.classList.remove('open'));
+      if (!isOpen) {
+        content.classList.add('open');
+        btn.classList.add('open');
+      }
+    }
+
+    function filterFaq(category, tab) {
+      document.querySelectorAll('.sp-faq-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.sp-faq-item').forEach(item => {
+        const match = category === 'all' || item.dataset.category === category;
+        item.classList.toggle('hidden', !match);
+      });
+      document.querySelectorAll('.sp-faq-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.sp-faq-btn').forEach(b => b.classList.remove('open'));
+    }
+  </script>
+</body>
+</html>
+
