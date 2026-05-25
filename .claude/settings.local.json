@@ -44,7 +44,9 @@
       "Bash(curl -L \"https://www.figma.com/api/mcp/asset/504d9eec-008a-43ae-9ee2-3a2ae519c2bc\" -o \"C:/Users/HP/hiksemi/images/sol-nas-bg.jpg\" --silent)",
       "Bash(curl -L \"https://www.figma.com/api/mcp/asset/28757d91-1af5-4c45-8795-b40354ff9f0a\" -o \"C:/Users/HP/hiksemi/images/sol-industrial-bg.jpg\" --silent)",
       "Bash(curl -L \"https://www.figma.com/api/mcp/asset/3d0b3767-6f3c-404f-a0e9-983c3e51db28\" -o \"C:/Users/HP/hiksemi/images/sol-datacenter-bg.jpg\" --silent)",
-      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/20f774f0-cf70-418c-b883-84426dd3d988\" -o \"C:/Users/HP/hiksemi/images/sol-surveillance-bg.jpg\" --silent)"
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/20f774f0-cf70-418c-b883-84426dd3d988\" -o \"C:/Users/HP/hiksemi/images/sol-surveillance-bg.jpg\" --silent)",
+      "Bash(echo '=== __TRACKED_VAR__ ===')",
+      "Bash(tail -4 C:/Users/HP/hiksemi/__TRACKED_VAR__)"
     ]
   }
 }

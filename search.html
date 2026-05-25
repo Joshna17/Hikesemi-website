@@ -1,0 +1,868 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search – HIKSEMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ── WRAPPER ── */
+    .sec-wrap {
+      max-width: 1792px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    /* ── SEARCH HERO ── */
+    .srch-hero {
+      background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 80px 0 88px;
+      position: relative;
+      overflow: hidden;
+    }
+    .srch-hero::after {
+      content: '';
+      position: absolute;
+      top: -160px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(215,0,15,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .srch-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+    .srch-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .srch-eyebrow-line { width: 18px; height: 2px; background: rgba(255,255,255,0.3); border-radius: 1px; flex-shrink: 0; }
+    .srch-eyebrow-text { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; }
+    .srch-heading {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -2.5px;
+      line-height: 1.05;
+      margin-bottom: 36px;
+    }
+
+    /* ── INPUT ── */
+    .srch-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      height: 60px;
+      padding: 0 20px;
+      gap: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .srch-input-wrap:focus-within {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.32);
+    }
+    .srch-icon {
+      flex-shrink: 0;
+      color: rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+    }
+    .srch-field {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1;
+    }
+    .srch-field::placeholder { color: rgba(255,255,255,0.3); }
+    .srch-clear-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      flex-shrink: 0;
+      font-size: 14px;
+      transition: background 0.15s;
+    }
+    .srch-clear-btn:hover { background: rgba(255,255,255,0.18); color: #fff; }
+    .srch-clear-btn.visible { display: flex; }
+
+    /* ── POPULAR TAGS ── */
+    .srch-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .srch-tags-label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.35); white-space: nowrap; }
+    .srch-tag {
+      display: inline-flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      background: none;
+      white-space: nowrap;
+    }
+    .srch-tag:hover { border-color: rgba(255,255,255,0.4); color: #fff; background: rgba(255,255,255,0.06); }
+
+    /* ── RESULTS SECTION ── */
+    .srch-results-sec {
+      padding: 64px 0 96px;
+      background: #fff;
+      min-height: 400px;
+    }
+
+    /* Default / empty state */
+    .srch-default { display: block; }
+    .srch-results-live { display: none; }
+    .srch-noresults { display: none; }
+
+    .srch-section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .srch-section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -0.5px;
+    }
+    .srch-section-count {
+      font-size: 13px;
+      font-weight: 500;
+      color: #9898a8;
+    }
+
+    /* Product result cards */
+    .srch-products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 56px;
+    }
+    .srch-prod-card {
+      border: 1px solid #e4e4eb;
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .srch-prod-card:hover {
+      border-color: #d7000f;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .srch-prod-icon {
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .srch-prod-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #d7000f;
+    }
+    .srch-prod-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a0a0f;
+      line-height: 1.3;
+    }
+    .srch-prod-sub {
+      font-size: 13px;
+      color: #9898a8;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .srch-prod-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #d7000f;
+      margin-top: 6px;
+      transition: gap 0.15s;
+    }
+    .srch-prod-card:hover .srch-prod-link { gap: 7px; }
+
+    /* Page result rows */
+    .srch-pages-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .srch-page-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      border: 1px solid #e4e4eb;
+      border-radius: 12px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .srch-page-row:hover { border-color: #d7000f; background: #fafafa; }
+    .srch-page-icon {
+      width: 42px; height: 42px;
+      background: #f2f2f5;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .srch-page-body { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+    .srch-page-category { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #9898a8; }
+    .srch-page-title { font-size: 15px; font-weight: 600; color: #0a0a0f; }
+    .srch-page-desc { font-size: 13px; color: #9898a8; line-height: 1.4; }
+    .srch-page-arrow { font-size: 16px; color: #c8c8d0; flex-shrink: 0; transition: color 0.15s, transform 0.15s; }
+    .srch-page-row:hover .srch-page-arrow { color: #d7000f; transform: translateX(3px); }
+
+    /* No results */
+    .srch-noresults-inner {
+      text-align: center;
+      padding: 80px 0 48px;
+    }
+    .srch-noresults-icon { font-size: 64px; line-height: 1; margin-bottom: 20px; opacity: 0.5; }
+    .srch-noresults-heading { font-size: 28px; font-weight: 800; color: #0a0a0f; letter-spacing: -0.8px; margin-bottom: 12px; }
+    .srch-noresults-desc { font-size: 16px; color: #9898a8; line-height: 1.6; max-width: 400px; margin: 0 auto 32px; }
+    .srch-noresults-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .srch-nr-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 46px;
+      padding: 0 26px;
+      background: #d7000f;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .srch-nr-btn-primary:hover { background: #b5000d; }
+    .srch-nr-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 46px;
+      padding: 0 26px;
+      border: 1.5px solid #e4e4eb;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #5c5c72;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .srch-nr-btn-outline:hover { border-color: #0a0a0f; color: #0a0a0f; }
+
+    /* Divider between results groups */
+    .srch-divider {
+      height: 1px;
+      background: #e4e4eb;
+      margin: 40px 0;
+    }
+
+    /* Results query bar */
+    .srch-query-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: #f7f7f9;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      gap: 16px;
+    }
+    .srch-query-text { font-size: 15px; font-weight: 400; color: #5c5c72; }
+    .srch-query-text strong { font-weight: 700; color: #0a0a0f; }
+    .srch-query-total { font-size: 14px; font-weight: 500; color: #9898a8; white-space: nowrap; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #000;
+      padding: 64px 64px 0;
+    }
+    .footer-main {
+      max-width: 1716px;
+      margin: 0 auto;
+      padding: 0 0 56px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-logo img { height: 18px; display: block; margin-bottom: 20px; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social-btn {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social-btn:hover { border-color: #d7000f; color: #fff; }
+    .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.5px; margin-bottom: 20px; }
+    .footer-col-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col-links a { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-col-links a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1716px;
+      margin: 0 auto;
+      padding: 20px 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); }
+    .footer-contact-info { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .srch-products-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 992px) {
+      .sec-wrap { padding: 0 32px; }
+      .srch-hero { padding: 64px 0 72px; }
+      .footer { padding: 48px 32px 0; }
+      .footer-main { grid-template-columns: 1fr; gap: 40px; }
+      .srch-products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .srch-pages-list { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+      .srch-products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .srch-products-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5&quot;</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#d7000f" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#d7000f" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ SEARCH HERO ============ -->
+  <section class="srch-hero">
+    <div class="sec-wrap">
+      <div class="srch-hero-inner">
+        <div class="srch-eyebrow">
+          <div class="srch-eyebrow-line"></div>
+          <span class="srch-eyebrow-text">Site Search</span>
+        </div>
+        <h1 class="srch-heading">What are you<br>looking for?</h1>
+        <div class="srch-input-wrap">
+          <span class="srch-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M14 14L18 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <input
+            id="srchField"
+            class="srch-field"
+            type="search"
+            placeholder="Search products, solutions, support…"
+            autocomplete="off"
+            spellcheck="false"
+            autofocus
+          />
+          <button id="srchClear" class="srch-clear-btn" aria-label="Clear search">✕</button>
+        </div>
+        <div class="srch-tags">
+          <span class="srch-tags-label">Popular:</span>
+          <button class="srch-tag" data-query="PCIe 5.0">PCIe 5.0</button>
+          <button class="srch-tag" data-query="DDR5">DDR5</button>
+          <button class="srch-tag" data-query="NVMe">NVMe</button>
+          <button class="srch-tag" data-query="Gaming">Gaming SSD</button>
+          <button class="srch-tag" data-query="Warranty">Warranty</button>
+          <button class="srch-tag" data-query="Enterprise">Enterprise</button>
+          <button class="srch-tag" data-query="Surveillance">Surveillance</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="srch-results-sec">
+    <div class="sec-wrap">
+
+      <!-- Default / empty state -->
+      <div id="srchDefault" class="srch-default">
+        <div class="srch-section-head">
+          <span class="srch-section-title">Featured Products</span>
+        </div>
+        <div class="srch-products-grid" id="featuredGrid"></div>
+        <div class="srch-divider"></div>
+        <div class="srch-section-head">
+          <span class="srch-section-title">Browse Pages</span>
+        </div>
+        <div class="srch-pages-list" id="defaultPages"></div>
+      </div>
+
+      <!-- Live results -->
+      <div id="srchLive" class="srch-results-live">
+        <div class="srch-query-bar">
+          <span class="srch-query-text">Results for <strong id="srchQueryLabel"></strong></span>
+          <span class="srch-query-total" id="srchTotalCount"></span>
+        </div>
+
+        <div id="productResultsWrap">
+          <div class="srch-section-head">
+            <span class="srch-section-title">Products</span>
+            <span class="srch-section-count" id="prodCount"></span>
+          </div>
+          <div class="srch-products-grid" id="productResults"></div>
+          <div class="srch-divider" id="resultsDivider"></div>
+        </div>
+
+        <div id="pageResultsWrap">
+          <div class="srch-section-head">
+            <span class="srch-section-title">Pages</span>
+            <span class="srch-section-count" id="pageCount"></span>
+          </div>
+          <div class="srch-pages-list" id="pageResults"></div>
+        </div>
+      </div>
+
+      <!-- No results -->
+      <div id="srchNoResults" class="srch-noresults">
+        <div class="srch-noresults-inner">
+          <div class="srch-noresults-icon">🔍</div>
+          <h2 class="srch-noresults-heading">No results found.</h2>
+          <p class="srch-noresults-desc">We couldn't find anything matching "<strong id="srchNoQuery"></strong>". Try different keywords or browse below.</p>
+          <div class="srch-noresults-btns">
+            <a href="products.html" class="srch-nr-btn-primary">Browse All Products</a>
+            <a href="support.html" class="srch-nr-btn-outline">Visit Support</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="HIKSEMI" />
+        </div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="news.html">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solutions</div>
+          <div class="footer-col-links">
+            <a href="solutions.html">Gaming</a>
+            <a href="solutions.html">Content Creation</a>
+            <a href="solutions.html">Industrial</a>
+            <a href="solutions.html">Surveillance</a>
+            <a href="solutions.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html#faq">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+  </footer>
+
+  <!-- ============ SEARCH ENGINE ============ -->
+  <script>
+    const PRODUCTS = [
+      { icon: '💾', tag: 'SSD · PCIe 5.0', name: 'FUTURE CORE', sub: 'Up to 14,000 MB/s sequential read. The fastest consumer NVMe SSD from HIKSEMI.', url: 'product-details.html', tags: ['ssd', 'nvme', 'pcie', 'pcie 5.0', 'pcie5', 'gen5', 'm.2', 'future core', 'fast', 'flagship'] },
+      { icon: '💾', tag: 'SSD · PCIe 4.0', name: 'FUTURE PRO', sub: 'Up to 7,400 MB/s — premium PCIe 4.0 NVMe for professionals and gamers.', url: 'products.html', tags: ['ssd', 'nvme', 'pcie', 'pcie 4.0', 'pcie4', 'gen4', 'm.2', 'future pro', 'gaming'] },
+      { icon: '💾', tag: 'SSD · PCIe 4.0', name: 'FUTURE', sub: 'Balanced PCIe 4.0 NVMe performance for everyday high-speed storage needs.', url: 'products.html', tags: ['ssd', 'nvme', 'pcie', 'pcie 4.0', 'm.2', 'future', 'value'] },
+      { icon: '💾', tag: 'SSD · PCIe 3.0', name: 'FUTURE ECO', sub: 'Reliable PCIe 3.0 NVMe SSD — great value for mainstream builds.', url: 'products.html', tags: ['ssd', 'nvme', 'pcie', 'pcie 3.0', 'm.2', 'future eco', 'budget', 'eco'] },
+      { icon: '💿', tag: 'SSD · SATA III', name: 'WAVE(S) SATA', sub: '2.5" SATA III SSD for desktop upgrades, laptops, and NAS devices.', url: 'products.html', tags: ['ssd', 'sata', 'sata iii', '2.5', 'wave', 'laptop', 'desktop', 'nas'] },
+      { icon: '🔧', tag: 'SSD · Enterprise', name: 'D300 Pro Enterprise', sub: 'Enterprise-grade PCIe SSD with power-loss protection and high endurance.', url: 'products.html', tags: ['ssd', 'enterprise', 'server', 'd300', 'pro', 'datacenter', 'pcie', 'endurance'] },
+      { icon: '🧠', tag: 'Memory · DDR5', name: 'DDR5 RAM', sub: 'High-speed DDR5 memory modules for the latest Intel and AMD platforms.', url: 'products.html', tags: ['ddr5', 'ram', 'memory', 'dimm', 'intel', 'amd', 'desktop', 'gaming'] },
+      { icon: '🧠', tag: 'Memory · DDR4', name: 'DDR4 RAM', sub: 'Reliable DDR4 memory for desktop and laptop platforms at all capacities.', url: 'products.html', tags: ['ddr4', 'ram', 'memory', 'dimm', 'sodimm', 'laptop', 'desktop'] },
+      { icon: '📷', tag: 'Memory Card', name: 'microSD Card', sub: 'UHS-I / UHS-II microSD cards for cameras, drones, dashcams, and mobile.', url: 'products.html', tags: ['microsd', 'sd card', 'memory card', 'camera', 'drone', 'uhs', 'dashcam'] },
+      { icon: '💼', tag: 'External Storage', name: 'Portable SSD', sub: 'Compact USB 3.2 portable SSD — up to 2TB for on-the-go professionals.', url: 'products.html', tags: ['portable', 'external', 'usb', 'usb 3.2', 'ssd', 'compact', 'mobile', 'backup'] },
+      { icon: '🏠', tag: 'Home NAS', name: 'Home NAS Drive', sub: 'Purpose-built NAS HDD / SSD for home media servers and personal cloud.', url: 'products.html', tags: ['nas', 'network', 'home', 'media server', 'cloud', 'storage', 'hdd'] },
+      { icon: '⚙️', tag: 'Embedded Storage', name: 'Embedded Storage', sub: 'eMMC, UFS, and industrial flash modules for embedded and IoT applications.', url: 'products.html', tags: ['embedded', 'emmc', 'ufs', 'iot', 'industrial', 'module', 'flash'] },
+    ];
+
+    const PAGES = [
+      { icon: '🏠', category: 'Home', title: 'HIKSEMI Homepage', desc: 'Explore our full product range, latest launches, and global partnerships.', url: 'index.html', tags: ['home', 'hiksemi', 'homepage', 'overview'] },
+      { icon: '💾', category: 'Products', title: 'All Products', desc: 'Browse SSDs, RAM, memory cards, portable drives, NAS, and embedded storage.', url: 'products.html', tags: ['products', 'all', 'ssd', 'ram', 'memory'] },
+      { icon: '🔬', category: 'Products', title: 'FUTURE CORE – Specs & Details', desc: 'Full specifications, benchmarks, and compatibility for the FUTURE CORE PCIe 5.0 SSD.', url: 'product-details.html', tags: ['future core', 'specs', 'benchmark', 'pcie 5', 'details', 'nvme'] },
+      { icon: '🎮', category: 'Solutions', title: 'Gaming Storage', desc: 'Reduce load times and boost FPS storage performance with HIKSEMI gaming SSDs.', url: 'solutions.html', tags: ['gaming', 'ps5', 'xbox', 'pc gaming', 'fps', 'load time', 'game'] },
+      { icon: '🎬', category: 'Solutions', title: 'Content Creation', desc: 'Fast storage for video editing, 4K / 8K workflows, and creative professionals.', url: 'solutions.html', tags: ['content creation', 'video editing', '4k', '8k', 'creative', 'photographer', 'filmmaker'] },
+      { icon: '📡', category: 'Solutions', title: 'Surveillance Storage', desc: '24/7 write-optimized SSDs and HDDs for CCTV, NVR, and IP camera systems.', url: 'solutions.html', tags: ['surveillance', 'cctv', 'nvr', 'security camera', 'ip camera', '24/7'] },
+      { icon: '🏭', category: 'Solutions', title: 'Industrial Storage', desc: 'Wide-temperature, vibration-resistant storage for industrial and ruggedised environments.', url: 'solutions.html', tags: ['industrial', 'rugged', 'wide temperature', 'vibration', 'embedded', 'iot'] },
+      { icon: '🏢', category: 'Solutions', title: 'Enterprise & Datacenter', desc: 'High-endurance NVMe SSDs with enterprise QoS for server and datacenter deployments.', url: 'solutions.html', tags: ['enterprise', 'datacenter', 'server', 'qos', 'endurance', 'cloud'] },
+      { icon: '💾', category: 'Solutions', title: 'NAS & Backup', desc: 'Optimised storage for home NAS, personal backup, and media libraries.', url: 'solutions.html', tags: ['nas', 'backup', 'home', 'media', 'cloud', 'synology', 'qnap'] },
+      { icon: '🏛️', category: 'Company', title: 'About HIKSEMI', desc: 'Our story, mission, global presence, and commitment to innovation.', url: 'company.html', tags: ['about', 'company', 'history', 'mission', 'hiksemi', 'hangzhou'] },
+      { icon: '🛠️', category: 'Support', title: 'Support Center', desc: 'Warranty information, firmware downloads, compatibility tools, and FAQs.', url: 'support.html', tags: ['support', 'help', 'warranty', 'rma', 'firmware', 'download', 'faq', 'compatibility'] },
+      { icon: '⚡', category: 'Support', title: 'Warranty & RMA', desc: 'Submit a warranty claim or RMA request for your HIKSEMI product.', url: 'support.html', tags: ['warranty', 'rma', 'repair', 'replacement', 'claim', 'return'] },
+      { icon: '📰', category: 'News', title: 'News & Press', desc: 'Latest product launches, awards, industry news, and press releases.', url: 'news.html', tags: ['news', 'press', 'launch', 'award', 'announcement', 'media'] },
+      { icon: '📍', category: 'Partners', title: 'Where to Buy', desc: 'Find authorised HIKSEMI resellers and online stores near you.', url: 'where-to-buy.html', tags: ['buy', 'store', 'reseller', 'dealer', 'retail', 'where to buy', 'distributor', 'amazon'] },
+      { icon: '🤝', category: 'Partners', title: 'Become a Dealer', desc: 'Join the HIKSEMI global partner network and grow your storage business.', url: 'become-a-dealer.html', tags: ['dealer', 'partner', 'distributor', 'reseller', 'become', 'apply', 'business'] },
+      { icon: '✉️', category: 'Contact', title: 'Contact HIKSEMI', desc: 'Reach sales, technical support, press, or our regional offices worldwide.', url: 'contact.html', tags: ['contact', 'email', 'phone', 'sales', 'support', 'press', 'headquarters'] },
+    ];
+
+    const field      = document.getElementById('srchField');
+    const clearBtn   = document.getElementById('srchClear');
+    const defPanel   = document.getElementById('srchDefault');
+    const livePanel  = document.getElementById('srchLive');
+    const noRes      = document.getElementById('srchNoResults');
+    const queryLabel = document.getElementById('srchQueryLabel');
+    const totalCount = document.getElementById('srchTotalCount');
+    const prodCount  = document.getElementById('prodCount');
+    const pageCount  = document.getElementById('pageCount');
+    const prodGrid   = document.getElementById('productResults');
+    const pageList   = document.getElementById('pageResults');
+    const noQuery    = document.getElementById('srchNoQuery');
+    const prodWrap   = document.getElementById('productResultsWrap');
+    const pageWrap   = document.getElementById('pageResultsWrap');
+    const divider    = document.getElementById('resultsDivider');
+
+    function buildProductCard(p) {
+      return `<a href="${p.url}" class="srch-prod-card">
+        <div class="srch-prod-icon">${p.icon}</div>
+        <div class="srch-prod-tag">${p.tag}</div>
+        <div class="srch-prod-name">${p.name}</div>
+        <div class="srch-prod-sub">${p.sub}</div>
+        <span class="srch-prod-link">View Details →</span>
+      </a>`;
+    }
+
+    function buildPageRow(p) {
+      return `<a href="${p.url}" class="srch-page-row">
+        <div class="srch-page-icon">${p.icon}</div>
+        <div class="srch-page-body">
+          <span class="srch-page-category">${p.category}</span>
+          <span class="srch-page-title">${p.title}</span>
+          <span class="srch-page-desc">${p.desc}</span>
+        </div>
+        <span class="srch-page-arrow">→</span>
+      </a>`;
+    }
+
+    function matches(item, q) {
+      const haystack = [item.name || item.title, item.sub || item.desc, item.tag || item.category, ...(item.tags || [])].join(' ').toLowerCase();
+      return q.split(' ').every(word => word.length === 0 || haystack.includes(word));
+    }
+
+    function showDefault() {
+      defPanel.style.display  = 'block';
+      livePanel.style.display = 'none';
+      noRes.style.display     = 'none';
+    }
+
+    function showLive(q) {
+      const filteredProds  = PRODUCTS.filter(p => matches(p, q));
+      const filteredPages  = PAGES.filter(p => matches(p, q));
+      const total = filteredProds.length + filteredPages.length;
+
+      if (total === 0) {
+        defPanel.style.display  = 'none';
+        livePanel.style.display = 'none';
+        noRes.style.display     = 'block';
+        noQuery.textContent = field.value.trim();
+        return;
+      }
+
+      defPanel.style.display  = 'none';
+      livePanel.style.display = 'block';
+      noRes.style.display     = 'none';
+
+      queryLabel.textContent = field.value.trim();
+      totalCount.textContent = `${total} result${total !== 1 ? 's' : ''}`;
+
+      if (filteredProds.length > 0) {
+        prodWrap.style.display = 'block';
+        prodCount.textContent  = `${filteredProds.length} found`;
+        prodGrid.innerHTML     = filteredProds.map(buildProductCard).join('');
+        divider.style.display  = filteredPages.length > 0 ? 'block' : 'none';
+      } else {
+        prodWrap.style.display = 'none';
+      }
+
+      if (filteredPages.length > 0) {
+        pageWrap.style.display = 'block';
+        pageCount.textContent  = `${filteredPages.length} found`;
+        pageList.innerHTML     = filteredPages.map(buildPageRow).join('');
+      } else {
+        pageWrap.style.display = 'none';
+      }
+    }
+
+    function onInput() {
+      const q = field.value.trim().toLowerCase();
+      clearBtn.classList.toggle('visible', q.length > 0);
+      if (q.length < 2) { showDefault(); return; }
+      showLive(q);
+    }
+
+    field.addEventListener('input', onInput);
+
+    clearBtn.addEventListener('click', () => {
+      field.value = '';
+      clearBtn.classList.remove('visible');
+      showDefault();
+      field.focus();
+    });
+
+    document.querySelectorAll('.srch-tag').forEach(btn => {
+      btn.addEventListener('click', () => {
+        field.value = btn.dataset.query;
+        onInput();
+        field.focus();
+      });
+    });
+
+    /* Populate default panels */
+    const featuredGrid = document.getElementById('featuredGrid');
+    const defaultPages = document.getElementById('defaultPages');
+
+    featuredGrid.innerHTML = PRODUCTS.slice(0, 4).map(buildProductCard).join('');
+    defaultPages.innerHTML = PAGES.filter(p => ['Products','Solutions','Support','Contact'].includes(p.category)).slice(0, 8).map(buildPageRow).join('');
+
+    /* Handle ?q= param from URL */
+    const urlQ = new URLSearchParams(location.search).get('q');
+    if (urlQ) { field.value = urlQ; onInput(); }
+  </script>
+
+  <script src="js/search.js"></script>
+</body>
+</html>

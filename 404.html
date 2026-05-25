@@ -3,222 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Become a Dealer – HIKSEMI</title>
+  <title>404 – Page Not Found | HIKSEMI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; }
-    /* ── LAYOUT ── */
-    .sec-wrap { max-width: 1792px; margin: 0 auto; padding: 0 64px; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-    /* ── HERO ── */
-    .bd-hero {
+    /* ── SECTION WRAPPER ── */
+    .sec-wrap {
+      max-width: 1792px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    /* ── 404 HERO ── */
+    .err-hero {
       background: linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
-      padding: 88px 0;
+      padding: 100px 0 120px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .err-hero::after {
+      content: '';
+      position: absolute;
+      top: -180px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(215,0,15,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .err-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .err-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .err-eyebrow-line { width: 24px; height: 2px; background: rgba(255,255,255,0.3); border-radius: 1px; flex-shrink: 0; }
+    .err-eyebrow-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .err-code {
+      font-size: clamp(120px, 20vw, 220px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -8px;
+      background: linear-gradient(135deg, #fff 30%, rgba(215,0,15,0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+    .err-heading {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .err-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: #9898a8;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 44px;
+    }
+    .err-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .err-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 50px;
+      padding: 0 30px;
+      background: #d7000f;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .err-btn-primary:hover { background: #b5000d; }
+    .err-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 50px;
+      padding: 0 30px;
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .err-btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    /* ── HELPFUL LINKS SECTION ── */
+    .err-links-sec {
+      padding: 88px 0 96px;
+      background: #fff;
+    }
+    .err-links-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .err-links-eyebrow-line { width: 18px; height: 2px; background: #d7000f; border-radius: 1px; flex-shrink: 0; }
+    .err-links-eyebrow-text { font-size: 12px; font-weight: 700; color: #d7000f; letter-spacing: 2px; text-transform: uppercase; }
+    .err-links-heading {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: #0a0a0f;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 48px;
+    }
+    .err-links-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .err-link-card {
+      background: #f7f7f9;
+      border: 1px solid #e4e4eb;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .err-link-card:hover {
+      border-color: #d7000f;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .err-link-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .err-link-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0a0a0f;
+    }
+    .err-link-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: #9898a8;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .err-link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #d7000f;
+      margin-top: 6px;
+      transition: gap 0.2s;
+    }
+    .err-link-card:hover .err-link-arrow { gap: 8px; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #000;
+      padding: 64px 64px 0;
       position: relative;
       overflow: hidden;
     }
-    .bd-hero::after {
-      content: '';
-      position: absolute;
-      top: -180px; right: -180px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(215,0,15,0.22) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .bd-hero-inner { position: relative; }
-    .bd-hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #ccc;
-      letter-spacing: 1.9775px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .bd-hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 18px;
-      height: 2px;
-      background: #a8a8a8;
-      border-radius: 1px;
-      flex-shrink: 0;
-    }
-    .bd-hero-heading {
-      font-family: 'Outfit', sans-serif;
-      font-size: 78px;
-      font-weight: 900;
-      color: #fff;
-      line-height: 78px;
-      letter-spacing: -3.9px;
-      margin-bottom: 26px;
-    }
-    .bd-hero-sub {
-      font-family: 'Outfit', sans-serif;
-      font-size: 18px;
-      font-weight: 300;
-      color: #9898a8;
-      line-height: 30.6px;
-      max-width: 560px;
-    }
-
-    /* ── MARQUEE ── */
-    .marquee-strip { background: #0d0d0d; height: 46px; overflow: hidden; position: relative; }
-    .marquee-track { display: flex; align-items: center; height: 100%; width: max-content; animation: mq-scroll 28s linear infinite; }
-    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
-    .marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 8px 0 28px; }
-    .marquee-text { font-weight: 600; font-size: 12px; color: #555; letter-spacing: 1.44px; text-transform: uppercase; white-space: nowrap; }
-    .marquee-sep { font-weight: 400; font-size: 8px; color: #555; }
-    @keyframes mq-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    /* ── BECOME A RESELLER ── */
-    .bd-reseller { background: #f2f2f2; padding: 72px 0 96px; }
-    .bd-reseller-inner {
+    .footer-main {
+      max-width: 1716px;
+      margin: 0 auto;
+      padding: 0 0 56px;
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 64px;
-      align-items: start;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .bd-reseller-left { padding-top: 83px; }
-    .bd-reseller-eyebrow {
+    .footer-logo img { height: 18px; display: block; margin-bottom: 20px; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social-btn {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social-btn:hover { border-color: #d7000f; color: #fff; }
+    .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.5px; margin-bottom: 20px; }
+    .footer-col-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col-links a { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-col-links a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1716px;
+      margin: 0 auto;
+      padding: 20px 0 24px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #d7000f;
-      letter-spacing: 1.9775px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
     }
-    .bd-reseller-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 18px;
-      height: 2px;
-      background: #d7000f;
-      border-radius: 1px;
-      flex-shrink: 0;
-    }
-    .bd-reseller-heading {
-      font-family: 'Outfit', sans-serif;
-      font-size: 54px;
-      font-weight: 800;
-      color: #0a0a0f;
-      line-height: 56.7px;
-      letter-spacing: -2.16px;
-      margin-bottom: 40px;
-    }
-    .bd-benefits { display: flex; flex-direction: column; }
-    .bd-benefit-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      min-height: 80px;
-      padding: 16px 0;
-      border-bottom: 1px solid #e4e4e4;
-    }
-    .bd-benefit-row:last-child { border-bottom: none; }
-    .bd-benefit-icon { font-size: 22px; flex-shrink: 0; width: 22px; text-align: center; }
-    .bd-benefit-text { display: flex; flex-direction: column; gap: 4px; }
-    .bd-benefit-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: #0a0a0f;
-    }
-    .bd-benefit-body {
-      font-family: 'Outfit', sans-serif;
-      font-size: 16px;
-      font-weight: 300;
-      color: #5c5c72;
-    }
-    /* Form card */
-    .bd-form-card {
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 20px;
-      padding: 41px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .bd-form-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #0a0a0f;
-    }
-    .bd-form-body { display: flex; flex-direction: column; gap: 16px; }
-    .bd-field { display: flex; flex-direction: column; gap: 7px; }
-    .bd-field-label {
-      font-family: 'Outfit', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      color: #0a0a0f;
-    }
-    .bd-input {
-      width: 100%;
-      height: 50px;
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
-      padding: 0 16px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: #0a0a0f;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .bd-input::placeholder { color: #757575; }
-    .bd-input:focus { border-color: #d7000f; }
-    .bd-select {
-      width: 100%;
-      height: 50px;
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
-      padding: 0 16px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: #0a0a0f;
-      outline: none;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%235c5c72' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-    .bd-select:focus { border-color: #d7000f; }
-    .bd-submit {
-      width: 100%;
-      height: 47px;
-      background: #d7000f;
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 8px;
-    }
-    .bd-submit:hover { background: #b5000d; }
+    .footer-copy { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); }
+    .footer-contact-info { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); }
 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .err-links-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 992px) {
+      .sec-wrap { padding: 0 32px; }
+      .footer { padding: 48px 32px 0; }
+      .footer-main { grid-template-columns: 1fr; gap: 40px; }
+    }
     @media (max-width: 768px) {
-      .bd-cta-heading { font-size: 36px; }
-      .sec-wrap { padding: 0 24px; }
+      .nav-links { display: none; }
+      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+      .err-links-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .err-hero { padding: 72px 0 88px; }
+      .err-code { letter-spacing: -4px; }
+      .footer-cols { grid-template-columns: 1fr; }
+      .err-links-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -230,7 +267,7 @@
     <a href="product-details.html">Learn More →</a>
   </div>
 
-    <!-- ============ NAVBAR ============ -->
+  <!-- ============ NAVBAR ============ -->
   <nav class="navbar">
     <div class="nav-wrap">
       <a href="index.html" class="nav-logo">
@@ -328,7 +365,7 @@
         <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
         <div class="nav-item"><a href="news.html" class="nav-link">News</a></div>
         <div class="nav-item">
-          <a href="where-to-buy.html" class="nav-link active">
+          <a href="where-to-buy.html" class="nav-link">
             Our Partners
             <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -369,132 +406,67 @@
     </div>
   </nav>
 
-  <!-- ============ HERO ============ -->
-  <section class="bd-hero">
-    <div class="sec-wrap bd-hero-inner">
-      <div class="bd-hero-eyebrow">Become our Dealer</div>
-      <h1 class="bd-hero-heading">Become a HIKSEMI<br>Partner</h1>
-      <p class="bd-hero-sub">Collaborate with us to bring cutting-edge semiconductor solutions to global markets — from edge AI to industrial silicon.</p>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
-      <!-- duplicate for seamless loop -->
-      <div class="marquee-item"><span class="marquee-text">Solid State Drives</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">DDR5 Memory</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Memory Cards</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">External Storage</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Home NAS</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">PCIe Gen 5</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Professional Grade</span><span class="marquee-sep">◆</span></div>
-      <div class="marquee-item"><span class="marquee-text">Embedded Storage</span><span class="marquee-sep">◆</span></div>
-    </div>
-  </div>
-
-  <!-- ============ BECOME A RESELLER ============ -->
-  <section class="bd-reseller">
+  <!-- ============ 404 HERO ============ -->
+  <section class="err-hero">
     <div class="sec-wrap">
-      <div class="bd-reseller-inner">
-
-        <!-- Left: text + benefits -->
-        <div class="bd-reseller-left">
-          <div class="bd-reseller-eyebrow">Partnership</div>
-          <h2 class="bd-reseller-heading">Become a HIKSEMI<br>authorized reseller.</h2>
-          <div class="bd-benefits">
-            <div class="bd-benefit-row">
-              <div class="bd-benefit-icon">💰</div>
-              <div class="bd-benefit-text">
-                <div class="bd-benefit-title">Competitive Margins</div>
-                <div class="bd-benefit-body">Attractive pricing tiers for authorized resellers based on volume commitments.</div>
-              </div>
-            </div>
-            <div class="bd-benefit-row">
-              <div class="bd-benefit-icon">📦</div>
-              <div class="bd-benefit-text">
-                <div class="bd-benefit-title">Stock &amp; Logistics Support</div>
-                <div class="bd-benefit-body">Reliable supply chain with regional warehouses for fast local fulfillment.</div>
-              </div>
-            </div>
-            <div class="bd-benefit-row">
-              <div class="bd-benefit-icon">📣</div>
-              <div class="bd-benefit-text">
-                <div class="bd-benefit-title">Co-Marketing Programs</div>
-                <div class="bd-benefit-body">Access to HIKSEMI marketing assets, campaigns, and co-op advertising programs.</div>
-              </div>
-            </div>
-            <div class="bd-benefit-row">
-              <div class="bd-benefit-icon">🛠️</div>
-              <div class="bd-benefit-text">
-                <div class="bd-benefit-title">Technical Training</div>
-                <div class="bd-benefit-body">Free product training and certifications for your sales and support teams.</div>
-              </div>
-            </div>
-          </div>
+      <div class="err-hero-inner">
+        <div class="err-eyebrow">
+          <div class="err-eyebrow-line"></div>
+          <span class="err-eyebrow-text">Error 404</span>
+          <div class="err-eyebrow-line"></div>
         </div>
-
-        <!-- Right: form card -->
-        <div class="bd-form-card">
-          <div class="bd-form-title">Reseller Application</div>
-          <div class="bd-form-body">
-            <div class="bd-field">
-              <label class="bd-field-label">Company Name *</label>
-              <input class="bd-input" type="text" placeholder="Your company name" />
-            </div>
-            <div class="bd-field">
-              <label class="bd-field-label">Contact Name *</label>
-              <input class="bd-input" type="text" placeholder="Full name" />
-            </div>
-            <div class="bd-field">
-              <label class="bd-field-label">Email *</label>
-              <input class="bd-input" type="email" placeholder="business@company.com" />
-            </div>
-            <div class="bd-field">
-              <label class="bd-field-label">Contact No</label>
-              <input class="bd-input" type="tel" placeholder="0000000000" />
-            </div>
-            <div class="bd-field">
-              <label class="bd-field-label">Country *</label>
-              <select class="bd-select">
-                <option value="" disabled selected>Select country</option>
-                <option>United States</option>
-                <option>United Kingdom</option>
-                <option>Germany</option>
-                <option>France</option>
-                <option>Japan</option>
-                <option>South Korea</option>
-                <option>India</option>
-                <option>China</option>
-                <option>Australia</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="bd-field">
-              <label class="bd-field-label">PAN No</label>
-              <input class="bd-input" type="text" placeholder="00000000" />
-            </div>
-            <button class="bd-submit">Submit Application →</button>
-          </div>
+        <div class="err-code">404</div>
+        <h1 class="err-heading">Page Not Found.</h1>
+        <p class="err-desc">Looks like the page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+        <div class="err-actions">
+          <a href="index.html" class="err-btn-primary">← Back to Homepage</a>
+          <a href="products.html" class="err-btn-outline">Browse Products</a>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ============ PAGE SECTIONS ============ -->
-  <!-- Further sections will be added here -->
+  <!-- ============ HELPFUL LINKS ============ -->
+  <section class="err-links-sec">
+    <div class="sec-wrap">
+      <div class="err-links-eyebrow">
+        <div class="err-links-eyebrow-line"></div>
+        <span class="err-links-eyebrow-text">Where to go</span>
+      </div>
+      <h2 class="err-links-heading">You might be looking for…</h2>
+      <div class="err-links-grid">
 
-  <!-- ============ CTA ============ -->
+        <a href="products.html" class="err-link-card">
+          <div class="err-link-icon">&#128190;</div>
+          <div class="err-link-title">Products</div>
+          <p class="err-link-desc">Explore our full lineup of SSDs, memory modules, storage cards, and enterprise solutions.</p>
+          <span class="err-link-arrow">View All Products →</span>
+        </a>
 
+        <a href="solutions.html" class="err-link-card">
+          <div class="err-link-icon">&#9881;&#65039;</div>
+          <div class="err-link-title">Solutions</div>
+          <p class="err-link-desc">Find storage tailored for gaming, content creation, surveillance, industrial, and data center use.</p>
+          <span class="err-link-arrow">Explore Solutions →</span>
+        </a>
+
+        <a href="support.html" class="err-link-card">
+          <div class="err-link-icon">&#128736;&#65039;</div>
+          <div class="err-link-title">Support</div>
+          <p class="err-link-desc">Get help with warranties, downloads, FAQs, and technical documentation for your HIKSEMI product.</p>
+          <span class="err-link-arrow">Go to Support →</span>
+        </a>
+
+        <a href="contact.html" class="err-link-card">
+          <div class="err-link-icon">&#128172;</div>
+          <div class="err-link-title">Contact Us</div>
+          <p class="err-link-desc">Reach our sales, support, or press teams directly. We respond within 1–2 business days.</p>
+          <span class="err-link-arrow">Get in Touch →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ============ CTA ============ -->
   <section class="site-cta">
@@ -510,6 +482,8 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="footer-main">
       <div class="footer-brand">
@@ -542,13 +516,13 @@
           <div class="footer-col-links">
             <a href="company.html">About HIKSEMI</a>
             <a href="company.html">Why HIKSEMI</a>
-            <a href="#">News</a>
+            <a href="news.html">News</a>
             <a href="company.html">Quality</a>
             <a href="where-to-buy.html">Partners</a>
           </div>
         </div>
         <div class="footer-col">
-          <div class="footer-col-title">Solution</div>
+          <div class="footer-col-title">Solutions</div>
           <div class="footer-col-links">
             <a href="solutions.html">Gaming</a>
             <a href="solutions.html">Content Creation</a>
@@ -562,21 +536,19 @@
           <div class="footer-col-links">
             <a href="support.html">Support Home</a>
             <a href="support.html">Warranty</a>
-            <a href="support.html">FAQ</a>
+            <a href="support.html#faq">FAQ</a>
             <a href="support.html">Downloads</a>
             <a href="contact.html">Contact Us</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom-bar">
+    <div class="footer-bottom">
       <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
       <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
     </div>
-    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
   </footer>
 
   <script src="js/search.js"></script>
 </body>
 </html>
-
