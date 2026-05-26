@@ -641,6 +641,15 @@ tr:nth-child(even) td { background: var(--gray-50); }
 }
 .nav-link .chev { width: 12px; height: 12px; transition: transform 0.2s; }
 .nav-item:hover .chev { transform: rotate(180deg); }
+/* Bridge the gap between nav link and dropdown so the hover state doesn't break mid-travel */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
 
 /* Mega menu */
 .mega-menu {
