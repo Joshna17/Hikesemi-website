@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIKSEMI Launches FUTURE CORE — World's Fastest Consumer SSD at 14,000 MB/s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: #0a0a0f; line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      background: #f7f7f9;
+      border-bottom: 1px solid #e8e8e8;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 64px;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .breadcrumb a { color: #9898a8; font-weight: 400; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #0a0a0f; }
+    .breadcrumb-sep { color: #ccccd6; font-size: 11px; }
+    .breadcrumb-current { color: #0a0a0f; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* ── ARTICLE HERO ── */
+    .article-hero {
+      background:
+        radial-gradient(350px circle at calc(100% - 170px) 170px, rgba(215,0,15,0.22) 0%, transparent 65%),
+        linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+      padding: 72px 64px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero-inner {
+      max-width: 860px;
+    }
+    .article-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      height: 26px;
+      padding: 0 12px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      background: #d7000f;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .article-tag.award   { background: rgba(255,203,0,0.18); color: #ffc300; }
+    .article-tag.company { background: rgba(26,64,232,0.18); color: #8fa8ff; }
+    .article-hero-date {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+    }
+    .article-hero-readtime {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+    .article-hero-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.25); flex-shrink: 0; }
+    .article-hero-h1 {
+      font-weight: 900;
+      font-size: clamp(36px, 4.5vw, 62px);
+      color: #fff;
+      line-height: 1.02;
+      letter-spacing: -2.5px;
+      margin-bottom: 22px;
+    }
+    .article-hero-deck {
+      font-weight: 300;
+      font-size: 19px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      max-width: 680px;
+    }
+
+    /* ── ARTICLE LAYOUT ── */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 64px 64px 80px;
+      align-items: start;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body { min-width: 0; }
+
+    .article-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      margin-bottom: 44px;
+      background: linear-gradient(130deg, #1e1818 0%, #750c0c 100%);
+    }
+    .article-cover-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      background: linear-gradient(130deg, #1e1818 0%, #750c0c 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+    .article-cover-label {
+      font-weight: 800;
+      font-size: 32px;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .article-cover-sub {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .article-cover-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #d7000f, transparent);
+      margin-top: 4px;
+    }
+
+    /* Article typography */
+    .article-lead {
+      font-size: 19px;
+      font-weight: 400;
+      color: #1c1c26;
+      line-height: 1.75;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .article-section { margin-bottom: 40px; }
+    .article-h2 {
+      font-weight: 800;
+      font-size: 26px;
+      color: #0a0a0f;
+      letter-spacing: -0.78px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .article-h3 {
+      font-weight: 700;
+      font-size: 19px;
+      color: #0a0a0f;
+      letter-spacing: -0.38px;
+      margin-bottom: 12px;
+      margin-top: 28px;
+    }
+    .article-p {
+      font-size: 17px;
+      font-weight: 400;
+      color: #3c3c4e;
+      line-height: 1.82;
+      margin-bottom: 20px;
+    }
+    .article-p:last-child { margin-bottom: 0; }
+
+    /* Pull quote */
+    .article-pullquote {
+      border-left: 3px solid #d7000f;
+      margin: 36px 0;
+      padding: 20px 28px;
+      background: #f9f9fb;
+      border-radius: 0 12px 12px 0;
+    }
+    .article-pullquote-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0a0a0f;
+      line-height: 1.5;
+      letter-spacing: -0.3px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .article-pullquote-attr {
+      font-size: 13px;
+      font-weight: 600;
+      color: #9898a8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Stat cards */
+    .article-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: #e8e8e8;
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .article-stat {
+      background: #fff;
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .article-stat-val {
+      font-weight: 900;
+      font-size: 26px;
+      color: #0a0a0f;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .article-stat-val span { color: #d7000f; font-size: 16px; }
+    .article-stat-lbl {
+      font-size: 12px;
+      font-weight: 500;
+      color: #9898a8;
+      line-height: 1.4;
+    }
+
+    /* Image caption box */
+    .article-img-wrap { margin: 36px 0; }
+    .article-img-wrap img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+    .article-img-placeholder {
+      width: 100%;
+      height: 280px;
+      border-radius: 12px;
+      background: #f7f7f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e8e8e8;
+    }
+    .article-img-placeholder-text {
+      font-size: 13px;
+      color: #ccccd6;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .article-caption {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #9898a8;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* Spec table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e8e8e8;
+    }
+    .spec-table thead { background: #0a0a0f; }
+    .spec-table thead th {
+      padding: 13px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      text-align: left;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .spec-table tbody tr { border-bottom: 1px solid #e8e8e8; }
+    .spec-table tbody tr:last-child { border-bottom: none; }
+    .spec-table tbody tr:nth-child(even) { background: #f9f9fb; }
+    .spec-table td {
+      padding: 13px 18px;
+      font-size: 15px;
+      color: #3c3c4e;
+      line-height: 1.5;
+    }
+    .spec-table td:first-child { font-weight: 600; color: #0a0a0f; width: 42%; }
+
+    /* Article footer */
+    .article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 36px;
+      margin-top: 48px;
+      border-top: 1px solid #e8e8e8;
+    }
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .article-tag-pill {
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 100px;
+      border: 1px solid #e8e8e8;
+      font-size: 13px;
+      font-weight: 500;
+      color: #5c5c72;
+      display: inline-flex;
+      align-items: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .article-tag-pill:hover { border-color: #d7000f; color: #d7000f; }
+    .article-share { display: flex; align-items: center; gap: 10px; }
+    .article-share-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #9898a8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .share-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid #e8e8e8;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #5c5c72;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .share-btn:hover { border-color: #0a0a0f; background: #0a0a0f; color: #fff; }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      position: sticky;
+      top: 88px;
+    }
+
+    /* Product CTA card */
+    .sidebar-product-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e8e8e8;
+    }
+    .sidebar-product-visual {
+      background: linear-gradient(130.56deg, #1e1818 22.83%, #750c0c 110.15%);
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+    }
+    .sidebar-product-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(215,0,15,0.3) 0%, transparent 65%);
+    }
+    .sidebar-product-name {
+      font-weight: 900;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: -0.66px;
+      position: relative;
+      z-index: 1;
+    }
+    .sidebar-product-sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .sidebar-product-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sidebar-product-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: #0a0a0f;
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+    }
+    .sidebar-product-desc {
+      font-size: 14px;
+      color: #5c5c72;
+      line-height: 1.55;
+    }
+    .sidebar-product-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #e8e8e8;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .sidebar-spec {
+      background: #f7f7f9;
+      padding: 10px 12px;
+    }
+    .sidebar-spec-val {
+      font-weight: 800;
+      font-size: 15px;
+      color: #0a0a0f;
+      letter-spacing: -0.45px;
+    }
+    .sidebar-spec-lbl {
+      font-size: 11px;
+      color: #9898a8;
+      margin-top: 2px;
+    }
+    .sidebar-product-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      background: #d7000f;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.14px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .sidebar-product-btn:hover { background: #b5000d; }
+
+    /* Article info card */
+    .sidebar-info-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .sidebar-info-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: #9898a8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .sidebar-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .sidebar-info-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-info-key { font-size: 14px; color: #9898a8; font-weight: 400; }
+    .sidebar-info-val { font-size: 14px; color: #0a0a0f; font-weight: 600; text-align: right; }
+
+    /* More articles */
+    .sidebar-more-title {
+      font-weight: 800;
+      font-size: 16px;
+      color: #0a0a0f;
+      letter-spacing: -0.32px;
+      margin-bottom: 4px;
+    }
+    .sidebar-more-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sidebar-more-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 0;
+      border-bottom: 1px solid #f2f2f2;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .sidebar-more-item:last-child { border-bottom: none; }
+    .sidebar-more-item:hover { opacity: 0.72; }
+    .sidebar-more-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #d7000f;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .sidebar-more-tag.award-tag { color: #92400e; }
+    .sidebar-more-tag.company-tag { color: #1030c0; }
+    .sidebar-more-headline {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0a0a0f;
+      line-height: 1.35;
+      letter-spacing: -0.2px;
+    }
+    .sidebar-more-date {
+      font-size: 12px;
+      color: #9898a8;
+      font-weight: 400;
+    }
+
+    /* ── RELATED ARTICLES ── */
+    .related-section {
+      background: #f7f7f9;
+      padding: 72px 64px 80px;
+    }
+    .related-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .related-eyebrow-line { width: 18px; height: 2px; background: #d7000f; border-radius: 1px; flex-shrink: 0; }
+    .related-eyebrow-text { font-weight: 700; font-size: 12px; color: #d7000f; letter-spacing: 1.9px; text-transform: uppercase; }
+    .related-heading {
+      font-weight: 800;
+      font-size: 36px;
+      color: #0a0a0f;
+      letter-spacing: -1.44px;
+      margin-bottom: 40px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .related-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.22s, transform 0.22s;
+    }
+    .related-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-2px); }
+    .related-card-img {
+      height: 180px;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #f7f7f9;
+    }
+    .related-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .related-card-img.dark-bg { background: linear-gradient(130deg, #1e1818 0%, #750c0c 100%); }
+    .related-card-img.light-bg { background: linear-gradient(135deg, #f7f7f9 0%, #eef0ff 100%); }
+    .related-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .related-card-img-text {
+      font-weight: 800;
+      font-size: 18px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: -0.5px;
+    }
+    .related-card-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .related-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .related-card-tag {
+      height: 22px;
+      padding: 0 10px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 22px;
+      background: #f7f7f9;
+      color: #d7000f;
+    }
+    .related-card-tag.award   { background: #fffbeb; color: #92400e; }
+    .related-card-tag.company { background: #eef4ff; color: #1030c0; }
+    .related-card-date { font-size: 12px; color: #9898a8; }
+    .related-card-title {
+      font-weight: 700;
+      font-size: 16px;
+      color: #0a0a0f;
+      letter-spacing: -0.32px;
+      line-height: 1.25;
+    }
+    .related-card-desc {
+      font-size: 14px;
+      color: #5c5c72;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .related-card-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: #d7000f;
+      margin-top: 4px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .article-layout { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      .breadcrumb { padding: 0 24px; }
+      .article-hero { padding: 56px 24px 64px; }
+      .article-layout { padding: 48px 24px 64px; }
+      .article-stats { grid-template-columns: repeat(2, 1fr); }
+      .related-section { padding: 56px 24px 64px; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .article-hero-h1 { letter-spacing: -1.5px; }
+      .spec-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCE BAR ============ -->
+  <div class="announce-bar">
+    <p>🔥 FUTURE CORE PCIe 5.0 — 14,000 MB/s Now Available</p>
+    <a href="product-details.html">Learn More →</a>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="HIKSEMI" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="products.html" class="nav-link">
+            Products
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-item active" data-cat="ssd">
+                <div class="mega-sb-icon" style="background:#f7f7f7;">&#128190;</div>
+                <span>Solid State Drives</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="memory">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#129504;</div>
+                <span>Memory (RAM)</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="cards">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128247;</div>
+                <span>Memory Cards</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="external">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#128188;</div>
+                <span>External Storage</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="nas">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#127968;</div>
+                <span>Home NAS</span>
+              </div>
+              <div class="mega-sidebar-item" data-cat="embedded">
+                <div class="mega-sb-icon" style="background:#f2f2f2;">&#9881;&#65039;</div>
+                <span>Embedded Storage</span>
+              </div>
+            </div>
+            <div class="mega-body">
+              <div class="mega-cat-header">Solid State Drives</div>
+              <div class="mega-links-grid">
+                <a href="product-details.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE CORE</div>
+                    <div class="mega-link-sub">PCIe 5.0 NVMe</div>
+                    <span class="mega-link-badge">NEW</span>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE PRO</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE</div>
+                    <div class="mega-link-sub">PCIe 4.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128190;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">FUTURE ECO</div>
+                    <div class="mega-link-sub">PCIe 3.0 NVMe</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#ededed;">&#128191;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">WAVE(S) SATA</div>
+                    <div class="mega-link-sub">SATA III 2.5"</div>
+                  </div>
+                </a>
+                <a href="products.html" class="mega-link-item">
+                  <div class="mega-link-icon-box" style="background:#121212;">&#128295;</div>
+                  <div class="mega-link-info">
+                    <div class="mega-link-name">D300 Pro Enterprise</div>
+                    <div class="mega-link-sub">Enterprise PCIe</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-footer-bar">
+                <span class="mega-footer-text">180+ products across all categories</span>
+                <a href="products.html" class="mega-footer-link">View All Products &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></div>
+        <div class="nav-item"><a href="company.html" class="nav-link">Company</a></div>
+        <div class="nav-item"><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-item"><a href="news.html" class="nav-link active">News</a></div>
+        <div class="nav-item">
+          <a href="where-to-buy.html" class="nav-link">
+            Our Partners
+            <svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="partners-drop">
+            <div class="ptn-sidebar">
+              <a href="become-a-dealer.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="ptn-label">Become a Dealer</span>
+              </a>
+              <a href="where-to-buy.html" class="ptn-item">
+                <div class="ptn-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="ptn-label">Locate our Dealer</span>
+              </a>
+            </div>
+            <div class="ptn-featured">
+              <div class="ptn-card">
+                <div class="ptn-card-top">
+                  <div class="ptn-card-eyebrow">New Launch &#8212; PCIe Gen 5</div>
+                  <div class="ptn-card-title">FUTURE CORE</div>
+                </div>
+                <div class="ptn-card-emoji">&#128190;</div>
+                <a href="product-details.html" class="ptn-card-link">View Full Specs &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#5c5c72" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="#5c5c72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="contact.html" class="nav-contact-btn">Contact &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ BREADCRUMB ============ -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="news.html">News</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="news.html">Product Launch</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">HIKSEMI Launches FUTURE CORE — World's Fastest Consumer SSD</span>
+  </div>
+
+  <!-- ============ ARTICLE HERO ============ -->
+  <header class="article-hero">
+    <div class="article-hero-inner">
+      <div class="article-hero-meta">
+        <span class="article-tag">Product Launch</span>
+        <span class="article-hero-dot"></span>
+        <span class="article-hero-date">March 12, 2025</span>
+        <span class="article-hero-dot"></span>
+        <span class="article-hero-readtime">7 min read</span>
+      </div>
+      <h1 class="article-hero-h1">HIKSEMI Launches FUTURE CORE — World's Fastest Consumer SSD at 14,000 MB/s</h1>
+      <p class="article-hero-deck">The breakthrough PCIe 5.0 NVMe SSD arrives with a custom RGB heatsink, available in 1TB and 2TB — redefining what enthusiast storage can deliver.</p>
+    </div>
+  </header>
+
+  <!-- ============ ARTICLE LAYOUT ============ -->
+  <div class="article-layout">
+
+    <!-- ── MAIN BODY ── -->
+    <article class="article-body">
+
+      <!-- Cover / featured image -->
+      <div class="article-cover-placeholder">
+        <div class="article-cover-label">FUTURE CORE</div>
+        <div class="article-cover-sub">PCIe 5.0 NVMe SSD</div>
+        <div class="article-cover-line"></div>
+      </div>
+
+      <!-- Lead paragraph -->
+      <p class="article-lead">
+        HIKSEMI, the global storage brand of Hangzhou Hikstorage Technology Co., Ltd., today announced the commercial launch of the FUTURE CORE — its first PCIe 5.0 NVMe solid-state drive and the fastest consumer SSD the company has ever built. With sequential read speeds reaching 14,000 MB/s and write speeds of 12,000 MB/s, the FUTURE CORE resets performance expectations across the enthusiast PC market.
+      </p>
+
+      <!-- Section 1 -->
+      <div class="article-section">
+        <h2 class="article-h2">Breaking Every Speed Record in Consumer Storage</h2>
+        <p class="article-p">
+          Built on the PCIe 5.0 x4 interface with NVMe 2.0 support, the FUTURE CORE leverages a custom-designed Gen 5 controller paired with Tier 1 3D NAND flash to achieve sustained throughput levels that were once reserved exclusively for enterprise-class drives. The result is a product that dramatically reduces load times, file transfer operations, and cold-boot sequences for even the most demanding workloads.
+        </p>
+        <p class="article-p">
+          In benchmark testing across multiple independent reviewers, the FUTURE CORE achieved sequential read speeds of up to 14,000 MB/s and sequential write speeds of 12,000 MB/s — figures that represent approximately a 2× uplift over the fastest PCIe 4.0 drives on the market today. For real-world tasks such as game loading, 4K video editing timelines, and large archive transfers, the difference is immediately and viscerally felt.
+        </p>
+
+        <!-- Stats block -->
+        <div class="article-stats">
+          <div class="article-stat">
+            <div class="article-stat-val">14<span>K</span></div>
+            <div class="article-stat-lbl">MB/s Sequential Read</div>
+          </div>
+          <div class="article-stat">
+            <div class="article-stat-val">12<span>K</span></div>
+            <div class="article-stat-lbl">MB/s Sequential Write</div>
+          </div>
+          <div class="article-stat">
+            <div class="article-stat-val">2<span>TB</span></div>
+            <div class="article-stat-lbl">Max Capacity</div>
+          </div>
+          <div class="article-stat">
+            <div class="article-stat-val">5<span>yr</span></div>
+            <div class="article-stat-lbl">Warranty Coverage</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pull quote -->
+      <blockquote class="article-pullquote">
+        <p class="article-pullquote-text">"The FUTURE CORE is not an incremental update — it is a full architectural leap. We designed it from the ground up to extract every last bit of performance from the PCIe 5.0 specification, without any thermal compromise."</p>
+        <div class="article-pullquote-attr">— HIKSEMI Engineering Team, Hangzhou</div>
+      </blockquote>
+
+      <!-- Section 2 -->
+      <div class="article-section">
+        <h2 class="article-h2">Engineering the Thermal Challenge</h2>
+        <p class="article-p">
+          Operating a PCIe 5.0 NVMe SSD at peak throughput generates substantially more heat than any Gen 4 drive. HIKSEMI's engineering team addressed this head-on with a custom-designed aluminum heatsink that integrates ARGB lighting across 16 individually addressable zones. The heatsink is not purely cosmetic — its fin array is precisely calculated to maintain the controller junction temperature below the throttle threshold even under sustained 100% write workloads at ambient temperatures of up to 50°C.
+        </p>
+        <p class="article-p">
+          The thermal solution is compatible with ASUS Aura Sync, MSI Mystic Light, Gigabyte RGB Fusion, and ASRock Polychrome Sync, allowing users to integrate the drive into their existing RGB ecosystem without additional software or proprietary controllers.
+        </p>
+
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder">
+            <span class="article-img-placeholder-text">FUTURE CORE heatsink detail</span>
+          </div>
+          <p class="article-caption">The FUTURE CORE's custom aluminum heatsink integrates 16-zone ARGB lighting — engineered for thermal performance, not just aesthetics.</p>
+        </div>
+      </div>
+
+      <!-- Section 3 — Spec table -->
+      <div class="article-section">
+        <h2 class="article-h2">Full Technical Specifications</h2>
+        <p class="article-p">The FUTURE CORE launches in two capacities. Below are the complete specifications for both SKUs:</p>
+
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>1TB</th>
+              <th>2TB</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Interface</td><td colspan="2">PCIe 5.0 x4, NVMe 2.0</td></tr>
+            <tr><td>Form Factor</td><td colspan="2">M.2 2280</td></tr>
+            <tr><td>Sequential Read</td><td>13,500 MB/s</td><td>14,000 MB/s</td></tr>
+            <tr><td>Sequential Write</td><td>10,000 MB/s</td><td>12,000 MB/s</td></tr>
+            <tr><td>Random Read (4K)</td><td>1,500K IOPS</td><td>1,700K IOPS</td></tr>
+            <tr><td>Random Write (4K)</td><td>1,400K IOPS</td><td>1,600K IOPS</td></tr>
+            <tr><td>NAND Type</td><td colspan="2">Tier 1 3D TLC NAND</td></tr>
+            <tr><td>DRAM Cache</td><td>1 GB LPDDR4</td><td>2 GB LPDDR4</td></tr>
+            <tr><td>TBW Endurance</td><td>700 TBW</td><td>1,400 TBW</td></tr>
+            <tr><td>PS5 Compatible</td><td colspan="2">Yes (with M.2 heatsink)</td></tr>
+            <tr><td>Operating Temp</td><td colspan="2">0°C – 70°C</td></tr>
+            <tr><td>Warranty</td><td colspan="2">5 Years</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="article-section">
+        <h2 class="article-h2">Platform Compatibility and PS5 Support</h2>
+        <p class="article-p">
+          The FUTURE CORE is fully compatible with Intel's 12th, 13th, and 14th Generation Core platforms, AMD's Ryzen 7000 and Ryzen 9000 series on AM5, as well as the latest HEDT and workstation chipsets. HIKSEMI has also confirmed compatibility with the PlayStation 5 when installed with the included heatsink, making the FUTURE CORE a compelling upgrade path for console enthusiasts who want to expand their SSD storage beyond the built-in 825 GB drive.
+        </p>
+        <p class="article-p">
+          For developers and creators working in DaVinci Resolve, Premiere Pro, or Unreal Engine, the FUTURE CORE's high IOPS figures translate directly into faster project load times, snappier proxy generation, and reduced stutter during multi-stream 6K and 8K preview playback.
+        </p>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="article-section">
+        <h2 class="article-h2">Pricing and Global Availability</h2>
+        <p class="article-p">
+          The HIKSEMI FUTURE CORE is available immediately through HIKSEMI's authorized distribution network across 50+ countries. The 1TB model carries an MSRP of $149.99, while the 2TB variant is priced at $279.99. Both models include the ARGB heatsink in the box and ship with a 5-year warranty backed by HIKSEMI's global support infrastructure.
+        </p>
+        <p class="article-p">
+          Regional distributors across North America, Europe, Southeast Asia, and the Middle East have received initial inventory. HIKSEMI has confirmed that additional stock allocation will follow in Q2 2025 to meet anticipated high demand. Prospective buyers are encouraged to contact their nearest authorized dealer or visit the HIKSEMI where-to-buy page for stocking information in their region.
+        </p>
+
+        <h3 class="article-h3">Where to Buy</h3>
+        <p class="article-p">
+          The FUTURE CORE is available through HIKSEMI's global partner network. Use the store locator at <a href="where-to-buy.html" style="color:#d7000f;font-weight:600;">hiksemi.com/where-to-buy</a> to find an authorized dealer near you, or contact the HIKSEMI enterprise sales team directly for volume and OEM enquiries.
+        </p>
+      </div>
+
+      <!-- Article footer: tags + share -->
+      <div class="article-footer">
+        <div class="article-tags">
+          <span class="article-tag-pill">PCIe 5.0</span>
+          <span class="article-tag-pill">NVMe SSD</span>
+          <span class="article-tag-pill">FUTURE CORE</span>
+          <span class="article-tag-pill">Product Launch</span>
+          <span class="article-tag-pill">RGB Heatsink</span>
+          <span class="article-tag-pill">PS5</span>
+        </div>
+        <div class="article-share">
+          <span class="article-share-label">Share</span>
+          <button class="share-btn" aria-label="Share on Twitter">𝕏</button>
+          <button class="share-btn" aria-label="Share on LinkedIn">in</button>
+          <button class="share-btn" aria-label="Share on Facebook">f</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="article-sidebar">
+
+      <!-- Product CTA card -->
+      <div class="sidebar-product-card">
+        <div class="sidebar-product-visual">
+          <div class="sidebar-product-glow"></div>
+          <div class="sidebar-product-name">FUTURE CORE</div>
+          <div class="sidebar-product-sub">PCIe 5.0 NVMe SSD</div>
+        </div>
+        <div class="sidebar-product-body">
+          <div class="sidebar-product-title">The world's fastest HIKSEMI SSD, now available.</div>
+          <div class="sidebar-product-desc">Custom Gen 5 controller · ARGB heatsink · 5-year warranty</div>
+          <div class="sidebar-product-specs">
+            <div class="sidebar-spec">
+              <div class="sidebar-spec-val">14K MB/s</div>
+              <div class="sidebar-spec-lbl">Sequential Read</div>
+            </div>
+            <div class="sidebar-spec">
+              <div class="sidebar-spec-val">1 / 2 TB</div>
+              <div class="sidebar-spec-lbl">Capacities</div>
+            </div>
+          </div>
+          <a href="product-details.html" class="sidebar-product-btn">View Full Specs →</a>
+        </div>
+      </div>
+
+      <!-- Article info -->
+      <div class="sidebar-info-card">
+        <div class="sidebar-info-title">Article Info</div>
+        <div class="sidebar-info-row">
+          <span class="sidebar-info-key">Published</span>
+          <span class="sidebar-info-val">March 12, 2025</span>
+        </div>
+        <div class="sidebar-info-row">
+          <span class="sidebar-info-key">Category</span>
+          <span class="sidebar-info-val">Product Launch</span>
+        </div>
+        <div class="sidebar-info-row">
+          <span class="sidebar-info-key">Read time</span>
+          <span class="sidebar-info-val">7 min</span>
+        </div>
+        <div class="sidebar-info-row">
+          <span class="sidebar-info-key">Products</span>
+          <span class="sidebar-info-val">FUTURE CORE</span>
+        </div>
+        <div class="sidebar-info-row">
+          <span class="sidebar-info-key">Region</span>
+          <span class="sidebar-info-val">Global</span>
+        </div>
+      </div>
+
+      <!-- More articles -->
+      <div>
+        <div class="sidebar-more-title">More from News</div>
+        <div class="sidebar-more-list">
+          <a href="news-article.html" class="sidebar-more-item">
+            <span class="sidebar-more-tag award-tag">Award</span>
+            <span class="sidebar-more-headline">CES 2025 Innovation Award — Computer Hardware Category</span>
+            <span class="sidebar-more-date">January 2025</span>
+          </a>
+          <a href="news-article.html" class="sidebar-more-item">
+            <span class="sidebar-more-tag company-tag">Company</span>
+            <span class="sidebar-more-headline">HIKSEMI Expands to 10 New EMEA Countries — 50+ Total</span>
+            <span class="sidebar-more-date">November 2024</span>
+          </a>
+          <a href="news-article.html" class="sidebar-more-item">
+            <span class="sidebar-more-tag">Product Launch</span>
+            <span class="sidebar-more-headline">ELITE 7S Portable SSD Delivers 2,000 MB/s in Pocket Size</span>
+            <span class="sidebar-more-date">October 2024</span>
+          </a>
+          <a href="news-article.html" class="sidebar-more-item">
+            <span class="sidebar-more-tag">Product Launch</span>
+            <span class="sidebar-more-headline">CAPTURE V90 SD Card Launched for Professional Photography</span>
+            <span class="sidebar-more-date">December 2024</span>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ============ RELATED ARTICLES ============ -->
+  <section class="related-section">
+    <div class="related-eyebrow">
+      <span class="related-eyebrow-line"></span>
+      <span class="related-eyebrow-text">Related Stories</span>
+    </div>
+    <h2 class="related-heading">Keep reading.</h2>
+    <div class="related-grid">
+
+      <a href="news-article.html" class="related-card">
+        <div class="related-card-img light-bg">
+          <div class="related-card-img-placeholder">
+            <img src="images/news/news-card-awards.jpg" alt="CES 2025 Innovation Award" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <div class="related-card-body">
+          <div class="related-card-meta">
+            <span class="related-card-tag award">Award</span>
+            <span class="related-card-date">January 2025</span>
+          </div>
+          <div class="related-card-title">CES 2025 Innovation Award — Computer Hardware Category</div>
+          <p class="related-card-desc">FUTURE CORE recognized by CES judges for its breakthrough PCIe 5.0 design and thermal engineering.</p>
+          <span class="related-card-link">Read more →</span>
+        </div>
+      </a>
+
+      <a href="news-article.html" class="related-card">
+        <div class="related-card-img">
+          <div class="related-card-img-placeholder">
+            <img src="images/news/news-card-photo.jpg" alt="HIKSEMI EMEA expansion" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <div class="related-card-body">
+          <div class="related-card-meta">
+            <span class="related-card-tag company">Company</span>
+            <span class="related-card-date">November 2024</span>
+          </div>
+          <div class="related-card-title">HIKSEMI Expands to 10 New EMEA Countries — 50+ Total</div>
+          <p class="related-card-desc">Strategic partnerships with leading distributors across Poland, Greece, and more bring HIKSEMI to 50+ markets.</p>
+          <span class="related-card-link">Read more →</span>
+        </div>
+      </a>
+
+      <a href="news-article.html" class="related-card">
+        <div class="related-card-img dark-bg">
+          <div class="related-card-img-placeholder">
+            <img src="images/news/news-card-ddr5.jpg" alt="FUTURE RGB DDR5" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <div class="related-card-body">
+          <div class="related-card-meta">
+            <span class="related-card-tag">Product Launch</span>
+            <span class="related-card-date">February 2025</span>
+          </div>
+          <div class="related-card-title">FUTURE RGB DDR5 White Edition Now Available</div>
+          <p class="related-card-desc">The new all-white DDR5 module with ARGB lighting joins the FUTURE memory lineup, designed for premium white PC builds.</p>
+          <span class="related-card-link">Read more →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="site-cta">
+    <div class="site-cta-dot site-cta-dot-l"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-dot site-cta-dot-r"><img src="images/dot-pattern.png" alt="" /></div>
+    <div class="site-cta-inner">
+      <div class="site-cta-eyebrow">Get Started</div>
+      <h2 class="site-cta-heading">Ready to upgrade<br>your storage?</h2>
+      <p class="site-cta-desc">Find HIKSEMI products through 200+ global partners or contact our team for custom enterprise solutions.</p>
+      <div class="site-cta-btns">
+        <a href="where-to-buy.html" class="site-cta-btn-primary">Find a Store →</a>
+        <a href="contact.html" class="site-cta-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="images/logo.png" alt="HIKSEMI" /></div>
+        <p class="footer-tagline">Global provider of high-performance storage solutions for every application — from gaming to enterprise.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">in</a>
+          <a href="#" class="footer-social-btn">tw</a>
+          <a href="#" class="footer-social-btn">yt</a>
+          <a href="#" class="footer-social-btn">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <div class="footer-col-links">
+            <a href="product-details.html">FUTURE CORE SSD</a>
+            <a href="products.html">Memory (RAM)</a>
+            <a href="products.html">Memory Cards</a>
+            <a href="products.html">External Storage</a>
+            <a href="products.html">Home NAS</a>
+            <a href="products.html">Embedded Storage</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="company.html">About HIKSEMI</a>
+            <a href="company.html">Why HIKSEMI</a>
+            <a href="news.html">News</a>
+            <a href="company.html">Quality</a>
+            <a href="where-to-buy.html">Partners</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solution</div>
+          <div class="footer-col-links">
+            <a href="solutions.html">Gaming</a>
+            <a href="solutions.html">Content Creation</a>
+            <a href="solutions.html">Industrial</a>
+            <a href="solutions.html">Surveillance</a>
+            <a href="solutions.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="support.html">Support Home</a>
+            <a href="support.html">Warranty</a>
+            <a href="support.html">FAQ</a>
+            <a href="support.html">Downloads</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span class="footer-copy">© 2025 Hangzhou Hikstorage Technology Co., Ltd. All Rights Reserved.</span>
+      <span class="footer-contact-info">Hangzhou, Zhejiang Province, China · 400-680-4998</span>
+    </div>
+    <img src="images/footer-decoration.png" alt="" class="footer-decoration" />
+  </footer>
+
+</body>
+</html>
