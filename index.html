@@ -136,18 +136,83 @@
       transition: border-color 0.2s, background 0.2s;
     }
     .hero-btn-ghost:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
-    .hero-dots { display: flex; gap: 16px; align-items: center; position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(-500%); z-index: 2; }
+    /* Slider structure */
+    .hero-slider-viewport {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-slider-track {
+      display: flex;
+      width: 500%;
+      height: 100%;
+      will-change: transform;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Navigation arrows */
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(10,10,15,0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.22s, border-color 0.22s, transform 0.22s;
+      flex-shrink: 0;
+    }
+    .hero-arrow:hover {
+      background: rgba(215,0,15,0.22);
+      border-color: rgba(215,0,15,0.45);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .hero-arrow svg { display: block; }
+    .hero-arrow-left  { left: 32px; }
+    .hero-arrow-right { right: 32px; }
+    .hero-slide {
+      width: 20%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(350px circle at calc(100% - 170px) 170px, rgba(215,0,15,0.22) 0%, transparent 65%),
+        linear-gradient(143deg, #0a0a0f 0%, #140008 55%, #3d0010 100%);
+    }
+
+    /* Indicator dots with progress bars */
+    .hero-dots { display: flex; gap: 16px; align-items: center; position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2; }
     .hero-dot {
       width: 72px; height: 3px;
       border-radius: 8px;
-      background: #fff;
-      transition: background 0.25s;
+      background: rgba(255,255,255,0.25);
       cursor: pointer;
       border: none;
       padding: 0;
       flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-dot.active { background: #d7000f; }
+    .hero-dot.active { background: rgba(255,255,255,0.25); }
+    .hero-dot-progress {
+      position: absolute;
+      top: 0; left: 0;
+      width: 0%;
+      height: 100%;
+      background: #d7000f;
+      border-radius: 8px;
+      pointer-events: none;
+    }
 
     /* Hero visual */
     .hero-visual { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
@@ -1319,34 +1384,159 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-line"></span>
-          <span class="hero-eyebrow-text">Next-Gen Storage</span>
+    <div class="hero-slider-viewport">
+      <div class="hero-slider-track" id="heroTrack">
+
+        <!-- Slide 1 -->
+        <div class="hero-slide">
+          <div class="hero-inner">
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <span class="hero-eyebrow-line"></span>
+                <span class="hero-eyebrow-text">Next-Gen Storage</span>
+              </div>
+              <h1 class="hero-h1">
+                <span class="line1">Store Fast.</span>
+                <span class="line2">Go Further.</span>
+              </h1>
+              <p class="hero-desc">HIKSEMI engineers storage for those who demand the best. PCIe 5.0 SSDs, DDR5 memory, and pro-grade cards built for gamers, creators, and enterprise.</p>
+              <div class="hero-btns">
+                <a href="products.html" class="hero-btn-primary">Explore Products &nbsp;→</a>
+                <a href="contact.html" class="hero-btn-ghost">Contact Us</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <video class="hero-video" autoplay muted loop playsinline>
+                <source src="images/hero-video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
         </div>
-        <h1 class="hero-h1">
-          <span class="line1">Store Fast.</span>
-          <span class="line2">Go Further.</span>
-        </h1>
-        <p class="hero-desc">HIKSEMI engineers storage for those who demand the best. PCIe 5.0 SSDs, DDR5 memory, and pro-grade cards built for gamers, creators, and enterprise.</p>
-        <div class="hero-btns">
-          <a href="products.html" class="hero-btn-primary">Explore Products &nbsp;→</a>
-          <a href="contact.html" class="hero-btn-ghost">Contact Us</a>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+          <div class="hero-inner">
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <span class="hero-eyebrow-line"></span>
+                <span class="hero-eyebrow-text">PCIe Gen 5 — 2025</span>
+              </div>
+              <h1 class="hero-h1">
+                <span class="line1">14,000 MB/s.</span>
+                <span class="line2">No Limits.</span>
+              </h1>
+              <p class="hero-desc">The FUTURE CORE redefines what an SSD can do. Engineered with a custom Gen 5 controller and RGB heatsink for peak, sustained performance.</p>
+              <div class="hero-btns">
+                <a href="product-details.html" class="hero-btn-primary">View FUTURE CORE &nbsp;→</a>
+                <a href="products.html" class="hero-btn-ghost">All SSDs</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <video class="hero-video" autoplay muted loop playsinline>
+                <source src="images/hero-video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="hero-visual">
-        <video class="hero-video" autoplay muted loop playsinline>
-          <source src="images/hero-video.mp4" type="video/mp4">
-        </video>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+          <div class="hero-inner">
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <span class="hero-eyebrow-line"></span>
+                <span class="hero-eyebrow-text">DDR5 Memory</span>
+              </div>
+              <h1 class="hero-h1">
+                <span class="line1">Memory.</span>
+                <span class="line2">Elevated.</span>
+              </h1>
+              <p class="hero-desc">HIKSEMI DDR5 at 6000MHz — with precision XMP tuning and ARGB lighting that matches any build. Engineered for overclockers and creators alike.</p>
+              <div class="hero-btns">
+                <a href="products.html" class="hero-btn-primary">Explore Memory &nbsp;→</a>
+                <a href="contact.html" class="hero-btn-ghost">Contact Us</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <video class="hero-video" autoplay muted loop playsinline>
+                <source src="images/hero-video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="hero-slide">
+          <div class="hero-inner">
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <span class="hero-eyebrow-line"></span>
+                <span class="hero-eyebrow-text">Pro Memory Cards</span>
+              </div>
+              <h1 class="hero-h1">
+                <span class="line1">Capture</span>
+                <span class="line2">Everything.</span>
+              </h1>
+              <p class="hero-desc">V90 SD cards and CFexpress at 280 MB/s — built for 8K RAW video, drone footage, and burst photography at the absolute limit of the format.</p>
+              <div class="hero-btns">
+                <a href="products.html" class="hero-btn-primary">View Cards &nbsp;→</a>
+                <a href="contact.html" class="hero-btn-ghost">Contact Us</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <video class="hero-video" autoplay muted loop playsinline>
+                <source src="images/hero-video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="hero-slide">
+          <div class="hero-inner">
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <span class="hero-eyebrow-line"></span>
+                <span class="hero-eyebrow-text">5-Year Warranty</span>
+              </div>
+              <h1 class="hero-h1">
+                <span class="line1">Built to</span>
+                <span class="line2">Last.</span>
+              </h1>
+              <p class="hero-desc">ISO-certified manufacturing, Tier 1 NAND, and 10,000+ hour validation cycles. Every HIKSEMI product is engineered to outlast and outperform the competition.</p>
+              <div class="hero-btns">
+                <a href="company.html" class="hero-btn-primary">Our Quality &nbsp;→</a>
+                <a href="support.html" class="hero-btn-ghost">Warranty Info</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <video class="hero-video" autoplay muted loop playsinline>
+                <source src="images/hero-video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="hero-dots">
-      <button class="hero-dot active"></button>
-      <button class="hero-dot"></button>
-      <button class="hero-dot"></button>
-      <button class="hero-dot"></button>
-      <button class="hero-dot"></button>
+
+    <button class="hero-arrow hero-arrow-left" id="heroArrowLeft" aria-label="Previous slide">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M15 18L9 12L15 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="hero-arrow hero-arrow-right" id="heroArrowRight" aria-label="Next slide">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 18L15 12L9 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot"><span class="hero-dot-progress"></span></button>
+      <button class="hero-dot"><span class="hero-dot-progress"></span></button>
+      <button class="hero-dot"><span class="hero-dot-progress"></span></button>
+      <button class="hero-dot"><span class="hero-dot-progress"></span></button>
+      <button class="hero-dot"><span class="hero-dot-progress"></span></button>
     </div>
   </section>
 
@@ -2061,13 +2251,71 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.hero-dot').forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        document.querySelectorAll('.hero-dot').forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
-      });
-    });
+    /* ── Hero slider engine ── */
+    (function () {
+      const TOTAL      = 5;
+      const DURATION   = 8000;
+      const track      = document.getElementById('heroTrack');
+      const dotsWrap   = document.getElementById('heroDots');
+      const arrowLeft  = document.getElementById('heroArrowLeft');
+      const arrowRight = document.getElementById('heroArrowRight');
+      const dots       = document.querySelectorAll('.hero-dot');
+      const bars       = document.querySelectorAll('.hero-dot-progress');
+      let current = 0, elapsed = 0, lastTs = null, rafId = null;
 
+      function goTo(index) {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        elapsed = 0;
+        lastTs  = null;
+        bars.forEach(b => b.style.width = '0%');
+        dots.forEach(d => d.classList.remove('active'));
+        current = ((index % TOTAL) + TOTAL) % TOTAL;
+        track.style.transform = 'translateX(-' + (current * (100 / TOTAL)) + '%)';
+        dots[current].classList.add('active');
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function tick(ts) {
+        if (lastTs !== null) elapsed += ts - lastTs;
+        lastTs = ts;
+        var pct = Math.min(elapsed / DURATION, 1);
+        bars[current].style.width = (pct * 100) + '%';
+        if (pct < 1) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          goTo(current + 1);
+        }
+      }
+
+      function pauseSlider() {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      }
+
+      function resumeSlider() {
+        if (!rafId) {
+          lastTs = null;
+          rafId  = requestAnimationFrame(tick);
+        }
+      }
+
+      /* Pause on hover of dots and arrows */
+      [dotsWrap, arrowLeft, arrowRight].forEach(function (el) {
+        el.addEventListener('mouseenter', pauseSlider);
+        el.addEventListener('mouseleave', resumeSlider);
+      });
+
+      /* Arrow navigation */
+      arrowLeft.addEventListener('click',  function () { goTo(current - 1); });
+      arrowRight.addEventListener('click', function () { goTo(current + 1); });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); });
+      });
+
+      goTo(0);
+    })();
+
+    /* ── Filter tabs ── */
     document.querySelectorAll('.filter-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
